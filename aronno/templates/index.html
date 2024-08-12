@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <div class="date">
+            <p>সোমবার, ১২ আগস্ট ২০২৪</p>
+            <p>২৮ শ্রাবণ ১৪৩১ বঙ্গাব্দ</p>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="your-logo-url-here" alt="Logo">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown"><a href="#">সর্বশেষ</a></li>
+            <li class="dropdown"><a href="#">বাংলাদেশ</a></li>
+            <li class="dropdown"><a href="#">দেশজুড়ে</a></li>
+            <li class="dropdown"><a href="#">আন্তর্জাতিক</a></li>
+            <li><a href="#">খেলাধুলা</a></li>
+            <li><a href="#">চাকরি</a></li>
+            <li><a href="#">ভিডিও</a></li>
+            <li><a href="#">অন্যান্য</a></li>
+        </ul>
+        <div class="lang-search">
+            <button class="language-btn">EN</button>
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+    </nav>
+</header>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
