@@ -1,70 +1,64 @@
-//-----Navbar-----Start--
 document.addEventListener('DOMContentLoaded', () => {
-    // Desktop dropdown handling
+    // Dropdown handling for desktop view
     const dropdownItems = document.querySelectorAll('.custom-nav-item.dropdown');
 
     dropdownItems.forEach(item => {
         const dropdownToggle = item.querySelector('.dropdown-toggle');
         const dropdownMenu = item.querySelector('.dropdown-menu');
 
-        // Show dropdown on hover
+        // Show dropdown on hover for desktop
         item.addEventListener('mouseenter', () => {
-            dropdownMenu.classList.add('show'); // Show on hover
+            dropdownMenu.classList.add('show');
         });
 
-        // Hide dropdown on mouse leave
         item.addEventListener('mouseleave', () => {
-            dropdownMenu.classList.remove('show'); // Hide on mouse leave
+            dropdownMenu.classList.remove('show');
         });
 
-        // Click to hold the dropdown open
+        // Toggle dropdown on click
         dropdownToggle.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default anchor action
-            dropdownMenu.classList.toggle('show'); // Toggle dropdown visibility
+            event.preventDefault();
+            dropdownMenu.classList.toggle('show');
         });
     });
 
-    // Mobile menu handling
+    // Mobile menu toggle
     const mobileMenuButton = document.querySelector('.custom-toggler');
     const mobileMenu = document.getElementById('navbarNav');
 
     mobileMenuButton.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevents immediate closing after opening
-        mobileMenu.classList.toggle('show'); // Toggle mobile menu visibility
+        event.stopPropagation(); // Prevent the click from propagating to the window
+        const isExpanded = mobileMenu.classList.contains('show');
+        mobileMenu.classList.toggle('show', !isExpanded);
+        mobileMenu.classList.toggle('expand', !isExpanded);
     });
 
-    // Close dropdowns and mobile menu when clicking outside
+    // Close dropdowns and mobile menu on outside click
     window.addEventListener('click', (event) => {
         const isDropdownClick = event.target.closest('.custom-nav-item.dropdown');
         const isMobileMenuClick = event.target.closest('.custom-toggler') || event.target.closest('#navbarNav');
 
         if (!isDropdownClick && !isMobileMenuClick) {
-            // Hide all dropdown menus
             document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
                 menu.classList.remove('show');
             });
 
-            // Hide the mobile menu
             if (mobileMenu.classList.contains('show')) {
                 mobileMenu.classList.remove('show');
+                mobileMenu.classList.remove('expand');
             }
         }
     });
 
-    // Prevent mobile menu from closing when interacting with dropdowns inside it
+    // Prevent clicks inside the mobile menu from closing it
     mobileMenu.addEventListener('click', (event) => {
         event.stopPropagation();
     });
 });
 
-
-//-----Navbar-----END--
-
-
-/// News Share Link
+// News Share Link
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        // Show notification
         const notification = document.getElementById('linkCopiedNotification');
         notification.style.display = 'block';
         setTimeout(() => {
@@ -73,33 +67,21 @@ function copyToClipboard(text) {
     }).catch(err => console.error('Failed to copy text: ', err));
 }
 
-
-// News Details AD Gap
-// Function to copy URL to clipboard
-
-//breaking-or-most-breaking-section
+// Breaking or Most Breaking Section Toggle
 function breaking_or_mostread_toggle(section) {
     const breakingNews = document.getElementById('breaking_or_mostread_breaking_news');
     const mostReadNews = document.getElementById('breaking_or_mostread_mostread_news');
-    const breakingBtn = document.querySelector('.breaking-or-mostread-toggle-btn.active');
-    const mostReadBtn = document.querySelector(`button[onclick="breaking_or_mostread_toggle('${section}')"]`);
+    const activeBtn = document.querySelector('.breaking-or-mostread-toggle-btn.active');
+    const targetBtn = document.querySelector(`button[onclick="breaking_or_mostread_toggle('${section}')"]`);
 
-    // Hide both sections and reset button states
     breakingNews.classList.remove('active');
     mostReadNews.classList.remove('active');
-    breakingBtn.classList.remove('active');
+    activeBtn?.classList.remove('active');
 
-    // Show the selected section and activate the button
     if (section === 'breaking') {
         breakingNews.classList.add('active');
     } else {
         mostReadNews.classList.add('active');
     }
-    mostReadBtn.classList.add('active');
+    targetBtn.classList.add('active');
 }
-
-
-
-
-
-//////////    search Function mobile END
