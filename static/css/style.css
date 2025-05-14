@@ -1,0 +1,9590 @@
+* {
+    font-family: 'SolaimanLipi', sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* Default styles for larger screens (desktop) */
+
+@media (min-width: 769px) {
+    .custom-whole-container {
+        width: 80%;
+        /* Example default width */
+        margin: 0 auto;
+    }
+}
+
+
+/* Styles for mobile devices */
+
+@media (max-width: 769px) {
+    .custom-whole-container {
+        width: 97%;
+        margin: 0 auto;
+        padding: 10px auto;
+        /* Override margin for mobile */
+    }
+}
+
+body a {
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+    margin-top: initial;
+    /* Resets to browser default or can be set to a custom value */
+    margin-bottom: 0px;
+    /* Set margin-bottom to 0 or your preferred value */
+    color: #111;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: left;
+}
+
+@media (max-width: 769px) {
+    body {
+        background-color: #f8f9fa;
+        margin: 0;
+        top: 70px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+}
+
+
+/*   ADVERTISEMENT-by available space  */
+
+.ad-placeholder {
+    width: 300px;
+    /* Example width */
+    height: 250px;
+    /* Example height */
+    margin: 10px;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+
+
+/* General Styles */
+
+@media (min-width:769px) {
+    body {
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+
+
+/*    Scroll Effect Video ,Photo Section   */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+/*  Section Heading Common Start*/
+
+
+/* Container for the section heading and categories */
+
+@media (min-width:769px) {
+    .section-heading-container {
+        width: 100%;
+        /* Full width of the parent container */
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width and height */
+        background-color: #ffffff;
+        /* Background color of the section */
+        border-bottom: 2px solid #D2042D;
+        /* Red underline */
+        margin-bottom: 20px;
+        /* Space below the section */
+        color: #FFF;
+        /* Text color */
+        margin-top: 20px;
+    }
+    /* Style for the section heading */
+    .section-heading {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        /* Adjust font size as needed */
+        font-weight: bold;
+        background-color: #D2042D;
+        /* Red background color */
+        color: #ffffff;
+        /* White text color */
+        padding: 10px 10px;
+        /* Padding inside the heading */
+    }
+    /* Style for the section title link */
+    .section-heading .section-title {
+        color: #ffffff;
+        /* White text color */
+        text-decoration: none;
+        /* Remove underline from links */
+        padding-right: 10px;
+        /* Space between title and arrow */
+        padding-left: 20px;
+        /* Space to the left of the title */
+        transition: color 0.5s, border-bottom 0.5s;
+        /* Smooth transition for hover effect */
+    }
+    /* Hover effect for the section title link */
+    .section-heading .section-title:hover {
+        color: #ffffff;
+        /* Ensure color remains white on hover */
+        border-bottom: 3px solid #D2042D;
+        /* Red underline on hover */
+    }
+    /* Style for the arrow sign */
+    .arrow {
+        font-size: 18px;
+        /* Adjust font size as needed */
+        color: #ffffff;
+        /* White arrow color */
+        margin-left: 10px;
+        /* Space between title and arrow */
+    }
+    /* Style for the category list */
+    .category-list {
+        margin-top: 10px;
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Style for individual category items */
+    .category-item {
+        margin: 0 25px 5px;
+        color: #000000;
+        text-decoration: none;
+        transition: color 0.3s, border-bottom 0.3s;
+        white-space: nowrap;
+    }
+    /* Hover effect for category items */
+    .category-item:hover {
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+    }
+}
+
+
+/* Mobile View Adjustments */
+
+@media (max-width: 769px) {
+    .section-heading-container {
+        width: 100%;
+        /* Full width of the parent container */
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width and height */
+        background-color: #ffffff;
+        /* Background color of the section */
+        border-bottom: 2px solid #D2042D;
+        color: #FFF;
+        /* Text color */
+    }
+    /* Style for the section heading */
+    .section-heading {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        /* Adjust font size as needed */
+        font-weight: bold;
+        background-color: #D2042D;
+        /* Red background color */
+        color: #ffffff;
+        /* White text color */
+        padding: 5px 10px 5px 10px;
+        margin-top: 10px;
+    }
+    /* Style for the section title link */
+    .section-heading .section-title {
+        color: #ffffff;
+        /* White text color */
+        text-decoration: none;
+        /* Remove underline from links */
+        padding-right: 10px;
+        /* Space between title and arrow */
+        padding-left: 20px;
+        /* Space to the left of the title */
+        transition: color 0.5s, border-bottom 0.5s;
+        /* Smooth transition for hover effect */
+    }
+    /* Hover effect for the section title link */
+    .section-title {
+        font-size: 1.1rem;
+    }
+    .section-heading .section-title:hover {
+        color: #ffffff;
+        /* Ensure color remains white on hover */
+        border-bottom: 3px solid #D2042D;
+        /* Red underline on hover */
+    }
+    /* Style for the arrow sign */
+    .arrow {
+        font-size: 18px;
+        /* Adjust font size as needed */
+        color: #ffffff;
+        /* White arrow color */
+        margin-left: 10px;
+        /* Space between title and arrow */
+    }
+    /* Style for the category list */
+    .category-list {
+        margin-top: 5px;
+        margin-left: 10px;
+        font-size: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Style for individual category items */
+    /* Hover effect for category items */
+    .category-item:hover {
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+    }
+    .category-list {
+        font-size: 10px;
+        /* Smaller text size for mobile */
+        flex-direction: row;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center items horizontally */
+        gap: 10px;
+    }
+    .category-item {
+        margin: 10px 0;
+        /* Space between items */
+        text-decoration: none;
+        background-color: #E0E0E0;
+        /* Green underline */
+        color: #000000;
+        padding: 0px 5px 0px 5px;
+        border-radius: 0.25rem;
+    }
+    .category-item:hover {
+        color: #D2042D;
+        /* Change text color on hover */
+        transform: scale(1.1);
+        /* Green underline on hover */
+    }
+}
+
+
+/*  Section Heading Common END */
+
+
+/* Top Bar , LOGO ,DATE*/
+
+@media (min-width: 769px) {
+    .top-bar-mobile {
+        display: none;
+    }
+    .top-bar {
+        padding: 10px 0;
+        text-align: left;
+        font-size: 16px;
+        font-family: 'Siyam Rupali', sans-serif;
+        display: flex;
+        flex-direction: column;
+        /* Stack items vertically */
+        justify-content: center;
+    }
+    .top-bar p {
+        margin: 0;
+        font-size: 20px;
+    }
+    /* Logo */
+    .logo {
+        /* margin-left: 44px; */
+
+        height: 100px;
+        align-items: center;
+    }
+    .logo-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+    /* Social Icons */
+    .social-icons-pc-nav {
+        margin: 10px;
+    }
+    .pc-footer-icon-large i {
+        font-size: 2rem !important;
+    }
+
+
+
+/*    *//* Specific colors for each icon *//*
+    .social-icons-pc-nav a.facebook i {
+        color: #3b5998;
+        *//* Facebook blue *//*
+    }
+    .social-icons-pc-nav a.youtube i {
+        color: #ff0000;
+        *//* YouTube red *//*
+    }
+    .social-icons-pc-nav a.twitter i {
+
+                        display: inline-block;
+            background: #111;;
+            color: white;
+            border-radius: 50%;
+            padding: 3px;
+        *//*color: #1da1f2;*//*
+        *//* Twitter blue *//*
+    }*/
+    /* Hover effects */
+    .social-icons-pc-nav a:hover i {
+        color: #000;
+        /* Change color on hover (optional) */
+        transform: scale(1.5);
+    }
+    /* Remove hover effect for Twitter */
+.social-icons-pc-nav a.twitter:hover i {
+    color: white;
+    /* Retain original color on hover */
+    transform: scale(1.5);
+    /* Disable scaling on hover */
+}
+}
+
+@media (max-width: 769px) {
+    .date-mobile p {
+        text-align: center;
+        margin-bottom: 0px !important;
+    }
+    .top-bar p {
+        display: none;
+    }
+    .top-bar-mobile {
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 10%;
+        z-index: 1000;
+        /* Make sure it's higher than other elements */
+    }
+    .top-bar-shadow {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.3);
+        /* Stronger bottom shadow */
+    }
+    .top-bar-mobile p {
+        margin: 0;
+        font-size: 16px;
+    }
+    /* Hide logo and social icons on mobile */
+    .logo,
+    .logo-wrapper,
+    .social-icons-pc-nav {
+        display: none;
+    }
+    .social-icons-mobile a {
+        margin: 0 5px;
+    }
+    .social-icons-mobile i {
+        color: #555;
+        /* Default color */
+        font-size: 15px;
+        transition: color 0.3s;
+        /* Smooth color transition */
+    }
+    /* Specific colors for each icon */
+    .social-icons-mobile a.facebook i {
+        color: #3b5998;
+        /* Facebook blue */
+    }
+    .social-icons-mobile a.youtube i {
+        color: #ff0000;
+        /* YouTube red */
+    }
+    .social-icons-mobile a.twitter i {
+                /*color: #1da1f2;*/
+                    display: inline-block;
+            background: #111;;
+            color: white;
+            border-radius: 50%;
+            padding: 3px;
+    /* Twitter blue */
+    }
+    /* Hover effects */
+    .social-icons-mobile a:hover i {
+        color: #000;
+        /* Change color on hover (optional) */
+    }
+    .social-icons-mobile a.twitter:hover i {
+    color: white;
+    /* Retain original color on hover */
+    transform: scale(1.5);
+    /* Disable scaling on hover */
+}
+}
+
+@media(max-width:1000px) {
+    .social-icons-pc-nav {
+        display: none;
+    }
+}
+
+
+/*  --------- Navbar CSS --------- */
+
+
+/* --------- Mobile Navbar CSS --------- */
+
+
+/* For devices with screen width less than 769px (mobile view) */
+
+
+/*  date and logo for mobile  */
+
+@media (max-width: 400px) {
+    .logo-wrapper-mobile {
+        width: 100%;
+        height: 10%;
+        /* Adjust as needed */
+        position: fixed;
+        top: 0;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        /* Center horizontally */
+        align-items: center;
+        /* Center vertically */
+    }
+    .logo-wrapper-mobile img {
+        margin-top: 5px;
+        width: 40vw;
+        /* Responsive width for the image */
+        height: 100%;
+        margin-bottom:3px;
+    }
+    .date-mobile {
+        margin-top: 0vh;
+
+        /* Adjust based on the image height */
+        width: 100%;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 769px) {
+    .logo-wrapper-mobile {
+        width: 100%;
+        height: 10%;
+        position: fixed;
+        top: 0;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-wrapper-mobile img {
+        margin-top: 5px;
+        width: 40vw;
+        height: 100%;
+                margin-bottom:3px;
+    }
+    .date-mobile {
+        margin-top: 0vh;
+        /* Adjust based on the image height for larger screens */
+        width: 100%;
+    }
+}
+
+
+/*  date and logo for mobile  */
+
+
+/* Hide logo by default */
+
+@media (min-width: 1150px) {
+    .custom-collapse {
+        padding-left: 10vw;
+        /* 30vh padding for screens wider than 1150px */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1149px) {
+    .custom-collapse {
+        padding-left: 0;
+        /* 10vh padding for screens between 769px and 1150px */
+    }
+    .custom-nav a {
+        font-size: 1rem !important;
+    }
+}
+
+
+/* Show the logo only on screens with a max width of 769px */
+
+.custom-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.custom-nav-item {
+    margin-right: 15px;
+}
+
+.custom-nav-link {
+    text-decoration: none;
+    color: #333;
+
+    display: inline-block;
+}
+
+.dropdown-menu {
+    max-height:100vh;
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Mobile-specific styling */
+
+@media (max-width: 768px) {
+    .custom-nav {
+    height:100vh;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+    .custom-nav-item {
+        display: inline-block;
+        white-space: nowrap;
+    }
+    .custom-nav-link {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+
+    }
+    /* Hide dropdowns on mobile to keep the navbar simple */
+    .custom-nav-item.dropdown:hover .dropdown-menu {
+
+    }
+
+}
+
+
+/* Styling for the scrollbar in mobile view */
+
+.custom-nav {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+
+/* For Webkit browsers */
+
+.custom-nav::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-nav::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.custom-nav::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+/*  Extra Navbar for mobile  Start */
+
+@media (max-width: 769px) {
+    .mobile-scroll-nav {
+        background-color: white;
+        /* Background color for the nav */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        /* Prevent overflow showing */
+        position: sticky;
+/*        margin-top:15px;*/
+        left: 0;
+    }
+    .mobile-scroll-nav-custom-nav {
+        display: flex;
+        /* Flexbox for horizontal layout */
+        flex-wrap: nowrap;
+        /* No wrapping */
+        overflow-x: hidden;
+        /* Hide horizontal overflow */
+        background-color: #F9F9F9;
+        /* Background color */
+        border-bottom: 3px solid #ddd;
+        /* Bottom border */
+        border-top: 3px solid #ddd;
+        /* Top border */
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+    .mobile-scroll-nav-custom-nav-item {
+        margin-right: 20px;
+        /* Spacing between items */
+        list-style-type: none;
+        /* Remove circle bullets */
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .mobile-scroll-nav-custom-nav-link {
+        font-size: 1rem;
+        text-decoration: none;
+        /* Remove underline */
+        color: #333;
+        /* Link color */
+        font-weight: normal;
+        /* Normal font weight */
+        transition: transform 0.3s ease, border-bottom 0.3s ease;
+        /* Smooth transition for both */
+        white-space: nowrap;
+        /* Prevent line breaks */
+        display: inline-block;
+        /* Make the link behave like a block element */
+    }
+    .mobile-scroll-nav-custom-nav-link:hover {
+        border-bottom: 2px solid red;
+        /* Red bottom border on hover */
+        transform: scale(1.075);
+        /* Increase the size on hover (scale to 1.5) */
+    }
+    /*  Extra Navbar for mobile  END */
+    /*    */
+    /* Custom Navbar for Mobile */
+    .custom-navbar {
+        box-sizing: border-box;
+        background-color: #fff;
+        font-size: 16px;
+        padding: 10;
+        width: 0%;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+
+    }
+    /* Mobile Navbar Toggle Button */
+    .custom-toggler-icon,
+    custom-toggler {
+        display: block;
+        border: none;
+        background: #fff;
+        /* white need for scroll shadow perfect on top-bar-mobile*/
+        padding: 10px;
+        font-size: 9vw;
+        color: #D2042D;
+        cursor: pointer;
+        width: 15%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        /* Make sure it's higher than other elements */
+        height: 9%;
+    }
+    /* Mobile Navbar Menu (Hidden by Default) */
+    #navbarNav {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        top: 4%;
+        /* Adjust this to match your fixed navbar height */
+        left: 0;
+        /* Align to the left edge */
+        width: 55vw;
+        /* Full width of the screen */
+        max-height: 85vh;
+        /* Full viewport height */
+        background-color: #D2042D;
+        z-index: 1000;
+        flex-direction: column;
+        padding: 10px 0;
+        box-sizing: border-box;
+        /* Include padding and border in element's total width and height */
+        overflow-y: auto;
+        /* Scrollable if content overflows */
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+        /* Slide in from the left */
+        margin-top: 15%;
+    }
+    /* Show the menu when the toggler is clicked */
+    #navbarNav.show {
+        display: flex;
+        /* Flex display when menu is visible */
+        transform: translateX(0);
+        margin-top: 48px;
+    }
+    /* Navbar Links for Mobile */
+    .custom-nav {
+        flex-direction: column;
+        width: 55vw;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+            height:100vh;
+    }
+    .custom-nav li {
+        position: relative;
+    }
+    .custom-nav a {
+        width:55vw;
+        color: white;
+
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        /* Center text on mobile */
+    }
+    .custom-nav a:hover {
+        color: white;
+        background-color: #900000;
+    }
+    /* Dropdown Menu for Mobile */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: #D2042D;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        /* Smooth transition */
+    }
+    .dropdown-item {
+        text-align: center;
+        color: black;
+    }
+    .dropdown-menu a {
+        color: #111;
+        width:48vw;
+
+    }
+    .dropdown-menu.show {
+        display: block;
+                margin: 0 auto;
+    }
+    .dropdown-item:hover {
+        background-color: #b00023;
+    }
+}
+
+
+/* --------- PC Navbar CSS Start --------- */
+
+
+/* For devices with screen width 769px or wider (PC/tablet view) */
+
+@media (min-width: 769px) {
+    .date-mobile {
+        display: none;
+    }
+    .mobile-scroll-nav {
+        display: none;
+    }
+    /* Custom Navbar for PC */
+    .custom-nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+    .custom-navbar {
+        background-color: #D2042D;
+
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: -webkit-sticky;
+        /* For Safari */
+        position: sticky;
+    }
+    /* Hide the mobile toggle button on PC */
+    .custom-toggler {
+        display: none;
+    }
+    /* Navbar Links for PC */
+    .custom-nav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    .custom-nav li {
+        position: relative;
+    }
+    .custom-nav a {
+        color: white;
+        padding:5px;
+        text-decoration: none;
+        display: block;
+        font-size: 1.15rem !important;
+    }
+    .custom-nav a:hover {
+        background-color: #900000;
+        color:#fff;
+    }
+    /* Dropdown Menu for PC */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #D2042D;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0.25rem;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+        right: 0;
+        top: 100%;
+        z-index: 1000;
+    }
+    .dropdown-menu a {
+        color: #111;
+    }
+    /* Show Dropdown on Hover (for PC) */
+    .dropdown-menu.show {
+        display: block;
+    }
+}
+
+
+/* Common Hover Effect (for both mobile and PC) */
+
+.custom-nav a:hover {
+    background-color: #900000;
+}
+
+
+/*  --------- Navbar CSS ------  END  --- */
+
+
+
+/*  highlighted-front-comment  */
+
+@media(min-width:769px) {
+    .frontpage-highlighted-ads {
+        display: flex;
+        max-height: 60vh;
+    }
+}
+
+.frontpage-highlighted-ads {
+    width: 100%;
+}
+
+.frontpage-highlighted-frontpg-comment {
+    width: 75%;
+}
+
+
+/*  Highlighted DIVs  */
+
+
+/* PC Styles (above 769px) */
+
+@media (min-width: 769px) {
+.highlighted-all {
+    width: 70%;
+    flex: 0 0 70%; /* Prevent shrinking below 70% */
+    min-width: 70%; /* Ensure it never becomes smaller */
+    padding: 10px; /* Padding for the front page */
+    overflow: hidden; /* Ensure content stays inside the div */
+    position: relative; /* Allows better control over child elements */
+    max-height: 400px; /* Optional: Limit the height if needed */
+}
+
+
+    .highlighted-all img {
+        width: 100%;
+        transition: transform 0.3s ease;
+        /* Smooth transition for zoom */
+        object-fit: cover;
+        /* Ensure the image covers the container properly */
+        display: block;
+        /* Removes any extra space below images */
+    }
+    .highlighted-all img:hover {
+        transform: scale(1.07);
+        /* Zoom effect */
+    }
+    .highlighted-1-content-wrapper {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        /* Prevent content overflow */
+        padding: 10px;
+    }
+    .highlighted-1-content-wrapper-img {
+        max-width: 50%;
+        height: 30vh;
+        object-fit: cover;
+        /* Ensure the image fits inside the div */
+    }
+    .highlighted-1-content {
+        width: 50%;
+        padding-left: 10px;
+    }
+    .highlighted-1-title {
+        display: flex;
+        font-size: 1.5rem text-decoration: none;
+        color: #111;
+        font-weight: bold;
+    }
+    .highlighted-description1 {
+        color: #111;
+    }
+    .highlighted-small-2-3 {
+        display: flex;
+    }
+    .highlighted-content2-3 {
+        display: flex;
+    }
+    .highlighted-content2-3 img {
+        height: 20vh;
+        padding: 10px;
+    }
+    .highlighted-small-2,
+    .highlighted-small-3 {
+        width: 50%;
+        overflow: hidden;
+        /* Prevent overflow */
+    }
+    .highlighted-small-2 img,
+    .highlighted-small-3 img {
+        width: 50%;
+        /* Ensure images fit the container */
+        object-fit: cover;
+    }
+}
+
+
+/*  Mobile Css  */
+
+@media (max-width: 769px) {
+    .highlighted-all {
+        overflow: hidden;
+    }
+    /* For h...1 - full width */
+    .highlighted-big-1 {
+        width: 100%;
+        /* Full width */
+        box-sizing: border-box;
+        /* Ensures padding is included in the width */
+    }
+    .highlighted-big-1 img {
+        width: 100%;
+        /* Full width */
+        box-sizing: border-box;
+        /* Ensures padding is included in the width */
+    }
+    /* For h...2 and h...3 - displayed vertically on mobile */
+    .highlighted-small-2-3 {
+        display: flex;
+        /* Stack the sections vertically */
+        width: 100%;
+        /* Full width */
+    }
+    .highlighted-small-2-3 img {
+        max-width:100%;
+        max-height: 15vh;
+        padding:0px 3px 3px 3px;
+    }
+    .highlighted-small-2,
+    .highlighted-small-3 {
+        width: 100%;
+        /* Each takes full width */
+        box-sizing: border-box;
+        /* Ensures padding is part of the width */
+        border: none;
+        /* Borderless feel */
+    }
+    /* News image takes full width, title below it */
+    .highlighted-content2-3 {
+        display: block;
+        /* Stack image and text vertically */
+        text-align: left;
+        /* Align text on the left */
+    }
+    .highlighted-content2-3 img {
+        /* width: 100%;
+        /* Full width for the image */
+        object-fit: cover;
+        */ margin-bottom: 10px;
+        /* Space below the image */
+    }
+    .highlighted-content2-3 h5 {
+        width: 100%;
+        /* Full width for the title */
+        font-size: 1rem;
+        color: #111;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .highlighted-1-title {
+        display: flex;
+        font-size: 1.25rem;
+        padding: 5px;
+        color: #111;
+    }
+    /* Highlighted description styling */
+    .highlighted-description1 {
+        display: none;
+    }
+}
+
+
+/*  Highlighted News END  */
+
+
+/* Breaking or Most Read Scrollable News Section */
+
+.breaking-or-mostread-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.breaking-or-mostread-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.breaking-most-read-div {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+@media (min-width:769px) {
+    .breaking-most-read-div {
+        margin-left: 10px;
+    }
+    .breaking-toggle-btn-readmore-2 {
+        border: 1px solid #ddd;
+        width: 97.5%;
+        border: none;
+        background-color: #ddd;
+        color: #D2042D;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+    .breaking-toggle-btn-readmore-2:hover {
+        background-color: #D2042D;
+        color: #fff;
+    }
+}
+
+@media (max-width:769px) {
+    /*  Section page breaking--2 END */
+    /*  Section page breaking--2 Start */
+    .breaking-toggle-btn-readmore-2 {
+        padding-right: 10px;
+        border: 1px solid #ddd;
+        width: 100%;
+        border: none;
+        background-color: #ddd;
+        color: #D2042D;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+    .breaking-toggle-btn-readmore-2:hover {
+        background-color: #D2042D;
+        color: #fff;
+    }
+    /*  Section page breaking--2 END */
+}
+
+.breaking-or-mostread-toggle-btn {
+    width: 50%;
+    border: none;
+    background-color: #ddd;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+}
+
+.breaking-toggle-btn-readmore {
+    padding-right: 10px;
+    border: 1px solid #ddd;
+    width: 97.5%;
+    border: none;
+    background-color: #ddd;
+    color: #D2042D;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.breaking-toggle-btn-readmore:hover {
+    background-color: #D2042D;
+    color: #fff;
+}
+
+.breaking-or-mostread-toggle-btn.active {
+    background-color: #D2042D;
+    color: white;
+}
+
+.breaking-or-mostread-toggle-btn:hover {
+    background-color: #D2042D;
+    color: white;
+}
+
+.breaking-or-mostread-news-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.breaking-or-mostread-news-scroll.active {
+    display: block;
+}
+
+.breaking-or-mostread-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.breaking-or-mostread-card-img {
+    width: 30%;
+    margin-right: 10px;
+    max-height: 15vh;
+}
+
+.breaking-or-mostread-card-body {
+    width: 70%;
+    text-align: left;
+}
+
+.breaking-or-mostread-card-title {
+    font-size: 0.7rem;
+    white-space: normal;
+    word-wrap: break-word;
+    color: #111;
+    transition: ;
+    ease 0.3s;
+    font-size: 1rem;
+}
+
+.breaking-or-mostread-card-title:hover {
+    color: #D2042D;
+}
+
+@media (max-width: 769px) {
+    .breaking-or-mostread-container {
+        width: 100%;
+    }
+}
+
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+
+.breaking-or-mostread-news-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/*  recent Scroll bar END   */
+
+
+/*---main-divs---START---*/
+
+.main-divs {
+    display: flex;
+}
+
+
+/*---main-divs---END---*/
+
+
+/* contact page start */
+
+.contact-container {
+    background-color: #ffffff;
+    padding: 40px;
+    /* Increased padding for more space */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.contact-section-title {
+    color: #e74c3c;
+    /* Red color */
+    font-weight: 700;
+    font-size: 32px;
+    /* Larger font size */
+    margin-bottom: 10px;
+}
+
+.contact-divider {
+    border: 0;
+    height: 2px;
+    /* Thicker divider */
+    background-color: #ddd;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.contact-subtitle {
+    color: #333;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 24px;
+    /* Larger font size for subtitles */
+}
+
+.contact-info {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-size: 18px;
+    /* Increased font size for readability */
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* contact page end */
+
+
+/* ad */
+
+.ad-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ad-card {
+    border: none;
+    padding: 10px;
+    width: 400px;
+    /* Fixed width */
+    height: 200px;
+    /* Fixed height */
+    overflow: hidden;
+    /* Ensure content doesn't overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ad-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* Ensure the image covers the area while maintaining aspect ratio */
+}
+
+
+/* ad */
+
+
+/*------Highlighted-News---Start------*/
+
+
+/* General card styles */
+
+.card {
+    border: 1px solid #ddd;
+    /* Light border for all cards */
+    border-radius: 0.25rem;
+    /* Rounded corners */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* Subtle shadow */
+}
+
+.card-img-top {
+    width: 100%;
+    /* Full width for image */
+    height: 180px;
+    /* Fixed height for image */
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the area */
+}
+
+.card-body {
+    padding: 1rem;
+    /* Default padding inside card body */
+}
+
+
+/* Styles for the highlighted card */
+
+.highlight-card .card-title {
+    font-weight: bold;
+    /* Bold title for emphasis */
+    font-size: 1.25rem;
+    /* Larger font size for highlighted cards */
+}
+
+
+/* Styles for the smaller card */
+
+.small-card {
+    width: 100%;
+    /* Full width to fit the container */
+}
+
+.small-card .card-body {
+    padding: 0.5rem;
+    /* Reduced padding for a compact card */
+}
+
+.small-card .card-title {
+    font-size: 1rem;
+    /* Smaller font size for titles in smaller cards */
+}
+
+.small-card .card-text {
+    font-size: 0.875rem;
+    /* Smaller font size for text in smaller cards */
+}
+
+
+/* Common text size adjustment for all cards */
+
+.card-text {
+    font-size: 0.875rem;
+    /* Default font size for text inside cards */
+}
+
+
+/*------Highlighted-News-END------*/
+
+
+/*--- Front-NEWS-section ---*/
+
+
+/* General Styles */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Adjusted padding for smaller padding on the sides */
+}
+
+
+/*--- News Section ---*/
+
+.news-column {
+    width: 100%;
+    float: left;
+    /* Keep the section aligned left */
+}
+
+.news-section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    /* Center title for better aesthetics */
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Added gap between news items */
+}
+
+.news-item {
+    flex: 1 1 calc(33.333% - 20px);
+    /* 3 items per row on larger screens */
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+    padding: 10px;
+    /* Added padding to separate content from borders */
+}
+
+.news-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow effect */
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 10px;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    display: block;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.no-news {
+    text-align: center;
+    color: #999;
+}
+
+
+/*--- Responsive Styles ---*/
+
+
+/* Mobile view: Adjust for screens smaller than 769px */
+
+@media (max-width: 769px) {
+    .news-container {
+        display: block;
+        /* Stack items vertically */
+    }
+    .news-item {
+        display: flex;
+        /* Align image and content side by side */
+        flex-direction: row;
+        /* Image on the left, content on the right */
+        padding: 10px;
+    }
+    .news-item img {
+        width: 30%;
+        /* Image takes up 30% of the container */
+        height: auto;
+    }
+    .news-content {
+        width: 70%;
+        /* Content takes up the remaining space */
+        padding: 0 10px;
+        /* Add some space between image and text */
+    }
+    .news-title {
+        font-size: 16px;
+        /* Smaller font for mobile */
+    }
+    .news-description {
+        display: none;
+        /* Hide the description on mobile */
+    }
+}
+
+
+/* Tablet view: Adjust for screens between 769px and 992px */
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .news-item {
+        flex: 1 1 calc(50% - 20px);
+        /* Two items per row */
+    }
+    .news-title {
+        font-size: 20px;
+    }
+}
+
+
+/* Desktop view */
+
+@media (min-width: 992px) {
+    .news-item {
+        flex: 1 1 calc(33.333% - 20px);
+        /* Three items per row */
+    }
+}
+
+
+
+
+/*image gallery start*/
+
+
+/* Photo Gallery CSS */
+
+
+/* Ensure the carousel container holds proportions */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+
+/* Carousel Item Image */
+
+.carousel-item img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    /* Ensures the image fills the space without distortion */
+    transition: transform 0.5s ease-in-out;
+    /* Smooth image transition */
+}
+
+
+/* Prevent image jump during transition */
+
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Fix the transition glitch where image size jumps */
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: none;
+    /* Removes default scaling transition issue */
+}
+
+
+/* Carousel Caption */
+
+.carousel.carousel-caption {
+    position: absolute !important;
+    bottom: 40px !important;
+    /* Puts space between the caption and indicators */
+    left: 0 !important;
+    /* Align caption box to the left */
+    width: 100% !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    /* Dark background for better readability */
+    color: #fff !important;
+    padding: 5px 15px !important;
+    /* Reduced padding */
+    box-sizing: border-box !important;
+    font-family: 'Bangla', sans-serif !important;
+    font-size: 0.5rem !important;
+    /* Adjusted font size */
+    max-height: 25% !important;
+    /* Text container max-height */
+    overflow: hidden !important;
+    /* Prevent overflow */
+    line-height: 1.3rem !important;
+    /* Improved line-height */
+    height: auto !important;
+}
+
+
+/* Responsive adjustments for caption */
+
+@media (max-width: 769px) {
+    .carousel-caption {
+        font-size: 0.5rem;
+        /* Smaller font on mobile */
+        padding: 5px 10px;
+        height: auto !important;
+    }
+}
+
+
+/* Carousel Indicators */
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    /* Adjust position right under the caption */
+    align-items: center;
+    /* Vertically centers the indicators */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center horizontally */
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 15;
+}
+
+
+/* Indicator Dots */
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: #aebdb9;
+    /* Inactive color */
+}
+
+
+/* Active Indicator Dot */
+
+.carousel-indicators .active {
+    background-color: #006a4e;
+    /* Active color */
+}
+
+
+/* Adjust image size to ensure smooth transition */
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item {
+    transition: none;
+}
+
+
+/*image gallery end*/
+
+
+/*ad section start */
+
+
+/* Example CSS for Ad Sections */
+
+.top-logo-ad img {
+    width: 100%;
+    height: auto;
+}
+
+.category-ads div,
+.highlight-ads {
+    margin-bottom: 20px;
+}
+
+.category-ads img,
+.highlight-ads img {
+    height: 300px;
+}
+
+.front-news-ads img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+/*ad section end*/
+
+
+/*ad section end*/
+
+
+/*----video section Start---*/
+
+.highlighted-video {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.highlighted-video iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnail-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.thumbnail-grid .video-thumbnail {
+    flex: 1 1 calc(33.333% - 10px);
+    position: relative;
+}
+
+.thumbnail-grid .video-thumbnail iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*----video section END---*/
+
+
+/*  -----------------Sports Section news Divs----Start--*/
+
+
+/* Section Heading */
+
+
+/* Main Sports News */
+
+@media (min-width:769px) {
+    .style1-sports-section {
+        margin-left: 25px;
+        display: flex;
+    }
+
+    .style1-main-news h1 {
+    text-decoration: none;
+    color: #111;
+    padding-bottom:10px;
+}
+
+    }
+
+
+/* Main Sports News */
+
+.style1-main-news {
+    width: 35%;
+    float: left;
+    /* Align main news to the left */
+    margin-right: 2%;
+    margin-bottom: 20px;
+}
+
+
+
+.style1-main-news-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.style1-news-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    /*padding: 10px;*/
+    text-decoration: none;
+    color: #111;
+}
+
+.style1-main-news img {
+    width: 100%;
+    height: auto;
+    transition: ease 0.3s;
+}
+
+.style1-main-news img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Secondary Sports News - Flexbox Layout for Image and Title on the Same Line */
+
+.style1-secondary-news {
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 2%;
+}
+
+.style1-section-news-item {
+    display: flex;
+    align-items: center;
+    /* Align image and title vertically */
+    margin-bottom: 15px;
+}
+
+.style1-secondary-news-link {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    /* Flexbox for aligning image and title */
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.style1-secondary-news-link:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+
+/* Image and Title Layout */
+
+.style1-secondary-news-img {
+    width: 35%;
+
+    margin-right: 10px;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.style1-sports-section-news-item {
+    width: 70%;
+    /* 70% width for title */
+    font-size: 18px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    /* Ensure text wraps */
+}
+
+
+/* Clearfix for layout */
+
+.style1-sports-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Mobile View */
+
+@media (max-width: 769px) {
+
+.style1-main-news h1 {
+    text-decoration: none;
+    color: #111;
+}
+
+    .style1-sports-section {
+        margin: 0 auto;
+        padding-top: 15px;
+    }
+    .style1-main-news,
+    .style1-secondary-news {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+    }
+    /* Flexbox for Mobile: Image 30%, Title 70% */
+    .style1-section-news-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .style1-secondary-news-img {
+        width: 30%;
+        height: auto;
+        margin-right: 10px;
+    }
+    .style1-sports-section-news-item {
+        width: 70%;
+        font-size: 16px;
+    }
+}
+
+
+/* Responsive View for 1030px to 769px screens */
+
+@media (max-width: 1030px) and (min-width: 769px) {
+    .style1-main-news {
+        width: 45%;
+        /* Adjust main news width */
+        margin-right: 5%;
+        /* Adjust spacing */
+    }
+    .style1-secondary-news {
+        width: 45%;
+        /* Adjust secondary news width */
+        margin-right: 5%;
+        /* Adjust spacing */
+    }
+    .style1-section-news-item {
+        width: 100%;
+        /* Stack news items on smaller screens */
+    }
+    .style1-secondary-news-img {
+        width: 35%;
+        /* Adjust image width for better alignment */
+    }
+    .style1-sports-section-news-item {
+        width: 65%;
+        /* Adjust title width for better alignment */
+        font-size: 17px;
+        /* Slightly smaller font for responsiveness */
+    }
+}
+
+
+/*  Sports Section (style-1) news Divs----END--*/
+
+
+/*  -----------------National Section news Divs----Start--*/
+
+
+/* Secondary International News */
+
+.secondary-news-int {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.international-news-item {
+    width: calc(50% - 20px);
+    /* Two items per row with gap */
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.international-news-item img {
+    width: 100%;
+    height: auto;
+}
+
+.international-news-item h2 {
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+
+/* Advertisement Section */
+
+@media (min-width:769px) {
+    .section-ads {
+        width: 25%;
+        /* Ensure the container takes the full available width */
+    }
+}
+
+.section-ads {
+    box-sizing: border-box;
+    /* Include padding in width calculations */
+    padding: 10px;
+    /* Padding inside the ads section */
+    overflow: hidden;
+    /* Prevents content from overflowing */
+    text-align: center;
+    /* Optional: Center the image if needed */
+}
+
+.section-ads img {
+    max-width: 100%;
+    /* Ensure the image doesn't exceed the container's width */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: inline-block;
+    /* Ensure it behaves properly with text-align */
+    padding: 10px;
+}
+
+.section-ads-top {
+    box-sizing: border-box;
+    /* Include padding in width calculations */
+    padding: 10px;
+    /* Padding inside the ads section */
+    overflow: hidden;
+    /* Prevents content from overflowing */
+    text-align: center;
+    /* Center the content */
+    margin-top: 5px;
+    position: relative;
+    /* For absolute positioning of children */
+}
+
+.section-ads-top img,
+.section-ads-top video {
+    width: 100%;
+    /* Ensure the image/video takes full width of the container */
+    height: 100%;
+    /* Set height to 100% to utilize the full height */
+    object-fit: cover;
+    /* Cover the container without distortion */
+    display: block;
+    /* Ensure it behaves properly with text-align */
+    position: absolute;
+    /* Allows to position the media within the parent */
+    top: 0;
+    /* Align to the top */
+    left: 0;
+    /* Align to the left */
+    max-height: 200px;
+    /* Maximum height for the container */
+}
+
+
+/*  Frontpage-top Ads CSS Start  */
+
+
+/* Front Page Top Advertisement Section */
+
+
+.frontpage-top-ads-1 {
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 5px;
+    max-height: 60vh; /* Limit maximum height */
+    width: 100%; /* Full width */
+
+}
+
+
+.frontpage-top-ads-1 img,
+.frontpage-top-ads-1 video {
+    max-height: 60vh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Full image visible */
+}
+
+
+
+.frontpage-top-ads {
+    box-sizing: border-box;
+    /* Include padding in width calculations */
+    overflow: hidden;
+    /* Prevents content from overflowing */
+    text-align: left;
+    /* Optional: Center the image if needed */
+}
+
+.frontpage-top-ads img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Ensures the full image is visible without being cropped */
+    display: block;
+    padding: 5px;
+}
+
+
+
+
+
+/*  Frontpage-top Ads CSS END  */
+
+
+/*  National Section news Divs----END--*/
+
+
+/*   top_news/most viewed - scroll  */
+
+.topview-header-container {
+    background-color: #f0f0f0;
+    /* Gray background */
+    border-radius: 5px 5px 0 0;
+    /* Rounded corners on the top */
+    padding: 10px;
+    overflow: hidden;
+    /* Ensures that floated elements are contained within the header */
+    position: sticky;
+    /* Make the header sticky */
+    top: 0;
+    /* Stick to the top of the parent container */
+    z-index: 1;
+    /* Ensures the header stays above other content */
+}
+
+.custom-scroll-top-news {
+    padding: 10px;
+    width: 30%;
+    float: left;
+    overflow-y: auto;
+    max-height: 600px;
+    /* Adjust as necessary */
+    border-radius: 0 0 5px 5px;
+    /* Rounded corners on the bottom */
+    background-color: white;
+    /* White background for the scrollable area */
+}
+
+
+/*   News-details HTML  Start */
+
+
+/* General Styles */
+.news-details-header p{
+     margin-bottom:0 !important;
+}
+
+
+.home-button {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+
+}
+
+
+
+.category-name-bar {
+    color: #111;
+}
+
+
+/* News Details Header Start */
+
+
+/* main news css start */
+
+
+/* News Details Header Start */
+
+@media(min-width:769px) {
+    .news-details-width {
+        width: 70%;
+    }
+    .news-details-breaking-and-ads {
+        display: flex;
+    }
+    .news-details-header {
+            padding:20px 20px 20px 30px;
+            margin-top: .5rem !important;
+    }
+    .home-button {
+            font-size: 1.25rem;
+    }
+    .category-name-bar{
+            font-size: 1.25rem;
+    }
+}
+
+@media(max-width:769px) {
+
+    .home-button {
+            font-size: 1rem;
+    }
+    .category-name-bar{
+            font-size: 1rem;
+    }
+    .news-details-header {
+            padding:10px 20px 10px 10px;
+    }
+}
+
+.news-details-breaking-and-ads {
+    width: 100%;
+}
+
+.news-details-header {
+
+    background-color: #F5F5F5;
+
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.category-name-bar:hover {
+    text-decoration: underline;
+    color:#D2042D;
+}
+
+
+/* News Details Header End */
+
+
+/* Share Buttons Styles Start */
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.share-button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.share-button a {
+    text-decoration: none;
+}
+
+.share-button.facebook {
+    background-color: #3b5998;
+}
+
+.share-button.whatsapp {
+    background-color: #25D366;
+}
+
+.share-button.telegram {
+    background-color: #0088cc;
+}
+
+.share-button.copy-link {
+    background-color: #333;
+}
+
+.share-button:hover {
+    opacity: 0.8;
+}
+
+
+/* Share Buttons Styles End */
+
+
+/* Notification for Copy Link Start */
+
+.notification {
+    display: none;
+    position: absolute;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* Notification for Copy Link End */
+
+
+/* News Details Container Start */
+
+.news-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.news-meta-info {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.news-description {
+    margin-bottom: 20px;
+}
+
+
+/* News Details Container End */
+
+
+/* Category-Specific Recent News Start */
+
+
+/* Container for the entire recent news section */
+
+.news-details-category-recent-news-container {
+    margin-top: 40px;
+    padding: 10px;
+}
+
+
+/* Title for the recent news section */
+
+.news-details-category-recent-news-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #D2042D;
+    padding: 5px 0px 5px 0px;
+}
+
+
+/* Scrollable container for recent news items */
+
+.news-details-category-scrollable-news {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+    gap: 15px;
+    /* Space between items */
+}
+
+
+/* Each news item container */
+
+.news-details-category-recent-news-item {
+    width: 20%;
+    /* 20% width for desktop */
+    display: flex;
+    flex-direction: column;
+    /* Stack image and title */
+    padding: 10px;
+    transition: transform 0.2s ease;
+    /* Smooth hover effect */
+    overflow: hidden;
+    /* Prevent overflow */
+}
+
+
+/* Hover effect for news items */
+
+.news-details-category-recent-news-item:hover {
+    transform: scale(1.05);
+    /* Scale up on hover */
+}
+
+
+/* News item image */
+
+.news-details-category-news-image {
+    width: 100%;
+    /* Full width of the container */
+    object-fit: cover;
+    /* Cover the area */
+    margin-bottom: 10px;
+    /* Space between image and title */
+}
+
+
+/* News item title */
+
+.news-details-category-recent-news-item-title {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+/* Remove underline from title links */
+
+.news-details-category-recent-news-item-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+/* Add underline on hover */
+
+.news-details-category-recent-news-item-title a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 769px) {
+    .news-details-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 769px) {
+    .news-details-width {
+        width: 100%;
+        .news-details-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+    .news-details-category-recent-news-item {
+        width: 100%;
+        /* Full width for mobile */
+    }
+    .news-details-category-news-image {
+        height: 200px;
+        /* Adjusted height for mobile */
+    }
+}
+
+
+/* No news message */
+
+.news-details-category-no-news {
+    color: #999;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+
+/* Category-Specific Recent News END */
+
+
+/* --- Related Sections News Start --- */
+
+.related-sections-news-container {
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.related-sections-news-title {
+    font-size: 2rem;
+    color: green;
+    margin-bottom: 15px;
+}
+
+.scrollable-related-sections-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+/* Related news item layout */
+
+.related-sections-news-item {
+    display: flex;
+    flex-direction: column;
+    /* Stack image and text vertically */
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 20%;
+    /* Each item takes up 20% width */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+
+/* Hover effect with smooth transformation */
+
+.related-sections-news-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.related-sections-news-item-title {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+    text-align: left;
+}
+
+.related-sections-news-item-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.related-sections-news-item-title a:hover {
+    text-decoration: underline;
+}
+
+
+/* News summary */
+
+.related-sections-news-item-summary {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    text-align: left;
+}
+
+
+/* No related news message */
+
+.no-related-sections-news {
+    text-align: center;
+    color: #6c757d;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 767px) {
+    .related-sections-news-item {
+        width: 100%;
+        /* Full width on mobile */
+    }
+}
+
+
+/* --- Related Sections News End --- */
+
+
+/* --- Recent News Start --- */
+
+.recent-news-container {
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.recent-news-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.scrollable-recent-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+/* Recent news item layout */
+
+.recent-news-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1 1 48%;
+    /* Takes 48% width, two items per row */
+}
+
+
+/* Hover effect with smooth transformation */
+
+.recent-news-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* News image */
+
+.news-details-image {
+    width: 100%;
+    max-width: 100%;
+    /* Prevents overflow */
+    height: auto;
+
+    object-fit: cover;
+    border: 1px solid #ddd;
+    /* Border to give it a framed look */
+}
+.news-details-image-caption {
+    background-color:#FAF9F6;
+    color:#808080;
+    font-style: italic;
+    margin-bottom: 10px;
+    padding:5px 5px 5px 15px;
+}
+
+/* News content */
+
+.news-content {
+    width: 100%;
+}
+
+.recent-news-item-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.recent-news-item-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.recent-news-item-title a:hover {
+    text-decoration: underline;
+}
+
+
+/* Time of the news item */
+
+.recent-news-item-time {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+
+/* News description */
+
+.recent-news-item-description {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+}
+
+
+/* No recent news message */
+
+.no-recent-news {
+    text-align: center;
+    color: #6c757d;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 767px) {
+    .recent-news-item {
+        flex: 1 1 100%;
+        /* Full width on mobile */
+    }
+    .news-details-image {
+        height: auto;
+        /* Maintain aspect ratio on mobile */
+    }
+}
+
+
+/* --- Recent News End --- */
+
+
+/*News Details Scrollbar ( 2 )*/
+
+
+/* --- Recent Scrollable News Section 2 --- */
+
+
+/* Header Style */
+
+@media (min-width:769px) {
+    .breaking-custom-scroll-news-header2 {
+        padding: 10px 15px;
+        margin: 5;
+        font-size: 2rem;
+        color: #111;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        border-bottom: 2px solid red;
+    }
+}
+
+@media (max-width:769px) {
+    .breaking-custom-scroll-news-header2 {
+        background-color: #D2042D;
+        padding: 5px 8px;
+        margin: 5;
+        font-size: 1.5rem;
+        color: #FFF;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+}
+
+
+/* General Styles for Scrollable News Section */
+
+.breaking-custom-scroll-news2 {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    white-space: nowrap;
+    /* Prevents items from wrapping onto the next line */
+    background-color: #fff;
+}
+
+
+/* Flexbox layout for image and text */
+
+.breaking-custom-card2 {
+    display: inline-block;
+    /* Allows horizontal scrolling */
+    vertical-align: top;
+    width: 250px;
+    /* Set a fixed width for each card */
+    margin-right: 15px;
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+
+/* Hover effect */
+
+.breaking-custom-card2:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Adjusted image styles */
+
+.breaking-custom-card-img2 {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+
+/* Title and body styles */
+
+.breaking-custom-card-body2 {
+    padding: 5px;
+}
+
+.breaking-custom-card-title2 {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Mobile View Adjustments */
+
+@media (max-width: 769px) {
+    /* Scroll Section for Mobile */
+    .breaking-custom-scroll-news2 {
+        white-space: normal;
+        /* Allows wrapping on mobile */
+        overflow-x: hidden;
+        /* Disable horizontal scroll on mobile */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+        max-height: 400px;
+        /* Set a max height to enable scroll when content overflows */
+    }
+    /* Update breaking-custom-card2 to display image and title in one line */
+    .breaking-custom-card2 {
+        display: flex;
+        /* Flexbox layout for horizontal alignment */
+        align-items: center;
+        /* Vertically center the content */
+        width: 100%;
+        /* Full width for mobile */
+        margin-bottom: 10px;
+        /* Spacing between items */
+    }
+    /* Image adjusted for mobile */
+    .breaking-custom-card-img2 {
+        width: 30%;
+        /* Image takes 30% of the container width */
+        height: auto;
+        margin-right: 10px;
+        /* Space between image and title */
+    }
+    /* Title adjusted for mobile */
+    .breaking-custom-card-title2 {
+        font-size: 0.9rem;
+        white-space: nowrap;
+        /* Prevent the title from wrapping */
+        overflow: hidden;
+        /* Hide overflow text */
+        text-overflow: ellipsis;
+        /* Add ellipsis for overflow text */
+    }
+}
+
+
+/* --- Recent Scrollable News Section 2 --- END --- */
+
+
+/* NEWS Details END  */
+
+
+/*   Comment HTML PAGE  Start  */
+
+
+/* General Styles */
+
+.comment-page-container {
+    margin: 20px;
+}
+
+.comment-page-main-comment {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.comment-page-main-comment-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.comment-page-main-comment-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.comment-page-main-comment-details {
+    margin-bottom: 20px;
+}
+
+.comment-page-main-comment-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.comment-page-main-comment-link {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.comment-page-main-comment-link:hover {
+    text-decoration: underline;
+}
+
+.comment-page-main-comment-button {
+    background-color: #0275d8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-page-main-comment-button:hover {
+    background-color: #025aa5;
+}
+
+
+/* Divider */
+
+.comment-page-divider {
+    margin: 40px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+
+/* Other Comments Section */
+
+.comment-page-other-comments-section {
+    margin-top: 20px;
+}
+
+.comment-page-other-comments-section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.comment-page-card {
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-page-card-body {
+    padding: 15px;
+}
+
+.comment-page-card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.comment-page-card-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.comment-page-card-link {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.comment-page-card-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 992px) {
+    .comment-page-main-comment,
+    .comment-page-other-comments-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .comment-page-main-comment-img {
+        width: 100%;
+        height: auto;
+    }
+    .comment-page-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 769px) {
+    .comment-page-main-comment {
+        padding: 15px;
+    }
+    .comment-page-main-comment-title {
+        font-size: 20px;
+    }
+    .comment-page-other-comments-section-title {
+        font-size: 18px;
+    }
+    .comment-page-card-title {
+        font-size: 16px;
+    }
+    .comment-page-card-text {
+        font-size: 12px;
+    }
+}
+
+
+/*   --    Comment Page Rcent news  Start */
+
+
+/* General styles for the recent news section */
+
+.commentpage-recent-news-section {
+    margin-top: 2rem;
+    padding: 20px;
+}
+
+.commentpage-recent-news-header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+
+/* Grid layout for the news items */
+
+.commentpage-recent-news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    gap: 20px;
+    /* Space between grid items */
+}
+
+
+/* Styles for individual news items */
+
+.commentpage-recent-news-item {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: inherit;
+    /* Inherit color from parent */
+}
+
+.commentpage-recent-card {
+    overflow: hidden;
+    /* Prevent overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.commentpage-recent-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+
+/* Styles for images */
+
+.commentpage-recent-card-img {
+    width: 100%;
+    /* Full width */
+    height: 150px;
+    /* Fixed height */
+    object-fit: cover;
+    /* Cover the space without distortion */
+}
+
+
+/* Card body styles */
+
+.commentpage-recent-card-body {
+    padding: 15px;
+}
+
+.commentpage-recent-card-title {
+    font-size: 1.2rem;
+    margin: 0;
+    /* No margin for title */
+}
+
+
+/* Responsive styles for mobile */
+
+@media (max-width: 769px) {
+    .commentpage-recent-news-grid {
+        grid-template-columns: 1fr;
+        /* 1 column for mobile */
+    }
+    .commentpage-recent-card-title {
+        font-size: 1rem;
+        /* Smaller title for mobile */
+    }
+}
+
+
+/*    --   Comment Page Rcent news  END */
+
+
+/* Comment Page HTML end*/
+
+
+/*   Section  HTML PAGE Start */
+
+
+/* category-list Start */
+
+
+/*  ----------------------------  Also Used in Category HTML page  ---------- */
+    .sectionpage-category-list a {
+        border-bottom: 2px solid #D2042D;
+        text-decoration: none;
+        /* Prevent underline on links */
+        color: inherit;
+        /* Inherit color from parent for consistency */
+        margin-right: ;
+        margin-left: 1vw !important;
+        transition: ease 0.5s;
+    }
+@media(min-width:769px) {
+    .sectionpage-category-list {
+        /*background-color: #ddd;*/
+        border-radius: 4px;
+        padding: 5px;
+    }
+    .sectionpage-category-item {
+        font-size: 1.1rem;
+        color: #777777;
+    }
+
+    .sectionpage-category-list a:hover {
+        color: #D2042D;
+        transform:scale(1.1);
+        transition: ease 0.3s;
+        /* Corrected property from 'bottom-border' to 'border-bottom' */
+    }
+}
+
+@media(max-width:769px) {
+    .sectionpage-category-list {
+        /*background-color: #ddd;*/
+
+        margin-top: 2px !important;
+    }
+    .sectionpage-category-item {
+        font-size: 1rem;
+        color: #777777;
+        transition: ease 0.5s;
+    }
+    .sectionpage-category-list a {
+        text-decoration: none;
+        /* Prevent underline on links */
+        color: inherit;
+        /* Inherit color from parent for consistency */
+        transition: ease 0.5s;
+        margin-left: 5vw !important;
+    }
+    .sectionpage-category-list a:hover {
+        transform: scale(1.5);
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+    }
+}
+
+
+/* category-list end */
+
+
+/*  ---------------------  Also Used in Category HTML page  ---------- */
+
+.sectionpage-news {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media(min-width:769px) {
+    .sectionpage-news {
+        margin-top: 2rem;
+    }
+    .sectionpage-news-item {
+        background-color: #fff;
+        padding: 10px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+    }
+
+    .sectionpage-news-description {
+    margin-top:10px;
+    font-size: 1.25rem;
+    color: #111;
+    padding-top:5px;
+}
+}
+
+.sectionpage-news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.sectionpage-news-item {
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.sectionpage-news-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sectionpage-news-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.sectionpage-news-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sectionpage-news-title {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+
+
+
+/* Mobile view */
+
+@media (max-width: 769px) {
+    .sectionpage-news-grid {
+        grid-template-columns: 1fr;
+    }
+    .sectionpage-news-large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .sectionpage-news-description {
+    margin-top:10px;
+    font-size: 1rem;
+    color: #111;
+    }
+}
+
+
+/*    More related News Start   */
+
+.sectionpage-related-category-box h3:hover {
+    text-decoration: underline;
+    text-decoration-color: #D2042D;
+}
+
+@media (min-width:769px) {
+    .sectionpage-related-category-news {
+        width: 70%;
+    }
+    .sectionpage-related-news-ads {
+        display: flex;
+    }
+}
+
+.sectionpage-related-news-ads {
+    width: 100%;
+}
+
+.sectionpage-related-news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.sectionpage-related-news-item {
+    background-color: #fff;
+    position: relative;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.sectionpage-related-news-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sectionpage-related-news-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.sectionpage-related-news-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Inherit text color */
+}
+
+.sectionpage-related-news-title {
+    padding: 10px;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+
+}
+
+.sectionpage-related-news-description {
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.sectionpage-related-big-img {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+@media (max-width: 769px) {
+    .sectionpage-related-category-news {
+        width: 100%;
+    }
+    .sectionpage-related-news-grid {
+        grid-template-columns: 1fr;
+    }
+    .sectionpage-related-news-item img {
+        width: 30%;
+        height: auto;
+        float: right;
+    }
+    .sectionpage-related-news-title {
+        width: 70%;
+        font-size: 1.1rem;
+    }
+    .sectionpage-related-news-description {
+        display: none;
+    }
+    .sectionpage-related-news-item {
+        box-shadow: none;
+        border-bottom: 2px solid #D2042D;
+    }
+}
+
+
+/*   More related News END    */
+
+
+/*  Section Detail HTML page END */
+
+
+/*  Sports  start*/
+
+.sports-section {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.main-news {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    max-width: 40%;
+}
+
+.main-news img {
+    width: 100%;
+    height: auto;
+}
+
+.main-news h1 {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.main-news p.news-description {
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.main-news p.news-description a.read-more {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.main-news p.news-description a.read-more:hover {
+    text-decoration: underline;
+}
+
+.secondary-news {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 50%;
+}
+
+.news-item {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+}
+
+.news-item h2 {
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+@media (max-width: 769px) {
+    .sports-section {
+        flex-direction: column;
+    }
+    .main-news,
+    .secondary-news {
+        max-width: 100%;
+    }
+}
+
+
+/*  Sports  END */
+
+
+/* National Section Styles for Desktop */
+
+@media(min-width: 768px) {
+    .section-div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+    .section-s2-main-news {
+
+        width: 40%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .section-s2-main-news h1 {
+        font-size: 1.5rem;
+        color: #111;
+        padding:10px 5px;
+        border-right: 1px solid #ddd;
+        margin-bottom:0rem !important;
+    }
+    .section-s2-main-news img {
+        width: 100%;
+        height: auto;
+        padding-right: 10px;
+        border-right: 1px solid #ddd;
+    }
+    .section-s2-main-news p.news-description {
+        border-right: 1px solid #ddd;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -ms-box;
+        display: box;
+        -ms-box-orient: vertical;
+        box-orient: vertical;
+        line-clamp: 2;
+        /* Limit text to 2 lines */
+        color: #111;
+    }
+    .section-s2-main-news p.news-description a.read-more {
+        display: inline-block;
+        margin-top: 5px;
+        color: #007bff;
+        text-decoration: none;
+    }
+    .section-s2-main-news p.news-description a.read-more:hover {
+        text-decoration: underline;
+    }
+
+
+.secondary-news-main {
+
+    display: grid; /* Enables grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    overflow: hidden; /* Prevents child content from overflowing the container */
+    gap: 20px; /* Space between grid items */
+    padding: 20px; /* Padding inside the grid container */
+    box-sizing: border-box; /* Ensures padding and border are included in width/height */
+    max-width: 30%; /* Ensures the container doesn't exceed its parent's width */
+    margin-bottom: 20px; /* Space below the container */
+
+
+}
+
+.section-s2-news-item {
+    width: 100%; /* Takes full width of the grid column */
+    height: auto; /* Allows height to adjust naturally */
+    overflow: hidden; /* Ensures content stays inside the div */
+    text-align: center; /* Centers content inside the grid item */
+    border-bottom: 1px solid #ddd; /* Optional: Separates items visually */
+    display: flex; /* Aligns content inside the grid item */
+    flex-direction: column; /* Stacks child elements vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    box-sizing: border-box; /* Includes padding and borders in dimensions */
+}
+
+.section-s2-news-item img {
+    width: 100%; /* Matches the width of the container */
+    height: 100%; /* Matches the height of the container */
+    object-fit: cover; /* Scales and crops the image proportionally */
+    display: block; /* Removes inline gaps or extra spacing */
+    border-radius: 4px; /* Optional: Adds a rounded edge to images */
+}
+
+
+    .section-s2-news-item img {
+        width: 100%;
+        height: auto;
+    }
+    .section-s2-news-item h2 {
+        font-size: 0.8em;
+        margin-top: 10px;
+        color: #111;
+    }
+    /* Hover effect for scaling on Desktop */
+    .section-s2-news-item:hover,
+    .section-s2-main-news:hover {
+        transform: scale(1.09);
+        transition: transform 0.3s ease;
+    }
+}
+
+
+/* National Section Styles for Mobile */
+
+@media (max-width: 769px) {
+    .section-div {
+    height:auto;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+    .section-s2-main-news {
+
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    .section-s2-main-news h1 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding: 5px;
+        text-decoration: none;
+        color: #111;
+    }
+    .section-s2-main-news img {
+        width: 100%;
+        height: auto;
+    }
+    .section-s2-main-news p.news-description {
+        border-right: 1px solid #ddd;
+        padding: 5px;
+        text-decoration: none;
+        color: #111;
+    }
+    .section-s2-main-news p.news-description a.read-more {
+        margin-top: 5px;
+        color: #007bff;
+        text-decoration: none;
+    }
+    .section-s2-main-news p.news-description a.read-more:hover {
+        text-decoration: underline;
+    }
+    /* Secondary National News for Mobile */
+    .secondary-news-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+    .section-s2-news-item {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    .section-s2-news-item img {
+        width: 100%;
+        height: auto;
+    }
+    .section-s2-news-item h2 {
+        font-size: 1em;
+        margin-top: 5px;
+        color: #111;
+    }
+}
+
+
+/*   Forest Section Start */
+
+
+/* Forest Climate Section - Main and Secondary News Grid */
+
+.forest-climate-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Full width for the large news */
+    gap: 20px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+
+/* Main News Styles */
+
+.large-news {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.large-news img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.large-news h1 {
+    font-size: 1.8em;
+    color: #2e8b57;
+    margin-bottom: 10px;
+}
+
+.large-news p.news-description {
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-size: 1em;
+}
+
+.large-news p.news-description a.read-more {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.large-news p.news-description a.read-more:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+/* Secondary News Styles (Small News Grid) */
+
+.secondary-news-forest {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns for secondary news */
+    gap: 20px;
+}
+
+.small-news-box {
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.small-news-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.small-news-box h2 {
+    font-size: 1.4em;
+    color: #006400;
+    margin-bottom: 10px;
+}
+
+
+/* List-Type News - Separate from small news */
+
+.list-type-news {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    /* Add margin to separate from small news */
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.list-item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.list-item h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+}
+
+
+/* Ads Section */
+
+.section-ads-national {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-ads-national img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Mobile Styles */
+
+@media (max-width: 769px) {
+    /* Full-width main news, two-column layout for small news on mobile */
+    .forest-climate-section {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    .large-news {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    .large-news h1 {
+        font-size: 1.4em;
+    }
+    .secondary-news-forest {
+        grid-template-columns: 1fr 1fr;
+        /* Two-column grid for smaller news items */
+    }
+    .small-news-box {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    .small-news-box h2 {
+        font-size: 0.7em;
+    }
+    /* List-Type News */
+    .list-type-news {
+        gap: 8px;
+    }
+    .list-item h3 {
+        font-size: 0.8rem;
+    }
+}
+
+
+/*--- front-NEWS-section ---*/
+
+
+/* General container */
+
+@media(min-width:769px) {
+    .frontpage-container {
+        width: 70%;
+        align: left;
+    }
+    .frontpage-news-comment-width {
+        display: flex;
+    }
+}
+
+.frontpage-news-comment-width {
+    width: 100%;
+}
+
+
+/* Front News Section */
+
+.frontpage-news-column {
+    width: 70%;
+}
+
+.frontpage-news-section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #D2042D;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    color: #D2042D;
+}
+
+.frontpage-news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.frontpage-news-item {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+    height: auto;
+}
+
+.frontpage-news-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.frontpage-news-item img {
+    width: 100%;
+    /* max-height: 30vh; */
+    object-fit: cover;
+}
+
+.frontpage-news-content {
+    padding: 10px;
+}
+
+.frontpage-news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.frontpage-news-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.frontpage-read-more {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    display: flex;
+}
+
+.frontpage-read-more:hover {
+    text-decoration: underline;
+}
+
+.frontpage-no-news {
+    text-align: center;
+    color: #999;
+}
+
+
+/* Comments Section */
+
+.frontpage-comments-column {
+    width: 30%;
+    float: right;
+    padding-left: 20px;
+    height: auto;
+}
+
+.frontpage-comments-section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #D2042D;
+    border-bottom: 1px solid #D2042D;
+    padding: 10px;
+}
+
+.frontpage-comments-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.frontpage-comment-item {
+    flex: 1 1 calc(33.33% - 20px);
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+}
+
+.frontpage-comment-card {
+    display: flex;
+    flex-direction: column;
+    /* Ensures content stacks properly */
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+    /* Sets a minimum height to maintain consistent box-shadow */
+}
+
+.frontpage-comment-content {
+    display: flex;
+    padding: 10px;
+}
+
+.frontpage-commenter-image-wrapper {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.frontpage-commenter-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.frontpage-commenter-details {
+    flex: 1;
+}
+
+.frontpage-comment-title-link {
+    text-decoration: none;
+    color: #0275d8;
+}
+
+.frontpage-comment-title-link:hover {
+    text-decoration: underline;
+}
+
+.frontpage-comment-title {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.frontpage-commenter-name {
+    font-size: 12px;
+    color: #555;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 992px) {
+    .frontpage-news-column {
+        width: 100%;
+    }
+    .frontpage-comments-column {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .frontpage-news-item,
+    .frontpage-comment-item {
+        flex: 1 1 100%;
+    }
+}
+
+
+/*    */
+
+
+/*AD css */
+
+
+/*
+    */
+
+
+/* ad one */
+
+
+/*
+
+
+    .section-one {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-one img {
+        width: 100%;
+        */
+
+
+/* Make the image fill the full width of the container */
+
+
+/*
+        height: auto;
+        */
+
+
+/* Maintain the aspect ratio of the image */
+
+
+/*
+        object-fit: cover;
+        */
+
+
+/* Optional: cover will ensure the image fills the container without distortion */
+
+
+/*
+    }
+    */
+
+
+/* Responsive Styles */
+
+
+/*
+
+    @media (max-width: 769px) {
+        .news-title {
+            font-size: 20px;
+        }
+        .news-meta-info {
+            font-size: 12px;
+        }
+        .share-button {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+        }
+        .news-description {
+            font-size: 14px;
+        }
+        .external-link {
+            font-size: 14px;
+        }
+    }
+    */
+
+
+/* top*/
+
+
+/*
+
+    .section-top img {
+        width: auto;
+        height: 150px;
+        object-fit: contain;
+        max-width: 100%;
+        border-radius: 8px;
+        margin-left: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+        margin-right: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+        display: block;
+    }
+
+    @media (min-width: 1200px) {
+        .section-top img {
+            margin-left: 433px;
+            */
+
+
+/* Apply specific margin for large screens */
+
+
+/*
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .section-top img {
+            margin-left: 0;
+            */
+
+
+/* Reset margin for smaller screens */
+
+
+/*
+        }
+    }*/
+
+
+/* Sport */
+
+.section-sports {
+    max-width: 400px;
+}
+
+.section-sports img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}
+
+
+/*    */
+
+
+/* Entertainment */
+
+
+/*
+
+    .section-enter {
+        max-width: 400px;
+        margin: 0 auto;
+        */
+
+
+/* Center the section by default */
+
+
+/*
+    }
+
+    .section-enter img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        display: block;
+        margin-left: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+        margin-right: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+    }
+
+    @media (min-width: 1200px) {
+        .section-enter img {
+            margin-left: 200px;
+            */
+
+
+/* Apply specific margin for large screens */
+
+
+/*
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .section-enter img {
+            margin-left: 0;
+            */
+
+
+/* Reset margin for smaller screens */
+
+
+/*
+        }
+    }
+    */
+
+
+/* entertainment2 */
+
+
+/*
+
+    .section-ads-enter_2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        */
+
+
+/* Center the content horizontally */
+
+
+/*
+        padding: 10px;
+        box-sizing: border-box;
+        */
+
+
+/* Ensure padding doesn't affect width */
+
+
+/*
+    }
+
+    .section-enter_2 {
+        max-width: 100%;
+        */
+
+
+/* Limit the section width to full container width */
+
+
+/*
+        text-align: center;
+        */
+
+
+/* Center content within the section */
+
+
+/*
+    }
+
+    .section-enter_2 img {
+        width: 100%;
+        height: auto;
+        */
+
+
+/* Maintain aspect ratio */
+
+
+/*
+        object-fit: contain;
+        */
+
+
+/* Ensure full image is visible */
+
+
+/*
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+        */
+
+
+/* Center the image */
+
+
+/*
+    }
+
+    @media (min-width: 769px) {
+        .section-ads-enter_2 {
+            padding: 15px 20px;
+            */
+
+
+/* Adjust padding for medium screens */
+
+
+/*
+        }
+        .section-enter_2 img {
+            max-width: 80%;
+            */
+
+
+/* Reduce image width on medium screens */
+
+
+/*
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .section-enter_2 img {
+            max-width: 60%;
+            */
+
+
+/* Further reduce image width on large screens */
+
+
+/*
+        }
+    }
+    */
+
+
+/*AD Css */
+
+
+/* most viewed bottom */
+
+
+
+
+/* Most Viewed Scroll Start */
+
+.mostview-title{
+    background-color: #F5F5F5;
+    padding:10px;
+    color: #D2042D;
+    font-weight:bold;
+}
+
+/* Default PC View */
+.mostview-news-scroll {
+    max-width: 1400px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    gap: 10px; /* Space between items */
+}
+
+.mostview-news-item {
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+.mostview-card {
+    width: 200px;
+    display: flex;
+    flex-direction: column; /* Stack image and title vertically */
+    border: 1px solid #ddd; /* Optional: Add border */
+    border-radius: 2px; /* Optional: Add rounded corners */
+    overflow: hidden;
+}
+
+.mostview-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Maintain 4:3 ratio */
+    object-fit: cover; /* Ensure image fits without distortion */
+}
+
+.mostview-card-body {
+    padding: 10px;
+    text-align: center; /* Center-align text */
+}
+
+.mostview-card-title {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Truncate text if it overflows */
+}
+
+/* Responsive for Medium Screens */
+@media (max-width: 1200px) {
+    .mostview-card {
+        width: 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .mostview-card {
+        width: 160px;
+    }
+    .mostview-card-title {
+        font-size: 0.9em;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .mostview-news-scroll {
+        display: block; /* Switch to vertical list */
+        overflow-x: hidden;
+    }
+    .mostview-news-item {
+        display: flex; /* Align image and title side by side */
+        align-items: center;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .mostview-card {
+        flex-direction: row; /* Image and text in a row */
+        width: 100%;
+        aspect-ratio: unset; /* Remove aspect ratio for row layout */
+        padding: 0;
+        border: none;
+    }
+    .mostview-card-img {
+        width: 80px; /* Small image for mobile */
+        height: 60px; /* Adjust image height */
+        margin-right: 10px;
+    }
+    .mostview-card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        width: calc(100% - 90px); /* Adjust for image width and margin */
+    }
+    .mostview-card-title {
+        font-size: 0.9em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* Most Viewed Scroll End */
+
+
+
+/*  Footer-Top  */
+
+.footer-hr-whole {
+    width: 100%;
+}
+
+.footer-hr a {
+    margin-right: 1vw;
+}
+
+@media(min-width:769px) {
+    .footer-css {
+        padding-bottom: 100px;
+    }
+}
+
+@media(max-width:769px) {
+    .footer-css {
+        padding-bottom: 100px;
+    }
+}
+
+.hr-category-item-footer-top {
+    border: 1px solid #ddd;
+    /* Adjust border style as needed */
+    padding: 0;
+    /* Remove extra padding */
+    margin: 10px 0px 10px 0px !important;
+}
+
+.category-item-footer-top {
+    display: inline-block;
+    font-size: 1.25rem;
+    /* Smaller size for PC view */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    margin: 0 1vw 0 1vw !important;
+    /* Adjust spacing between items */
+    text-decoration: none;
+    /* Remove underline by default */
+    color: inherit;
+    /* Inherit text color */
+    vertical-align: middle;
+    /* Align with the red ball */
+}
+
+.category-item-footer-top:hover {
+    text-decoration: underline;
+    /* Optional: underline on hover */
+}
+
+.red-ball-icon {
+    font-size: 1rem;
+    /* Smaller size for PC view */
+    vertical-align: middle;
+    /* Align with text */
+    margin: 0 0.25rem;
+    /* Space around the ball */
+}
+
+
+/* Adjust size for smaller screens */
+
+@media (max-width: 769px) {
+    .red-ball-icon {
+        font-size: 0.75em;
+        /* Smaller size for mobile screens */
+    }
+    .category-item-footer-top {
+        font-size: 4vw;
+        /* Increase font size on smaller screens */
+    }
+}
+
+
+/*  Footer-Top END  */
+
+
+/*   Footer (main) Start   */
+
+.social-icons-footer {
+    justify-content: center;
+    /* Center social icons on mobile */
+    margin-top: 10px;
+    /* Add some space above */
+    font-size: 2.5rem;
+    /* Increase the size of all social icons */
+}
+
+.social-icons-footer i {
+    color: #333;
+    /* Optional: Change color */
+    margin-right: 10px;
+    /* Optional: Space between icons */
+    transition: transform 0.3s ease;
+    /* Optional: Smooth transition on hover */
+    font-size: 2rem;
+}
+
+.social-icons-footer i:hover {
+    transform: scale(1.2);
+    /* Optional: Slight zoom effect on hover */
+}
+
+
+/*   Footer END */
+
+
+/* ----------------  most viewed scrollber -frontpage START----------  */
+
+
+/* Container for the scrollable news section */
+
+.unique-scroll-news_bottom {
+    overflow-x: auto;
+    /* Enable horizontal scrolling on desktop */
+    white-space: nowrap;
+    /* Prevent wrapping */
+    padding: 10px;
+    /* Add padding around the container */
+    box-sizing: border-box;
+}
+
+
+/* Title and Icon Alignment */
+
+.unique-float-left {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    /* Space below the title */
+    line-height: 1.5;
+    /* Ensure the title and icon align correctly */
+}
+
+
+/* Container for the news items */
+
+.unique-news-scroll {
+    display: inline-block;
+    /* Ensure the container fits the content */
+}
+
+
+/* Individual news items */
+
+.unique-news-item {
+    display: inline-block;
+    /* Align news items horizontally on desktop */
+    width: 25vh;
+    /* Width of each news item */
+    margin-right: 10px;
+    /* Space between news items */
+    text-align: center;
+    /* Center the text */
+    vertical-align: top;
+    /* Align items to the top */
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+    /* Divider between news items */
+    padding-bottom: 10px;
+    /* Padding below the news item */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition effect */
+}
+
+
+/* Card Design */
+
+.unique-card {
+    background-color: #fff;
+    /* White background for card */
+    overflow: hidden;
+    /* Hide overflow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    transition: box-shadow 0.3s ease;
+    /* Smooth shadow transition */
+    display: flex;
+    /* Align image and text in a row */
+    flex-direction: column;
+    /* Column layout for card content */
+}
+
+.unique-card-img {
+    width: 100%;
+    /* Full width of the card */
+    height: 20vh;
+    /* Fixed height for images */
+    object-fit: cover;
+    /* Cover the image area */
+}
+
+
+/* Title styles */
+
+.unique-card-title {
+    font-size: 0.9em;
+    /* Adjust title size */
+    margin-top: 5px;
+}
+
+
+/* Mobile Styles */
+
+@media (max-width: 769px) {
+    .unique-scroll-news_bottom {
+        overflow-x: hidden;
+        /* Hide horizontal scroll on mobile */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+        white-space: normal;
+        /* Allow wrapping */
+        padding: 0;
+        /* Remove padding */
+    }
+    .unique-news-scroll {
+        display: block;
+        /* Stack items vertically */
+    }
+    .unique-news-item {
+        display: flex;
+        /* Use flex for vertical layout */
+        width: 100%;
+        /* Full width of each news item */
+        margin-right: 0;
+        /* No margin on mobile */
+        margin-bottom: 10px;
+        /* Space below each item */
+        align-items: center;
+        /* Center items vertically */
+        border-bottom: 1px solid #ddd;
+        /* Divider between news items */
+        padding: 10px 0;
+        /* Padding around the news item */
+        box-sizing: border-box;
+    }
+    .unique-card-img {
+        width: 20%;
+        /* Image width on mobile */
+        height: auto;
+        /* Maintain aspect ratio */
+        margin-right: 10px;
+        /* Space between image and text */
+    }
+    .unique-card-body {
+        width: 80%;
+        /* Text width on mobile */
+        text-align: left;
+        /* Align text to the left */
+    }
+    .unique-card-title {
+        font-size: 0.8em;
+        /* Smaller title size on mobile */
+        margin: 0;
+        /* Remove margin */
+    }
+}
+
+
+/* ----------------  most viewed scrollber -frontpage END ----------  */
+
+
+/* --- Frontpage Category Section --- */
+
+
+/* ----------- PC View (Default) ----------- */
+
+
+/* Common Styles */
+
+.frontpg-category-div {
+    margin-top: 20px;
+    height: auto;
+}
+
+.frontpg-category-container {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.frontpg-category-name {
+    font-weight: bold;
+    font-size: 25px;
+    color: #D2042D;
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+/* Image and title common */
+
+.frontpg-category-big-news-img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.frontpg-category-big-news {
+    transition: ease 0.3s;
+}
+
+.frontpg-category-big-news:hover {
+    transform: scale(1.07);
+}
+
+.frontpg-category-big-news-title {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    padding: 0px 10px 0px 10px !important;
+    text-decoration: none;
+    color: #111;
+}
+
+.frontpg-category-small-news-title {
+    font-size: 18px;
+    font-weight: normal;
+    padding: 0px 10px 10px 10px !important;
+    text-decoration: none;
+    color: #111;
+}
+
+.frontpg-category-name:hover {
+    border-bottom: 2px solid #D2042D ;
+}
+
+
+/* Flexbox PC View */
+
+@media (min-width: 769px) {
+    .frontpg-category-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .frontpg-category-name:hover {
+        border-bottom:2px solid #D2042D;
+        border-right:2px solid #D2042D;
+        background-color: #ddd;
+    }
+    .frontpg-category-container {
+        width: 24%;
+        box-sizing: border-box;
+        border: none;
+        /* For a borderless feel */
+    }
+    .frontpg-category-news-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* Space between news items */
+    }
+    /* Adjust big news */
+    .frontpg-category-big-news {
+        position: relative;
+    }
+    .frontpg-category-small-news {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        /* Gap between image and text */
+        border-bottom: 2px solid #ddd;
+        transition: ease 0.5s;
+    }
+    .frontpg-category-small-news:hover {
+        transform: scale(1.1);
+    }
+    .frontpg-category-small-news-title {
+        font-size: 1rem;
+    }
+}
+
+
+/* Mobile View */
+
+@media (max-width: 767px) {
+    .frontpg-category-container {
+        width: 100%;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+        /* Keep a subtle bottom border */
+    }
+    .frontpg-category-news-grid {
+        display: block;
+    }
+    .frontpg-category-small-news {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ddd;
+    }
+    .frontpg-category-small-news img {
+        width: 30%;
+        object-fit: cover;
+    }
+    .frontpg-category-small-news-title {
+        width: 70%;
+        padding-left: 10px;
+    }
+}
+
+
+/*   category frontpage END   */
+
+
+/*   Category Details Page CSS  START  */
+
+
+/* ADS */
+
+
+/* Category Page Styles */
+
+
+/* Container for the entire news section */
+
+.categorypage-news-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    /* Max width for the container */
+}
+
+
+/* Heading Style */
+
+.categorypage-news-list h1 {
+    border-bottom: 3px solid red;
+    /* Red border below the heading */
+    margin-top: 3rem;
+    /* Top margin for spacing */
+    font-size: 2rem;
+    /* Font size for the heading */
+    color: #333;
+    /* Heading color */
+}
+
+
+/* Main news section */
+
+.categorypage-news-main,
+.categorypage-news-list {
+    display: grid;
+    /* Grid layout for items */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Space between items */
+}
+
+
+/* Individual news item */
+
+.categorypage-news-item {
+    transition: transform 0.3s ease;
+    /* Smooth scaling on hover */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    /* Optional: rounded corners */
+}
+
+
+/* First news item takes up 2x2 space */
+
+.categorypage-news-item:first-child {
+    grid-column: span 2;
+    /* Make first item span two columns */
+}
+
+@media (min-width:769px) {
+    /* Title style */
+    .categorypage-news-title {
+        font-size: 1.25rem;
+        /* Title font size */
+        color: #333;
+        /* Darker text for contrast */
+        margin: 0 0 10px;
+        /* Margin below title */
+        padding: 10px;
+        font-weight: bold;
+    }
+}
+
+
+/* Image style */
+
+.categorypage-news-img {
+    width: 100%;
+    /* Full width */
+    height: auto;
+    /* Auto height */
+}
+
+
+/* Description style */
+
+.categorypage-news-description {
+    margin: 10px 0;
+    /* Margin for description */
+    color: #666;
+    /* Lighter text color */
+    padding: 5px;
+}
+
+
+/* Read more link */
+
+.categorypage-read-more {
+    color: #007bff;
+    /* Bootstrap primary color */
+    text-decoration: none;
+    /* Remove underline */
+    font-weight: bold;
+    /* Bold text */
+}
+
+
+/* Hover effect for items */
+
+.categorypage-news-item img:hover {
+    transform: scale(1.045);
+    /* Slightly scale up on hover */
+}
+
+.categorypage-news-item img {
+    transition: ease 0.3s;
+}
+
+
+/* Mobile View Adjustments */
+
+@media (max-width: 769px) {
+    .categorypage-news-item {
+        background-color: #fff;
+        /* White background for items */
+        transition: transform 0.2s ease;
+        /* Smooth scaling on hover */
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Shadow effect at the bottom */
+        border-radius: 4px;
+        /* Optional: rounded corners */
+    }
+    /* Change to list view */
+    .categorypage-news-main,
+    .categorypage-news-list {
+        display: block;
+        /* Block layout on mobile */
+    }
+    /* Individual news item */
+    .categorypage-news-item {
+        margin-bottom: 20px;
+        /* Space between items */
+    }
+    /* Adjust title font size */
+    .categorypage-news-title {
+        font-size: 1.1rem;
+        /* Smaller title on mobile */
+        margin-left: 10px;
+        font-weight: bold;
+    }
+}
+
+
+/*  More Related Section News --- CSS - START */
+
+.categorypage-more-section {
+    margin: 20px 0;
+    /* Margin for the section */
+}
+
+.categorypage-more-section a {
+    text-decoration: none;
+    color: #111;
+}
+
+.categorypage-more-ads-scroll {
+    width: 100%;
+}
+
+@media (min-width:769px) {
+    .categorypage-more-section {
+        width: 70%;
+    }
+    .categorypage-more-ads-scroll {
+        display: flex;
+    }
+}
+
+.categorypage-more-title {
+    font-size: 1.5rem;
+    /* Adjust title size */
+    margin-bottom: 10px;
+    /* Space below the title */
+    border-bottom: 3px solid #D2042D;
+    /* Optional: underline */
+}
+
+.categorypage-more-container {
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Stack items vertically */
+}
+
+.categorypage-more-item {
+    display: flex;
+    /* Arrange title and image in a row */
+    align-items: center;
+    /* Center vertically */
+    background-color: #fff;
+    /* Background color */
+    margin: 5px 0;
+    /* Vertical spacing between items */
+    padding: 10px;
+    /* Padding inside each item */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Light shadow */
+    border-radius: 4px;
+    /* Optional: rounded corners */
+    transition: ease 0.3s, color 0.5s, border-bottom 0.5s;
+}
+
+.categorypage-more-item:hover {
+    transform: scale(1.05);
+}
+
+.categorypage-more-text {
+    flex: 1;
+    /* Allow text to take remaining space */
+    margin-right: 10px;
+    /* Space between text and image */
+}
+
+.categorypage-more-news-title {
+    font-size: 1.2rem;
+    /* Title size */
+    margin: 0;
+    /* Remove default margin */
+}
+
+.categorypage-more-news-img {
+    /* Fixed width for the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    width: 200px;
+}
+
+
+/*  More Related Section News --- CSS - END */
+
+
+/*   Category Details Page CSS  END  */
+
+
+/*   POLICY Page CSS  -- START__  */
+
+.policy-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.policy-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.policy-section {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 48%;
+}
+
+.divider {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .policy-section {
+        width: 100%;
+    }
+    .divider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+        margin: 10px 0;
+    }
+}
+
+
+/*   POLICY Page CSS  -- END--  */
+
+
+/*  search icon top  Start */
+
+
+/* For screens up to 769px */
+
+@media (max-width: 769px) {
+    /* Search Icon in the nav */
+    .search-container {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        z-index: 1000;
+        /* High z-index to ensure it stays on top */
+        cursor: pointer;
+        width: 15vw;
+    }
+    .search-icon {
+        font-size: 24px;
+        color: #fff;
+    }
+    /* Full-Screen Search Overlay */
+    .search-overlay {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 70px;
+        /* Search box height */
+        background: rgba(0, 0, 0, 0.8);
+        /* Transparent dark background */
+        z-index: 9999;
+        /* Ensure it's over all elements */
+        justify-content: center;
+        align-items: center;
+    }
+    /* Centered Search Box */
+    .search-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 95px;
+        background-color: #D2042D;
+        /* Red background */
+    }
+    .search-input {
+        width: calc(100% - 60px);
+        padding: 10px;
+        font-size: 16px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 5px 0 0 5px;
+    }
+    .search-icon-button {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        outline: none;
+        /* Remove outline on focus */
+    }
+    .search-icon-button i{
+        font-size: 5rem;
+        /* Adjust icon size if needed */
+        padding: 15px 5px 10px 20px;
+    }
+    .search-form {
+        width: 75%;
+        margin: 0px 10px 0px 10px !important;
+    }
+    .search-icon-button-up {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        outline: none;
+        /* Remove outline on focus */
+        transition: ease 0.3s;
+    }
+    .search-icon-button-up:hover {
+        transform: scale(1.5);
+    }
+    .search-icon-button-up i {
+        font-size: 24px;
+        /* Adjust icon size if needed */
+        padding: 5px;
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+    }
+    /* Back button (X) for closing search */
+    .back-icon {
+        position: absolute;
+        left: 10px;
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+
+/* For screens larger than 769px */
+
+@media (min-width: 769px) {
+    .search-container,
+    .search-overlay,
+    .search-box,
+    .search-input,
+    .search-icon-button,
+    search-icon-button-up {
+        display: none;
+    }
+}
+
+
+/*  -----------      PC-Search ---------------- */
+
+
+/* Hide the overlay initially */
+
+@media (min-width: 768px) {
+    .pc-search-overlay {
+        display: none;
+        /* Initially hidden */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        z-index: 1000;
+        /* High z-index to ensure it's on top */
+    }
+    /* The search bar at the top of the page */
+    .pc-search-bar {
+        background-color: #fff;
+        /* Search bar background */
+        padding: 20px;
+        /* More padding for a nicer look */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Light shadow effect */
+        display: flex;
+        gap: 10px;
+        z-index: 1001;
+    }
+    /* Input field inside the search bar */
+    .pc-search-input {
+        flex: 1;
+        /* Take up remaining space */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 80vw;
+    }
+    /* Search button and close button styles */
+    .pc-search-icon {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        padding: 8px 5px 4px 5px;
+        /* Remove padding to make it compact */
+        outline: none;
+        /* Remove outline on focus */
+        color: #D2D2D2;
+        /* Set icon color */
+        font-size: 1rem;
+        /* Adjust size if needed */
+
+    }
+    .pc-search-icon-button,
+    .pc-close-button {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        padding: 0;
+        /* Remove padding to make it compact */
+        outline: none;
+        /* Remove outline on focus */
+        color: #D2D2D2;
+        /* Set icon color */
+        font-size: 10px;
+        /* Adjust size if needed */
+
+    }
+    .pc-search-icon-button,
+    .pc-close-button {
+        font-size: 1.5rem !important;
+        /* Adjust size if needed */
+    }
+    /* Additional styling for the close button */
+    .pc-close-button i {
+        color: #D2042D;
+        /* Change close button text color to white */
+    }
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 769px) {
+    .pc-search-overlay,
+    .pc-search-input,
+    .pc-search-bar,
+    .pc-search-icon-button,
+    .pc-search-container,
+    .pc-close-button {
+        display: none;
+    }
+    /* When overlay is open, hide the search icon */
+}
+
+.hide-icon {
+    display: none;
+}
+
+
+/*  Search HTML  Start   */
+
+@media (min-width: 769px) {
+    /* Search Results */
+    .custom-searchpage-whole-container {
+        width: 75%;
+        margin: 0 auto;
+        display: flex;
+        box-sizing: border-box;
+    }
+    .search-results {
+        width:100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 news cards per row */
+        gap: 20px;
+        padding: 20px;
+    }
+    .search-result-card {
+        transition: ease 0.3s;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .search-result-card:hover {
+        transform: scale(1.05);
+    }
+    .search-result-card img {
+        width: 100%;
+        height: 20vw;
+        /* Responsive image */
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 769px) {
+    /* Search Results */
+    .custom-searchpage-whole-container {
+        width: 97%;
+        margin: 0 auto;
+        padding: 10px auto;
+    }
+    .search-results {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        /* Full width for each news card */
+        gap: 10px;
+        padding: 10px;
+    }
+    .search-result-card {
+        transition: ease 0.3s;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .search-result-card:hover {
+        transform: scale(1.05);
+    }
+    .search-result-card img {
+        width: 100%;
+        height: 50vw;
+        /* Responsive image for mobile */
+        object-fit: cover;
+    }
+}
+
+
+/*  Search HTML  END   */
+
+
+/* Ad page */
+
+.container-ad {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.guideline-section {
+    margin-bottom: 30px;
+}
+
+.guideline-section h4 {
+    font-size: 1.5em;
+    color: #216373;
+    margin-bottom: 15px;
+}
+
+.guideline-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.guideline-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.guideline-section ul li {
+    margin-bottom: 8px;
+}
+
+.contact-section-ad {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.contact-section-ad h5 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #216373;
+}
+
+.contact-section-ad p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .container-ad {
+        padding: 15px;
+    }
+    .guideline-section h4,
+    .contact-section-ad h5 {
+        font-size: 1.2em;
+    }
+    .guideline-section p,
+    .contact-section-ad p {
+        font-size: 1em;
+    }
+    .guideline-section ul {
+        padding-left: 15px;
+    }
+    .guideline-section ul li {
+        margin-bottom: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .guideline-section h4,
+    .contact-section-ad h5 {
+        font-size: 1em;
+    }
+    .guideline-section p,
+    .contact-section-ad p {
+        font-size: 0.9em;
+    }
+}
+
+
+/* ad page */
+
+
+/* mobile nav social Media */
+
+.date-mobile {
+
+    padding: 2px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.date {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.social-icons-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* margin-bottom: 10px; */
+}
+
+.social-icons-nav a {
+    color: #555;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons-nav a:hover {
+    color: #216373;
+}
+
+.follow-us {
+    color: #777;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+/* mobile nav social Media */
+
+
+/*carousel-indicator-custom*/
+
+
+/* box-sizing: content-box; */
+
+.carousel-indicator_new [data-bs-target] {
+    flex: 0 1 auto;
+    /* width: 30px; */
+    /* height: 3px; */
+    padding: 0;
+    /* margin-right: 3px; */
+    margin-left: 700px;
+    text-indent: -999px;
+    cursor: pointer;
+    /* background-color: #fff; */
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    /* opacity: .5; */
+    /* transition: opacity .6s ease; */
+}
+
+
+/*carousel-indicator-custom*/
+
+
+/* Popup Container */
+
+
+/* Merged additional styles from original style.css */
+* {
+    font-family: 'SolaimanLipi', sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* Default styles for larger screens (desktop) */
+
+@media (min-width: 769px) {
+    .custom-whole-container {
+        width: 80%;
+        /* Example default width */
+        margin: 0 auto;
+    }
+}
+
+
+/* Styles for mobile devices */
+
+@media (max-width: 769px) {
+    .custom-whole-container {
+        width: 97%;
+        margin: 0 auto;
+        padding: 10px auto;
+        /* Override margin for mobile */
+    }
+}
+
+body a {
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+    margin-top: initial;
+    /* Resets to browser default or can be set to a custom value */
+    margin-bottom: 0px;
+    /* Set margin-bottom to 0 or your preferred value */
+    color: #111;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: left;
+}
+
+@media (max-width: 769px) {
+    body {
+        background-color: #f8f9fa;
+        margin: 0;
+        top: 70px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+}
+
+
+/*   ADVERTISEMENT-by available space  */
+
+.ad-placeholder {
+    width: 300px;
+    /* Example width */
+    height: 250px;
+    /* Example height */
+    margin: 10px;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+
+
+/* General Styles */
+
+@media (min-width:769px) {
+    body {
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+
+
+/*    Scroll Effect Video ,Photo Section   */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+/*  Section Heading Common Start*/
+
+
+/* Container for the section heading and categories */
+
+@media (min-width:769px) {
+    .section-heading-container {
+        width: 100%;
+        /* Full width of the parent container */
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width and height */
+        background-color: #ffffff;
+        /* Background color of the section */
+        border-bottom: 2px solid #D2042D;
+        /* Red underline */
+        margin-bottom: 20px;
+        /* Space below the section */
+        color: #FFF;
+        /* Text color */
+        margin-top: 20px;
+    }
+    /* Style for the section heading */
+    .section-heading {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        /* Adjust font size as needed */
+        font-weight: bold;
+        background-color: #D2042D;
+        /* Red background color */
+        color: #ffffff;
+        /* White text color */
+        padding: 10px 10px;
+        /* Padding inside the heading */
+    }
+    /* Style for the section title link */
+    .section-heading .section-title {
+        color: #ffffff;
+        /* White text color */
+        text-decoration: none;
+        /* Remove underline from links */
+        padding-right: 10px;
+        /* Space between title and arrow */
+        padding-left: 20px;
+        /* Space to the left of the title */
+        transition: color 0.5s, border-bottom 0.5s;
+        /* Smooth transition for hover effect */
+    }
+    /* Hover effect for the section title link */
+    .section-heading .section-title:hover {
+        color: #ffffff;
+        /* Ensure color remains white on hover */
+        border-bottom: 3px solid #D2042D;
+        /* Red underline on hover */
+    }
+    /* Style for the arrow sign */
+    .arrow {
+        font-size: 18px;
+        /* Adjust font size as needed */
+        color: #ffffff;
+        /* White arrow color */
+        margin-left: 10px;
+        /* Space between title and arrow */
+    }
+    /* Style for the category list */
+    .category-list {
+        margin-top: 10px;
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Style for individual category items */
+    .category-item {
+        margin: 0 25px 5px;
+        color: #000000;
+        text-decoration: none;
+        transition: color 0.3s, border-bottom 0.3s;
+        white-space: nowrap;
+    }
+    /* Hover effect for category items */
+    .category-item:hover {
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+    }
+}
+
+
+/* Mobile View Adjustments */
+
+@media (max-width: 769px) {
+    .section-heading-container {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border-bottom: 2px solid #D2042D;
+        color: #FFF;
+        /* Text color */
+    }
+    /* Style for the section heading */
+    .section-heading {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        /* Adjust font size as needed */
+        font-weight: bold;
+        background-color: #D2042D;
+        /* Red background color */
+        color: #ffffff;
+        /* White text color */
+        padding: 5px 10px 5px 10px;
+        margin-top: 10px;
+    }
+    /* Style for the section title link */
+    .section-heading .section-title {
+        color: #ffffff;
+        /* White text color */
+        text-decoration: none;
+        /* Remove underline from links */
+        padding-right: 10px;
+        /* Space between title and arrow */
+        padding-left: 20px;
+        /* Space to the left of the title */
+        transition: color 0.5s, border-bottom 0.5s;
+        /* Smooth transition for hover effect */
+    }
+    /* Hover effect for the section title link */
+    .section-title {
+        font-size: 1.1rem;
+    }
+    .section-heading .section-title:hover {
+        color: #ffffff;
+        /* Ensure color remains white on hover */
+        border-bottom: 3px solid #D2042D;
+        /* Red underline on hover */
+    }
+    /* Style for the arrow sign */
+    .arrow {
+        font-size: 18px;
+        /* Adjust font size as needed */
+        color: #ffffff;
+        /* White arrow color */
+        margin-left: 10px;
+        /* Space between title and arrow */
+    }
+    /* Style for the category list */
+    .category-list {
+        margin-top: 5px;
+        margin-left: 10px;
+        font-size: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Style for individual category items */
+    /* Hover effect for category items */
+    .category-item:hover {
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+    }
+    .category-list {
+        font-size: 10px;
+        /* Smaller text size for mobile */
+        flex-direction: row;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center items horizontally */
+        gap: 10px;
+    }
+    .category-item {
+        font-size: 12px;
+        margin: 10px 0;
+        text-decoration: none;
+        background-color: #E0E0E0;
+        color: #000000;
+        padding: 0px 8px 0px 8px;
+        border-radius: 0.25rem;
+    }
+    }
+    .category-item:hover {
+        color: #D2042D;
+        /* Change text color on hover */
+        transform: scale(1.1);
+        /* Green underline on hover */
+    }
+}
+
+
+/*  Section Heading Common END */
+
+
+/* Breaking NEWS Running start */
+
+
+
+
+
+/* Mobile - view END */
+
+
+/*   Breaking NEWS Running  end */
+
+
+/* Mobile - view END */
+
+
+/*   Breaking NEWS Running  end */
+
+
+/* Top Bar , LOGO ,DATE*/
+
+@media (min-width: 769px) {
+    .top-bar-mobile {
+        display: none;
+    }
+    .top-bar {
+        padding: 10px 0;
+        text-align: left;
+        font-size: 16px;
+        font-family: 'Siyam Rupali', sans-serif;
+        display: flex;
+        flex-direction: column;
+        /* Stack items vertically */
+        justify-content: center;
+    }
+    .top-bar p {
+        margin: 0;
+        font-size: 20px;
+    }
+    /* Logo */
+    .logo {
+        /* margin-left: 44px; */
+
+        height: 100px;
+        align-items: center;
+        margin-bottom:0.25rem;
+    }
+    .logo-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+    /* Social Icons */
+    .social-icons-pc-nav {
+        margin: 10px;
+    }
+    .pc-footer-icon-large i {
+        font-size: 2rem !important;
+    }
+    .social-icons-pc-nav i {
+        margin: 0 10px;
+        font-size: 2rem;
+        transition: ease 0.4 color 0.4s;
+        /* Smooth color transition */
+    }
+    /* Specific colors for each icon */
+    .social-icons-pc-nav a.facebook i {
+        color: #3b5998;
+        /* Facebook blue */
+    }
+    .social-icons-pc-nav a.youtube i {
+        color: #ff0000;
+        /* YouTube red */
+    }
+    .social-icons-pc-nav a.twitter i {
+                /*color: #1da1f2;*/
+                    display: inline-block;
+            background: #111;;
+            color: white;
+            border-radius: 50%;
+            padding: 3px;
+        /* Twitter blue */
+    }
+    /* Hover effects */
+    .social-icons-pc-nav a:hover i {
+        color: #000;
+        /* Change color on hover (optional) */
+        transform: scale(1.5);
+    }
+    .social-icons-pc-nav a.twitter:hover i {
+    color: white;
+    /* Retain original color on hover */
+    transform: scale(1.5);
+    /* Disable scaling on hover */
+}
+}
+
+@media (max-width: 769px) {
+    .date-mobile p {
+        text-align: center;
+        margin-bottom: 0px !important;
+    }
+    .top-bar p {
+        display: none;
+    }
+    .top-bar-mobile {
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 10%;
+        z-index: 1000;
+        /* Make sure it's higher than other elements */
+    }
+    .top-bar-shadow {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.3);
+        /* Stronger bottom shadow */
+    }
+    .top-bar-mobile p {
+        margin: 0;
+        font-size: 16px;
+    }
+    /* Hide logo and social icons on mobile */
+    .logo,
+    .logo-wrapper,
+    .social-icons-pc-nav {
+        display: none;
+    }
+    .social-icons-mobile a {
+        margin: 0 5px;
+    }
+    .social-icons-mobile i {
+        color: #555;
+        /* Default color */
+        font-size: 15px;
+        transition: color 0.3s;
+        /* Smooth color transition */
+    }
+    /* Specific colors for each icon */
+    .social-icons-mobile a.facebook i {
+        color: #3b5998;
+        /* Facebook blue */
+    }
+    .social-icons-mobile a.youtube i {
+        color: #ff0000;
+        /* YouTube red */
+    }
+    .social-icons-mobile a.twitter i {
+                /*color: #1da1f2;*/
+                    display: inline-block;
+            background: #111;;
+            color: white;
+            border-radius: 50%;
+            padding: 3px;
+    /* Twitter blue */
+    }
+    /* Hover effects */
+    .social-icons-mobile a:hover i {
+        color: #000;
+        /* Change color on hover (optional) */
+    }
+    .social-icons-mobile a.twitter:hover i {
+        color: white;
+        /* Retain original color on hover */
+        transform: scale(1.5);
+        /* Disable scaling on hover */
+}
+
+}
+
+@media(max-width:1000px) {
+    .social-icons-pc-nav {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Breaking or Most Read Scrollable News Section */
+
+.breaking-or-mostread-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.breaking-or-mostread-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.breaking-most-read-div {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+@media (min-width:769px) {
+    .breaking-most-read-div {
+        margin-left: 10px;
+    }
+    .breaking-toggle-btn-readmore-2 {
+        border: 1px solid #ddd;
+        width: 97.5%;
+        border: none;
+        background-color: #ddd;
+        color: #D2042D;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+    .breaking-toggle-btn-readmore-2:hover {
+        background-color: #D2042D;
+        color: #fff;
+    }
+}
+
+@media (max-width:769px) {
+    /*  Section page breaking--2 END */
+    /*  Section page breaking--2 Start */
+    .breaking-toggle-btn-readmore-2 {
+        padding-right: 10px;
+        border: 1px solid #ddd;
+        width: 100%;
+        border: none;
+        background-color: #ddd;
+        color: #D2042D;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+    .breaking-toggle-btn-readmore-2:hover {
+        background-color: #D2042D;
+        color: #fff;
+    }
+    /*  Section page breaking--2 END */
+}
+
+.breaking-or-mostread-toggle-btn {
+    width: 50%;
+    border: none;
+    background-color: #ddd;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+}
+
+.breaking-toggle-btn-readmore {
+    padding-right: 10px;
+    border: 1px solid #ddd;
+    width: 97.5%;
+    border: none;
+    background-color: #ddd;
+    color: #D2042D;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.breaking-toggle-btn-readmore:hover {
+    background-color: #D2042D;
+    color: #fff;
+}
+
+.breaking-or-mostread-toggle-btn.active {
+    background-color: #D2042D;
+    color: white;
+}
+
+.breaking-or-mostread-toggle-btn:hover {
+    background-color: #D2042D;
+    color: white;
+}
+
+.breaking-or-mostread-news-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.breaking-or-mostread-news-scroll.active {
+    display: block;
+}
+
+.breaking-or-mostread-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.breaking-or-mostread-card-img {
+    width: 30%;
+    margin-right: 10px;
+    max-height: 15vh;
+}
+
+.breaking-or-mostread-card-body {
+    width: 70%;
+    text-align: left;
+}
+
+.breaking-or-mostread-card-title {
+    font-size: 0.7rem;
+    white-space: normal;
+    word-wrap: break-word;
+    color: #111;
+    transition: ;
+    ease 0.3s;
+    font-size: 1rem;
+}
+
+.breaking-or-mostread-card-title:hover {
+    color: #D2042D;
+}
+
+@media (max-width: 769px) {
+    .breaking-or-mostread-container {
+        width: 100%;
+    }
+}
+
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+
+.breaking-or-mostread-news-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/*  recent Scroll bar END   */
+
+
+/*---main-divs---START---*/
+
+.main-divs {
+    display: flex;
+}
+
+
+/*---main-divs---END---*/
+
+
+/* contact page start */
+
+.contact-container {
+    background-color: #ffffff;
+    padding: 40px;
+    /* Increased padding for more space */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.contact-section-title {
+    color: #e74c3c;
+    /* Red color */
+    font-weight: 700;
+    font-size: 32px;
+    /* Larger font size */
+    margin-bottom: 10px;
+}
+
+.contact-divider {
+    border: 0;
+    height: 2px;
+    /* Thicker divider */
+    background-color: #ddd;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.contact-subtitle {
+    color: #333;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 24px;
+    /* Larger font size for subtitles */
+}
+
+.contact-info {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-size: 18px;
+    /* Increased font size for readability */
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* contact page end */
+
+
+/* ad */
+
+.ad-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ad-card {
+    border: none;
+    padding: 10px;
+    width: 400px;
+    /* Fixed width */
+    height: 200px;
+    /* Fixed height */
+    overflow: hidden;
+    /* Ensure content doesn't overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ad-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* Ensure the image covers the area while maintaining aspect ratio */
+}
+
+
+/* ad */
+
+
+/*------Highlighted-News---Start------*/
+
+
+/* General card styles */
+
+.card {
+    border: 1px solid #ddd;
+    /* Light border for all cards */
+    border-radius: 0.25rem;
+    /* Rounded corners */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* Subtle shadow */
+}
+
+.card-img-top {
+    width: 100%;
+    /* Full width for image */
+    height: 180px;
+    /* Fixed height for image */
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the area */
+}
+
+.card-body {
+    padding: 1rem;
+    /* Default padding inside card body */
+}
+
+
+/* Styles for the highlighted card */
+
+.highlight-card .card-title {
+    font-weight: bold;
+    /* Bold title for emphasis */
+    font-size: 1.25rem;
+    /* Larger font size for highlighted cards */
+}
+
+
+/* Styles for the smaller card */
+
+.small-card {
+    width: 100%;
+    /* Full width to fit the container */
+}
+
+.small-card .card-body {
+    padding: 0.5rem;
+    /* Reduced padding for a compact card */
+}
+
+.small-card .card-title {
+    font-size: 1rem;
+    /* Smaller font size for titles in smaller cards */
+}
+
+.small-card .card-text {
+    font-size: 0.875rem;
+    /* Smaller font size for text in smaller cards */
+}
+
+
+/* Common text size adjustment for all cards */
+
+.card-text {
+    font-size: 0.875rem;
+    /* Default font size for text inside cards */
+}
+
+
+/*------Highlighted-News-END------*/
+
+
+/*--- Front-NEWS-section ---*/
+
+
+/* General Styles */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Adjusted padding for smaller padding on the sides */
+}
+
+
+/*--- News Section ---*/
+
+.news-column {
+    width: 100%;
+    float: left;
+    /* Keep the section aligned left */
+}
+
+.news-section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    /* Center title for better aesthetics */
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Added gap between news items */
+}
+
+.news-item {
+    flex: 1 1 calc(33.333% - 20px);
+    /* 3 items per row on larger screens */
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+    padding: 10px;
+    /* Added padding to separate content from borders */
+}
+
+.news-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow effect */
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 10px;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    display: block;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.no-news {
+    text-align: center;
+    color: #999;
+}
+
+
+/*--- Responsive Styles ---*/
+
+
+/* Mobile view: Adjust for screens smaller than 769px */
+
+@media (max-width: 769px) {
+    .news-container {
+        display: block;
+        /* Stack items vertically */
+    }
+    .news-item {
+        display: flex;
+        /* Align image and content side by side */
+        flex-direction: row;
+        /* Image on the left, content on the right */
+        padding: 10px;
+    }
+    .news-item img {
+        width: 30%;
+        /* Image takes up 30% of the container */
+        height: auto;
+    }
+    .news-content {
+        width: 70%;
+        /* Content takes up the remaining space */
+        padding: 0 10px;
+        /* Add some space between image and text */
+    }
+    .news-title {
+        font-size: 16px;
+        /* Smaller font for mobile */
+    }
+    .news-description {
+        display: none;
+        /* Hide the description on mobile */
+    }
+}
+
+
+/* Tablet view: Adjust for screens between 769px and 992px */
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .news-item {
+        flex: 1 1 calc(50% - 20px);
+        /* Two items per row */
+    }
+    .news-title {
+        font-size: 20px;
+    }
+}
+
+
+/* Desktop view */
+
+@media (min-width: 992px) {
+    .news-item {
+        flex: 1 1 calc(33.333% - 20px);
+        /* Three items per row */
+    }
+}
+
+
+/* Videos HTML PAGE start */
+
+
+/* Container Styling */
+
+@media (min-width:769px) {
+    .video-section {
+        margin-left: 10px;
+    }
+}
+
+.unique-video-section {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding is included within the width */
+}
+
+.unique-video-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #000;
+    /* Black background */
+    padding: 1rem;
+}
+
+
+
+
+/*image gallery start*/
+
+
+/* Photo Gallery CSS */
+
+
+/* Ensure the carousel container holds proportions */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+
+/* Carousel Item Image */
+
+.carousel-item img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    /* Ensures the image fills the space without distortion */
+    transition: transform 0.5s ease-in-out;
+    /* Smooth image transition */
+}
+
+
+/* Prevent image jump during transition */
+
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Fix the transition glitch where image size jumps */
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: none;
+    /* Removes default scaling transition issue */
+}
+
+
+/* Carousel Caption */
+
+.carousel-caption {
+    position: absolute !important;
+    bottom: 40px !important;
+    /* Puts space between the caption and indicators */
+    left: 0 !important;
+    /* Align caption box to the left */
+    width: 100% !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    /* Dark background for better readability */
+    color: #fff !important;
+    padding: 5px 15px !important;
+    /* Reduced padding */
+    box-sizing: border-box !important;
+    font-family: 'Bangla', sans-serif !important;
+    font-size: 0.5rem !important;
+    /* Adjusted font size */
+    max-height: 25% !important;
+    /* Text container max-height */
+    overflow: hidden !important;
+    /* Prevent overflow */
+    line-height: 1.3rem !important;
+    /* Improved line-height */
+    height: auto !important;
+}
+
+
+/* Responsive adjustments for caption */
+
+@media (max-width: 769px) {
+    .carousel-caption {
+        font-size: 0.5rem;
+        /* Smaller font on mobile */
+        padding: 5px 10px;
+        height: auto !important;
+    }
+}
+
+
+/* Carousel Indicators */
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    /* Adjust position right under the caption */
+    align-items: center;
+    /* Vertically centers the indicators */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center horizontally */
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 15;
+}
+
+
+/* Indicator Dots */
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: #aebdb9;
+    /* Inactive color */
+}
+
+
+/* Active Indicator Dot */
+
+.carousel-indicators .active {
+    background-color: #006a4e;
+    /* Active color */
+}
+
+
+/* Adjust image size to ensure smooth transition */
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item {
+    transition: none;
+}
+
+
+/*image gallery end*/
+
+
+/*ad section start */
+
+
+/* Example CSS for Ad Sections */
+
+.top-logo-ad img {
+    width: 100%;
+    height: auto;
+}
+
+.category-ads div,
+.highlight-ads {
+    margin-bottom: 20px;
+}
+
+.category-ads img,
+.highlight-ads img {
+    height: 300px;
+}
+
+.front-news-ads img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+/*ad section end*/
+
+
+/*ad section end*/
+
+
+
+
+
+
+/*  -----------------National Section news Divs----Start--*/
+
+
+/* Secondary International News */
+
+.secondary-news-int {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.international-news-item {
+    width: calc(50% - 20px);
+    /* Two items per row with gap */
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.international-news-item img {
+    width: 100%;
+    height: auto;
+}
+
+.international-news-item h2 {
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+
+/* Advertisement Section */
+
+@media (min-width:769px) {
+    .section-ads {
+        width: 25%;
+        overflow:hidden;
+        /* Ensure the container takes the full available width */
+    }
+}
+
+.section-ads {
+    box-sizing: border-box;
+    /* Include padding in width calculations */
+    padding: 10px;
+    /* Padding inside the ads section */
+    overflow: hidden;
+    /* Prevents content from overflowing */
+    text-align: center;
+    /* Optional: Center the image if needed */
+}
+
+.section-ads img {
+    max-width: 100%;
+    /* Ensure the image doesn't exceed the container's width */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: inline-block;
+    /* Ensure it behaves properly with text-align */
+    padding: 10px;
+}
+
+.section-ads-top {
+    box-sizing: border-box;
+    /* Include padding in width calculations */
+    padding: 10px;
+    /* Padding inside the ads section */
+    overflow: hidden;
+    /* Prevents content from overflowing */
+    text-align: center;
+    /* Center the content */
+    margin-top: 5px;
+    position: relative;
+    /* For absolute positioning of children */
+}
+
+
+@media (max-width: 768px) {
+    .section-ads-top, .section-ads-top img, .section-ads-top video {
+        max-height: 150px;
+        object-fit: contain;
+    }
+}
+
+.section-ads-top img, .section-ads-top video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: math;
+    position: static;
+
+    left: 0;
+    max-height: 200px;
+}
+
+.section-ads-top img, .section-ads-top video {
+
+    object-fit: contain !important;
+
+}
+
+
+
+
+/*  National Section news Divs----END--*/
+
+
+/*   top_news/most viewed - scroll  */
+
+.topview-header-container {
+    background-color: #f0f0f0;
+    /* Gray background */
+    border-radius: 5px 5px 0 0;
+    /* Rounded corners on the top */
+    padding: 10px;
+    overflow: hidden;
+    /* Ensures that floated elements are contained within the header */
+    position: sticky;
+    /* Make the header sticky */
+    top: 0;
+    /* Stick to the top of the parent container */
+    z-index: 1;
+    /* Ensures the header stays above other content */
+}
+
+.custom-scroll-top-news {
+    padding: 10px;
+    width: 30%;
+    float: left;
+    overflow-y: auto;
+    max-height: 600px;
+    /* Adjust as necessary */
+    border-radius: 0 0 5px 5px;
+    /* Rounded corners on the bottom */
+    background-color: white;
+    /* White background for the scrollable area */
+}
+
+
+/*   News-details HTML  Start */
+
+
+/* General Styles */
+
+
+/* News Details Header End */
+
+/* Notification for Copy Link Start */
+
+.notification {
+    display: none;
+    position: absolute;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* Notification for Copy Link End */
+
+
+/* News Details Container Start */
+
+.news-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.news-meta-info {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.news-description {
+    margin-bottom: 20px;
+}
+
+
+/* News Details Container End */
+
+
+/* Category-Specific Recent News Start */
+
+
+/* Container for the entire recent news section */
+
+.news-details-category-recent-news-container {
+    margin-top: 40px;
+    padding: 10px;
+}
+
+
+/* Title for the recent news section */
+
+.news-details-category-recent-news-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #D2042D;
+    padding: 5px 0px 5px 0px;
+}
+
+
+/* Scrollable container for recent news items */
+
+.news-details-category-scrollable-news {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+    gap: 15px;
+    /* Space between items */
+}
+
+
+/* Each news item container */
+
+.news-details-category-recent-news-item {
+    width: 20%;
+    /* 20% width for desktop */
+    display: flex;
+    flex-direction: column;
+    /* Stack image and title */
+    padding: 10px;
+    transition: transform 0.2s ease;
+    /* Smooth hover effect */
+    overflow: hidden;
+    /* Prevent overflow */
+}
+
+
+/* Hover effect for news items */
+
+.news-details-category-recent-news-item:hover {
+    transform: scale(1.05);
+    /* Scale up on hover */
+}
+
+
+/* News item image */
+
+.news-details-category-news-image {
+    width: 100%;
+    /* Full width of the container */
+    object-fit: cover;
+    /* Cover the area */
+    margin-bottom: 10px;
+    /* Space between image and title */
+}
+
+
+/* News item title */
+
+.news-details-category-recent-news-item-title {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+/* Remove underline from title links */
+
+.news-details-category-recent-news-item-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+/* Add underline on hover */
+
+.news-details-category-recent-news-item-title a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 769px) {
+    .news-details-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 769px) {
+    .news-details-width {
+        width: 100%;
+        .news-details-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+    .news-details-category-recent-news-item {
+        width: 100%;
+        /* Full width for mobile */
+    }
+    .news-details-category-news-image {
+        height: 200px;
+        /* Adjusted height for mobile */
+    }
+}
+
+
+/* No news message */
+
+.news-details-category-no-news {
+    color: #999;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+
+/* Category-Specific Recent News END */
+
+
+/* --- Related Sections News Start --- */
+
+.related-sections-news-container {
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.related-sections-news-title {
+    font-size: 2rem;
+    color: green;
+    margin-bottom: 15px;
+}
+
+.scrollable-related-sections-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+/* Related news item layout */
+
+.related-sections-news-item {
+    display: flex;
+    flex-direction: column;
+    /* Stack image and text vertically */
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 20%;
+    /* Each item takes up 20% width */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+
+/* Hover effect with smooth transformation */
+
+.related-sections-news-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.related-sections-news-item-title {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+    text-align: left;
+}
+
+.related-sections-news-item-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.related-sections-news-item-title a:hover {
+    text-decoration: underline;
+}
+
+
+/* News summary */
+
+.related-sections-news-item-summary {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    text-align: left;
+}
+
+
+/* No related news message */
+
+.no-related-sections-news {
+    text-align: center;
+    color: #6c757d;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 767px) {
+    .related-sections-news-item {
+        width: 100%;
+        /* Full width on mobile */
+    }
+}
+
+
+/* --- Related Sections News End --- */
+
+
+/* --- Recent News Start --- */
+
+.recent-news-container {
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.recent-news-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.scrollable-recent-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+/* Recent news item layout */
+
+.recent-news-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1 1 48%;
+    /* Takes 48% width, two items per row */
+}
+
+
+/* Hover effect with smooth transformation */
+
+.recent-news-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* News image */
+
+
+
+
+/* News content */
+
+.news-content {
+    width: 100%;
+}
+
+.recent-news-item-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.recent-news-item-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.recent-news-item-title a:hover {
+    text-decoration: underline;
+}
+
+
+/* Time of the news item */
+
+.recent-news-item-time {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+
+/* News description */
+
+.recent-news-item-description {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+}
+
+
+/* No recent news message */
+
+.no-recent-news {
+    text-align: center;
+    color: #6c757d;
+}
+
+
+/* Responsive Adjustments */
+
+
+
+/* --- Recent News End --- */
+
+
+/*News Details Scrollbar ( 2 )*/
+
+
+/* --- Recent Scrollable News Section 2 --- */
+
+
+/* Header Style */
+
+@media (min-width:769px) {
+    .breaking-custom-scroll-news-header2 {
+        padding: 10px 15px;
+        margin: 5;
+        font-size: 2rem;
+        color: #111;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        border-bottom: 2px solid red;
+    }
+}
+
+@media (max-width:769px) {
+    .breaking-custom-scroll-news-header2 {
+        background-color: #D2042D;
+        padding: 5px 8px;
+        margin: 5;
+        font-size: 1.5rem;
+        color: #FFF;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+}
+
+
+/* General Styles for Scrollable News Section */
+
+.breaking-custom-scroll-news2 {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    white-space: nowrap;
+    /* Prevents items from wrapping onto the next line */
+    background-color: #fff;
+}
+
+
+/* Flexbox layout for image and text */
+
+.breaking-custom-card2 {
+    display: inline-block;
+    /* Allows horizontal scrolling */
+    vertical-align: top;
+    width: 250px;
+    /* Set a fixed width for each card */
+    margin-right: 15px;
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+
+/* Hover effect */
+
+.breaking-custom-card2:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Adjusted image styles */
+
+.breaking-custom-card-img2 {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+
+/* Title and body styles */
+
+.breaking-custom-card-body2 {
+    padding: 5px;
+}
+
+.breaking-custom-card-title2 {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Mobile View Adjustments */
+
+@media (max-width: 769px) {
+    /* Scroll Section for Mobile */
+    .breaking-custom-scroll-news2 {
+        white-space: normal;
+        /* Allows wrapping on mobile */
+        overflow-x: hidden;
+        /* Disable horizontal scroll on mobile */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+        max-height: 400px;
+        /* Set a max height to enable scroll when content overflows */
+    }
+    /* Update breaking-custom-card2 to display image and title in one line */
+    .breaking-custom-card2 {
+        display: flex;
+        /* Flexbox layout for horizontal alignment */
+        align-items: center;
+        /* Vertically center the content */
+        width: 100%;
+        /* Full width for mobile */
+        margin-bottom: 10px;
+        /* Spacing between items */
+    }
+    /* Image adjusted for mobile */
+    .breaking-custom-card-img2 {
+        width: 30%;
+        /* Image takes 30% of the container width */
+        height: auto;
+        margin-right: 10px;
+        /* Space between image and title */
+    }
+    /* Title adjusted for mobile */
+    .breaking-custom-card-title2 {
+        font-size: 0.9rem;
+        white-space: nowrap;
+        /* Prevent the title from wrapping */
+        overflow: hidden;
+        /* Hide overflow text */
+        text-overflow: ellipsis;
+        /* Add ellipsis for overflow text */
+    }
+}
+
+
+/* --- Recent Scrollable News Section 2 --- END --- */
+
+
+/* NEWS Details END  */
+
+
+/*   Comment HTML PAGE  Start  */
+
+
+/* General Styles */
+
+.comment-page-container {
+    margin: 20px;
+}
+
+.comment-page-main-comment {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.comment-page-main-comment-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.comment-page-main-comment-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.comment-page-main-comment-details {
+    margin-bottom: 20px;
+}
+
+.comment-page-main-comment-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.comment-page-main-comment-link {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.comment-page-main-comment-link:hover {
+    text-decoration: underline;
+}
+
+.comment-page-main-comment-button {
+    background-color: #0275d8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-page-main-comment-button:hover {
+    background-color: #025aa5;
+}
+
+
+/* Divider */
+
+.comment-page-divider {
+    margin: 40px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+
+/* Other Comments Section */
+
+.comment-page-other-comments-section {
+    margin-top: 20px;
+}
+
+.comment-page-other-comments-section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.comment-page-card {
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-page-card-body {
+    padding: 15px;
+}
+
+.comment-page-card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.comment-page-card-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.comment-page-card-link {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.comment-page-card-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 992px) {
+    .comment-page-main-comment,
+    .comment-page-other-comments-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .comment-page-main-comment-img {
+        width: 100%;
+        height: auto;
+    }
+    .comment-page-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 769px) {
+    .comment-page-main-comment {
+        padding: 15px;
+    }
+    .comment-page-main-comment-title {
+        font-size: 20px;
+    }
+    .comment-page-other-comments-section-title {
+        font-size: 18px;
+    }
+    .comment-page-card-title {
+        font-size: 16px;
+    }
+    .comment-page-card-text {
+        font-size: 12px;
+    }
+}
+
+
+/*   --    Comment Page Rcent news  Start */
+
+
+/* General styles for the recent news section */
+
+.commentpage-recent-news-section {
+    margin-top: 2rem;
+    padding: 20px;
+}
+
+.commentpage-recent-news-header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+
+/* Grid layout for the news items */
+
+.commentpage-recent-news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    gap: 20px;
+    /* Space between grid items */
+}
+
+
+/* Styles for individual news items */
+
+.commentpage-recent-news-item {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: inherit;
+    /* Inherit color from parent */
+}
+
+.commentpage-recent-card {
+    overflow: hidden;
+    /* Prevent overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.commentpage-recent-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+
+/* Styles for images */
+
+.commentpage-recent-card-img {
+    width: 100%;
+    /* Full width */
+    height: 150px;
+    /* Fixed height */
+    object-fit: cover;
+    /* Cover the space without distortion */
+}
+
+
+/* Card body styles */
+
+.commentpage-recent-card-body {
+    padding: 15px;
+}
+
+.commentpage-recent-card-title {
+    font-size: 1.2rem;
+    margin: 0;
+    /* No margin for title */
+}
+
+
+/* Responsive styles for mobile */
+
+@media (max-width: 769px) {
+    .commentpage-recent-news-grid {
+        grid-template-columns: 1fr;
+        /* 1 column for mobile */
+    }
+    .commentpage-recent-card-title {
+        font-size: 1rem;
+        /* Smaller title for mobile */
+    }
+}
+
+
+/*    --   Comment Page Rcent news  END */
+
+
+/* Comment Page HTML end*/
+
+
+/*   Section  HTML PAGE Start */
+
+
+/* category-list Start */
+
+
+/*  ----------------------------  Also Used in Category HTML page  ----------
+
+@media(min-width:769px) {
+    .sectionpage-category-list {
+        *//*background-color: #ddd;*//*
+        border-radius: 4px;
+        *//*padding: 10px;*//*
+    }
+    .sectionpage-category-item {
+        font-size: 1.1rem;
+        color: #777777;
+    }
+    .sectionpage-category-list a {
+        text-decoration: none;
+        *//* Prevent underline on links *//*
+        color: inherit;
+        *//* Inherit color from parent for consistency *//*
+        margin-right: ;
+        margin-left: 1vw !important;
+        transition: ease 0.5s;
+    }
+    .sectionpage-category-list a:hover {
+        transform: scale(1.5);
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+        *//* Corrected property from 'bottom-border' to 'border-bottom' *//*
+    }
+}
+
+@media(max-width:769px) {
+    .sectionpage-category-list {
+        background-color: #ddd;
+        padding: 5px;
+        margin-top: 2px !important;
+    }
+    .sectionpage-category-item {
+        font-size: 1rem;
+        color: #777777;
+        transition: ease 0.5s;
+    }
+    .sectionpage-category-list a {
+        text-decoration: none;
+        *//* Prevent underline on links *//*
+        color: inherit;
+        *//* Inherit color from parent for consistency *//*
+        transition: ease 0.5s;
+        margin-left: 5vw !important;
+    }
+    .sectionpage-category-list a:hover {
+        transform: scale(1.5);
+        color: #D2042D;
+        border-bottom: 2px solid #D2042D;
+    }
+}
+
+
+*//* category-list end */
+
+
+
+
+/*  Section Detail HTML page END */
+
+
+/*  Sports  start*/
+
+.sports-section {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.main-news {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    max-width: 40%;
+}
+
+.main-news img {
+    width: 100%;
+    height: auto;
+}
+
+.main-news h1 {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.main-news p.news-description {
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.main-news p.news-description a.read-more {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.main-news p.news-description a.read-more:hover {
+    text-decoration: underline;
+}
+
+.secondary-news {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 50%;
+}
+
+.news-item {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+}
+
+.news-item h2 {
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+@media (max-width: 769px) {
+    .sports-section {
+        flex-direction: column;
+    }
+    .main-news,
+    .secondary-news {
+        max-width: 100%;
+    }
+}
+
+
+/*  Sports  END */
+
+
+
+
+/* Main News Styles */
+
+.large-news {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.large-news img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.large-news h1 {
+    font-size: 1.8em;
+    color: #2e8b57;
+    margin-bottom: 10px;
+}
+
+.large-news p.news-description {
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-size: 1em;
+}
+
+.large-news p.news-description a.read-more {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.large-news p.news-description a.read-more:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+/* Secondary News Styles (Small News Grid) */
+
+.secondary-news-forest {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns for secondary news */
+    gap: 20px;
+}
+
+.small-news-box {
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.small-news-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.small-news-box h2 {
+    font-size: 1.4em;
+    color: #006400;
+    margin-bottom: 10px;
+}
+
+
+/* List-Type News - Separate from small news */
+
+.list-type-news {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    /* Add margin to separate from small news */
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.list-item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.list-item h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+}
+
+
+/* Ads Section */
+
+.section-ads-national {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-ads-national img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Mobile Styles */
+
+@media (max-width: 769px) {
+    /* Full-width main news, two-column layout for small news on mobile */
+    .forest-climate-section {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    .large-news {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    .large-news h1 {
+        font-size: 1.4em;
+    }
+    .secondary-news-forest {
+        grid-template-columns: 1fr 1fr;
+        /* Two-column grid for smaller news items */
+    }
+    .small-news-box {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    .small-news-box h2 {
+        font-size: 0.7em;
+    }
+    /* List-Type News */
+    .list-type-news {
+        gap: 8px;
+    }
+    .list-item h3 {
+        font-size: 0.8rem;
+    }
+}
+
+
+/*--- front-NEWS-section ---*/
+
+
+/* General container */
+
+@media(min-width:769px) {
+    .frontpage-container {
+        width: 70%;
+        align: left;
+    }
+    .frontpage-news-comment-width {
+        display: flex;
+    }
+}
+
+.frontpage-news-comment-width {
+    width: 100%;
+}
+
+
+/* Front News Section */
+
+.frontpage-news-column {
+    width: 70%;
+}
+
+.frontpage-news-section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #D2042D;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    color: #D2042D;
+}
+
+.frontpage-news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.frontpage-news-item {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+    height: auto;
+}
+
+.frontpage-news-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.frontpage-news-item img {
+    width: 100%;
+    /* max-height: 30vh; */
+    object-fit: cover;
+}
+
+.frontpage-news-content {
+    padding: 10px;
+}
+
+.frontpage-news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.frontpage-news-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.frontpage-read-more {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    display: flex;
+}
+
+.frontpage-read-more:hover {
+    text-decoration: underline;
+}
+
+.frontpage-no-news {
+    text-align: center;
+    color: #999;
+}
+
+
+/* Comments Section */
+
+.frontpage-comments-column {
+    width: 30%;
+    float: right;
+    padding-left: 20px;
+    height: auto;
+}
+
+.frontpage-comments-section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #D2042D;
+    border-bottom: 1px solid #D2042D;
+    padding: 10px;
+}
+
+.frontpage-comments-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.frontpage-comment-item {
+    flex: 1 1 calc(33.33% - 20px);
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+}
+
+.frontpage-comment-card {
+    display: flex;
+    flex-direction: column;
+    /* Ensures content stacks properly */
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+    /* Sets a minimum height to maintain consistent box-shadow */
+}
+
+.frontpage-comment-content {
+    display: flex;
+    padding: 10px;
+}
+
+.frontpage-commenter-image-wrapper {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.frontpage-commenter-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.frontpage-commenter-details {
+    flex: 1;
+}
+
+.frontpage-comment-title-link {
+    text-decoration: none;
+    color: #0275d8;
+}
+
+.frontpage-comment-title-link:hover {
+    text-decoration: underline;
+}
+
+.frontpage-comment-title {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.frontpage-commenter-name {
+    font-size: 12px;
+    color: #555;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 992px) {
+    .frontpage-news-column {
+        width: 100%;
+    }
+    .frontpage-comments-column {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .frontpage-news-item,
+    .frontpage-comment-item {
+        flex: 1 1 100%;
+    }
+}
+
+
+/*    */
+
+
+/*AD css */
+
+
+/*
+    */
+
+
+/* ad one */
+
+
+/*
+
+
+    .section-one {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-one img {
+        width: 100%;
+        */
+
+
+/* Make the image fill the full width of the container */
+
+
+/*
+        height: auto;
+        */
+
+
+/* Maintain the aspect ratio of the image */
+
+
+/*
+        object-fit: cover;
+        */
+
+
+/* Optional: cover will ensure the image fills the container without distortion */
+
+
+/*
+    }
+    */
+
+
+/* Responsive Styles */
+
+
+/*
+
+    @media (max-width: 769px) {
+        .news-title {
+            font-size: 20px;
+        }
+        .news-meta-info {
+            font-size: 12px;
+        }
+        .share-button {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+        }
+        .news-description {
+            font-size: 14px;
+        }
+        .external-link {
+            font-size: 14px;
+        }
+    }
+    */
+
+
+/* top*/
+
+
+/*
+
+    .section-top img {
+        width: auto;
+        height: 150px;
+        object-fit: contain;
+        max-width: 100%;
+        border-radius: 8px;
+        margin-left: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+        margin-right: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+        display: block;
+    }
+
+    @media (min-width: 1200px) {
+        .section-top img {
+            margin-left: 433px;
+            */
+
+
+/* Apply specific margin for large screens */
+
+
+/*
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .section-top img {
+            margin-left: 0;
+            */
+
+
+/* Reset margin for smaller screens */
+
+
+/*
+        }
+    }*/
+
+
+/* Sport */
+
+.section-sports {
+    max-width: 400px;
+}
+
+.section-sports img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}
+
+
+/*    */
+
+
+/* Entertainment */
+
+
+/*
+
+    .section-enter {
+        max-width: 400px;
+        margin: 0 auto;
+        */
+
+
+/* Center the section by default */
+
+
+/*
+    }
+
+    .section-enter img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        display: block;
+        margin-left: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+        margin-right: auto;
+        */
+
+
+/* Center the image by default */
+
+
+/*
+    }
+
+    @media (min-width: 1200px) {
+        .section-enter img {
+            margin-left: 200px;
+            */
+
+
+/* Apply specific margin for large screens */
+
+
+/*
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .section-enter img {
+            margin-left: 0;
+            */
+
+
+/* Reset margin for smaller screens */
+
+
+/*
+        }
+    }
+    */
+
+
+/* entertainment2 */
+
+
+/*
+
+    .section-ads-enter_2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        */
+
+
+/* Center the content horizontally */
+
+
+/*
+        padding: 10px;
+        box-sizing: border-box;
+        */
+
+
+/* Ensure padding doesn't affect width */
+
+
+/*
+    }
+
+    .section-enter_2 {
+        max-width: 100%;
+        */
+
+
+/* Limit the section width to full container width */
+
+
+/*
+        text-align: center;
+        */
+
+
+/* Center content within the section */
+
+
+/*
+    }
+
+    .section-enter_2 img {
+        width: 100%;
+        height: auto;
+        */
+
+
+/* Maintain aspect ratio */
+
+
+/*
+        object-fit: contain;
+        */
+
+
+/* Ensure full image is visible */
+
+
+/*
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+        */
+
+
+/* Center the image */
+
+
+/*
+    }
+
+    @media (min-width: 769px) {
+        .section-ads-enter_2 {
+            padding: 15px 20px;
+            */
+
+
+/* Adjust padding for medium screens */
+
+
+/*
+        }
+        .section-enter_2 img {
+            max-width: 80%;
+            */
+
+
+/* Reduce image width on medium screens */
+
+
+/*
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .section-enter_2 img {
+            max-width: 60%;
+            */
+
+
+/* Further reduce image width on large screens */
+
+
+/*
+        }
+    }
+    */
+
+
+/*AD Css */
+
+
+/* most viewed bottom */
+
+.custom-scroll-news_bottom {
+    margin-top: 20px;
+    padding-left: 58px;
+    margin-left: 0px;
+    width: 25%;
+    float: left;
+    overflow-y: auto;
+    max-height: 571px;
+}
+
+
+/* most viewed scroll start */
+
+
+
+
+
+/*  Footer-Top  */
+
+.footer-hr-whole {
+    width: 100%;
+}
+
+.footer-hr a {
+    margin-right: 1vw;
+}
+
+@media(min-width:769px) {
+    .footer-css {
+        padding-bottom: 100px;
+    }
+}
+
+@media(max-width:769px) {
+    .footer-css {
+        padding-bottom: 100px;
+    }
+}
+
+.hr-category-item-footer-top {
+    border: 1px solid #ddd;
+    /* Adjust border style as needed */
+    padding: 0;
+    /* Remove extra padding */
+    margin: 10px 0px 10px 0px !important;
+}
+
+.category-item-footer-top {
+    display: inline-block;
+    font-size: 1.25rem;
+    /* Smaller size for PC view */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    margin: 0 1vw 0 1vw !important;
+    /* Adjust spacing between items */
+    text-decoration: none;
+    /* Remove underline by default */
+    color: inherit;
+    /* Inherit text color */
+    vertical-align: middle;
+    /* Align with the red ball */
+}
+
+.category-item-footer-top:hover {
+    text-decoration: underline;
+    /* Optional: underline on hover */
+}
+
+.red-ball-icon {
+    font-size: 1rem;
+    /* Smaller size for PC view */
+    vertical-align: middle;
+    /* Align with text */
+    margin: 0 0.25rem;
+    /* Space around the ball */
+}
+
+
+/* Adjust size for smaller screens */
+
+@media (max-width: 769px) {
+    .red-ball-icon {
+        font-size: 0.75em;
+        /* Smaller size for mobile screens */
+    }
+    .category-item-footer-top {
+        font-size: 4vw;
+        /* Increase font size on smaller screens */
+    }
+}
+
+
+/*  Footer-Top END  */
+
+
+/*   Footer (main) Start   */
+
+.social-icons-footer {
+    justify-content: center;
+    /* Center social icons on mobile */
+    margin-top: 10px;
+    /* Add some space above */
+    font-size: 2.5rem;
+    /* Increase the size of all social icons */
+}
+
+.social-icons-footer i {
+    color: #333;
+    /* Optional: Change color */
+    margin-right: 10px;
+    /* Optional: Space between icons */
+    transition: transform 0.3s ease;
+    /* Optional: Smooth transition on hover */
+    font-size: 2rem;
+}
+
+.social-icons-footer i:hover {
+    transform: scale(1.2);
+    /* Optional: Slight zoom effect on hover */
+}
+
+
+/*   Footer END */
+
+
+/* ----------------  most viewed scrollber -frontpage START----------  */
+
+
+/* Container for the scrollable news section */
+
+.unique-scroll-news_bottom {
+    overflow-x: auto;
+    /* Enable horizontal scrolling on desktop */
+    white-space: nowrap;
+    /* Prevent wrapping */
+    padding: 10px;
+    /* Add padding around the container */
+    box-sizing: border-box;
+}
+
+
+/* Title and Icon Alignment */
+
+.unique-float-left {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    /* Space below the title */
+    line-height: 1.5;
+    /* Ensure the title and icon align correctly */
+}
+
+
+/* Container for the news items */
+
+.unique-news-scroll {
+    display: inline-block;
+    /* Ensure the container fits the content */
+}
+
+
+/* Individual news items */
+
+.unique-news-item {
+    display: inline-block;
+    /* Align news items horizontally on desktop */
+    width: 25vh;
+    /* Width of each news item */
+    margin-right: 10px;
+    /* Space between news items */
+    text-align: center;
+    /* Center the text */
+    vertical-align: top;
+    /* Align items to the top */
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+    /* Divider between news items */
+    padding-bottom: 10px;
+    /* Padding below the news item */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition effect */
+}
+
+
+/* Card Design */
+
+.unique-card {
+    background-color: #fff;
+    /* White background for card */
+    overflow: hidden;
+    /* Hide overflow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    transition: box-shadow 0.3s ease;
+    /* Smooth shadow transition */
+    display: flex;
+    /* Align image and text in a row */
+    flex-direction: column;
+    /* Column layout for card content */
+}
+
+.unique-card-img {
+    width: 100%;
+    /* Full width of the card */
+    height: 20vh;
+    /* Fixed height for images */
+    object-fit: cover;
+    /* Cover the image area */
+}
+
+
+/* Title styles */
+
+.unique-card-title {
+    font-size: 0.9em;
+    /* Adjust title size */
+    margin-top: 5px;
+}
+
+
+/* Mobile Styles */
+
+@media (max-width: 769px) {
+    .unique-scroll-news_bottom {
+        overflow-x: hidden;
+        /* Hide horizontal scroll on mobile */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+        white-space: normal;
+        /* Allow wrapping */
+        padding: 0;
+        /* Remove padding */
+    }
+    .unique-news-scroll {
+        display: block;
+        /* Stack items vertically */
+    }
+    .unique-news-item {
+        display: flex;
+        /* Use flex for vertical layout */
+        width: 100%;
+        /* Full width of each news item */
+        margin-right: 0;
+        /* No margin on mobile */
+        margin-bottom: 10px;
+        /* Space below each item */
+        align-items: center;
+        /* Center items vertically */
+        border-bottom: 1px solid #ddd;
+        /* Divider between news items */
+        padding: 10px 0;
+        /* Padding around the news item */
+        box-sizing: border-box;
+    }
+    .unique-card-img {
+        width: 20%;
+        /* Image width on mobile */
+        height: auto;
+        /* Maintain aspect ratio */
+        margin-right: 10px;
+        /* Space between image and text */
+    }
+    .unique-card-body {
+        width: 80%;
+        /* Text width on mobile */
+        text-align: left;
+        /* Align text to the left */
+    }
+    .unique-card-title {
+        font-size: 0.8em;
+        /* Smaller title size on mobile */
+        margin: 0;
+        /* Remove margin */
+    }
+}
+
+
+/* ----------------  most viewed scrollber -frontpage END ----------  */
+
+
+/* --- Frontpage Category Section --- */
+
+
+/* ----------- PC View (Default) ----------- */
+
+
+
+
+/*   Category Details Page CSS  START  */
+
+
+/* ADS */
+
+
+/* Category Page Styles */
+
+
+/* Container for the entire news section */
+
+.categorypage-news-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    /* Max width for the container */
+}
+
+
+/* Heading Style */
+
+.categorypage-news-list h1 {
+    border-bottom: 3px solid red;
+    /* Red border below the heading */
+    margin-top: 3rem;
+    /* Top margin for spacing */
+    font-size: 2rem;
+    /* Font size for the heading */
+    color: #333;
+    /* Heading color */
+}
+
+
+/* Main news section */
+
+.categorypage-news-main,
+.categorypage-news-list {
+    display: grid;
+    /* Grid layout for items */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Space between items */
+}
+
+
+/* Individual news item */
+
+.categorypage-news-item {
+    transition: transform 0.3s ease;
+    /* Smooth scaling on hover */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    /* Optional: rounded corners */
+}
+
+
+/* First news item takes up 2x2 space */
+
+.categorypage-news-item:first-child {
+    grid-column: span 2;
+    /* Make first item span two columns */
+}
+
+@media (min-width:769px) {
+    /* Title style */
+    .categorypage-news-title {
+        font-size: 1.25rem;
+        /* Title font size */
+        color: #333;
+        /* Darker text for contrast */
+        margin: 0 0 10px;
+        /* Margin below title */
+        padding: 10px;
+        font-weight: bold;
+    }
+}
+
+
+/* Image style */
+
+.categorypage-news-img {
+    width: 100%;
+    /* Full width */
+    height: auto;
+    /* Auto height */
+}
+
+
+/* Description style */
+
+.categorypage-news-description {
+    margin: 10px 0;
+    /* Margin for description */
+    color: #666;
+    /* Lighter text color */
+    padding: 5px;
+}
+
+
+/* Read more link */
+
+.categorypage-read-more {
+    color: #007bff;
+    /* Bootstrap primary color */
+    text-decoration: none;
+    /* Remove underline */
+    font-weight: bold;
+    /* Bold text */
+}
+
+
+/* Hover effect for items */
+
+.categorypage-news-item img:hover {
+    transform: scale(1.045);
+    /* Slightly scale up on hover */
+}
+
+.categorypage-news-item img {
+    transition: ease 0.3s;
+}
+
+
+/* Mobile View Adjustments */
+
+@media (max-width: 769px) {
+    .categorypage-news-item {
+        background-color: #fff;
+        /* White background for items */
+        transition: transform 0.2s ease;
+        /* Smooth scaling on hover */
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Shadow effect at the bottom */
+        border-radius: 4px;
+        /* Optional: rounded corners */
+    }
+    /* Change to list view */
+    .categorypage-news-main,
+    .categorypage-news-list {
+        display: block;
+        /* Block layout on mobile */
+    }
+    /* Individual news item */
+    .categorypage-news-item {
+        margin-bottom: 20px;
+        /* Space between items */
+    }
+    /* Adjust title font size */
+    .categorypage-news-title {
+        font-size: 1.1rem;
+        /* Smaller title on mobile */
+        margin-left: 10px;
+        font-weight: bold;
+    }
+}
+
+
+/*  More Related Section News --- CSS - START */
+
+.categorypage-more-section {
+    margin: 20px 0;
+    /* Margin for the section */
+}
+
+.categorypage-more-section a {
+    text-decoration: none;
+    color: #111;
+}
+
+.categorypage-more-ads-scroll {
+    width: 100%;
+}
+
+@media (min-width:769px) {
+    .categorypage-more-section {
+        width: 70%;
+    }
+    .categorypage-more-ads-scroll {
+        display: flex;
+    }
+}
+
+.categorypage-more-title {
+    font-size: 1.5rem;
+    /* Adjust title size */
+    margin-bottom: 10px;
+    /* Space below the title */
+    border-bottom: 3px solid #D2042D;
+    /* Optional: underline */
+}
+
+.categorypage-more-container {
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Stack items vertically */
+}
+
+.categorypage-more-item {
+    display: flex;
+    /* Arrange title and image in a row */
+    align-items: center;
+    /* Center vertically */
+    background-color: #fff;
+    /* Background color */
+    margin: 5px 0;
+    /* Vertical spacing between items */
+    padding: 10px;
+    /* Padding inside each item */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Light shadow */
+    border-radius: 4px;
+    /* Optional: rounded corners */
+    transition: ease 0.3s, color 0.5s, border-bottom 0.5s;
+}
+
+.categorypage-more-item:hover {
+    transform: scale(1.05);
+}
+
+.categorypage-more-text {
+    flex: 1;
+    /* Allow text to take remaining space */
+    margin-right: 10px;
+    /* Space between text and image */
+}
+
+.categorypage-more-news-title {
+    font-size: 1.2rem;
+    /* Title size */
+    margin: 0;
+    /* Remove default margin */
+}
+
+.categorypage-more-news-img {
+    /* Fixed width for the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    width: 200px;
+}
+
+
+/*  More Related Section News --- CSS - END */
+
+
+/*   Category Details Page CSS  END  */
+
+
+/*   POLICY Page CSS  -- START__  */
+
+.policy-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.policy-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.policy-section {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 48%;
+}
+
+.divider {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .policy-section {
+        width: 100%;
+    }
+    .divider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+        margin: 10px 0;
+    }
+}
+
+
+/*   POLICY Page CSS  -- END--  */
+
+
+/*  search icon top  Start */
+
+
+/* For screens up to 769px */
+
+@media (max-width: 769px) {
+    /* Search Icon in the nav */
+    .search-container {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        z-index: 1000;
+        /* High z-index to ensure it stays on top */
+        cursor: pointer;
+        width: 15vw;
+    }
+    .search-icon {
+        font-size: 24px;
+        color: #fff;
+    }
+    /* Full-Screen Search Overlay */
+    .search-overlay {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 70px;
+        /* Search box height */
+        background: rgba(0, 0, 0, 0.8);
+        /* Transparent dark background */
+        z-index: 9999;
+        /* Ensure it's over all elements */
+        justify-content: center;
+        align-items: center;
+    }
+    /* Centered Search Box */
+    .search-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 95px;
+        background-color: #D2042D;
+        /* Red background */
+    }
+    .search-input {
+        width: calc(100% - 60px);
+        padding: 10px;
+        font-size: 16px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 5px 0 0 5px;
+    }
+    .search-icon-button {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        outline: none;
+        /* Remove outline on focus */
+    }
+    .search-icon-button a {
+        font-size: 1rem;
+        /* Adjust icon size if needed */
+        padding: 15px 5px 10px 20px;
+    }
+    .search-form {
+        width: 75%;
+        margin: 0px 10px 0px 10px !important;
+    }
+    .search-icon-button-up {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        outline: none;
+        /* Remove outline on focus */
+        transition: ease 0.3s;
+    }
+    .search-icon-button-up:hover {
+        transform: scale(1.5);
+    }
+    .search-icon-button-up i {
+        font-size: 24px;
+        /* Adjust icon size if needed */
+        padding: 5px;
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+    }
+    /* Back button (X) for closing search */
+    .back-icon {
+        position: absolute;
+        left: 10px;
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+
+/* For screens larger than 769px */
+
+@media (min-width: 769px) {
+    .search-container,
+    .search-overlay,
+    .search-box,
+    .search-input,
+    .search-icon-button,
+    search-icon-button-up {
+        display: none;
+    }
+}
+
+
+/*  -----------      PC-Search ---------------- */
+
+
+/* Hide the overlay initially */
+
+@media (min-width: 768px) {
+    .pc-search-overlay {
+        display: none;
+        /* Initially hidden */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        z-index: 1000;
+        /* High z-index to ensure it's on top */
+    }
+    /* The search bar at the top of the page */
+    .pc-search-bar {
+        background-color: #fff;
+        /* Search bar background */
+        padding: 20px;
+        /* More padding for a nicer look */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Light shadow effect */
+        display: flex;
+        gap: 10px;
+        z-index: 1001;
+    }
+    /* Input field inside the search bar */
+    .pc-search-input {
+        flex: 1;
+        /* Take up remaining space */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 80vw;
+    }
+    /* Search button and close button styles */
+    .pc-search-icon {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        padding: 5;
+        /* Remove padding to make it compact */
+        outline: none;
+        /* Remove outline on focus */
+        color: #D2D2D2;
+        /* Set icon color */
+        font-size: 1rem;
+        /* Adjust size if needed */
+
+    }
+    .pc-search-icon-button,
+    .pc-close-button {
+        background: none;
+        /* Remove background */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Change cursor to pointer */
+        padding: 5;
+        /* Remove padding to make it compact */
+        outline: none;
+        /* Remove outline on focus */
+        color: #D2D2D2;
+        /* Set icon color */
+        font-size: 10px;
+        /* Adjust size if needed */
+
+    }
+    .pc-search-icon-button,
+    .pc-close-button {
+        font-size: 1.5rem !important;
+        /* Adjust size if needed */
+    }
+    /* Additional styling for the close button */
+    .pc-close-button i {
+        color: #D2042D;
+        /* Change close button text color to white */
+    }
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 769px) {
+    .pc-search-overlay,
+    .pc-search-input,
+    .pc-search-bar,
+    .pc-search-icon-button,
+    .pc-close-button {
+        display: none;
+    }
+    /* When overlay is open, hide the search icon */
+}
+
+.hide-icon {
+    display: none;
+}
+
+
+
+/* Ad page */
+
+.container-ad {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.guideline-section {
+    margin-bottom: 30px;
+}
+
+.guideline-section h4 {
+    font-size: 1.5em;
+    color: #216373;
+    margin-bottom: 15px;
+}
+
+.guideline-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.guideline-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.guideline-section ul li {
+    margin-bottom: 8px;
+}
+
+.contact-section-ad {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.contact-section-ad h5 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #216373;
+}
+
+.contact-section-ad p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .container-ad {
+        padding: 15px;
+    }
+    .guideline-section h4,
+    .contact-section-ad h5 {
+        font-size: 1.2em;
+    }
+    .guideline-section p,
+    .contact-section-ad p {
+        font-size: 1em;
+    }
+    .guideline-section ul {
+        padding-left: 15px;
+    }
+    .guideline-section ul li {
+        margin-bottom: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .guideline-section h4,
+    .contact-section-ad h5 {
+        font-size: 1em;
+    }
+    .guideline-section p,
+    .contact-section-ad p {
+        font-size: 0.9em;
+    }
+}
+
+
+/* ad page */
+
+/*
+*//* mobile nav social Media *//*
+
+.date-mobile {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.date {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}*/
+
+.social-icons-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* margin-bottom: 10px; */
+}
+
+.social-icons-nav a {
+    color: #555;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons-nav a:hover {
+    color: #216373;
+}
+
+.follow-us {
+    color: #777;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+/* mobile nav social Media */
+
+
+/*carousel-indicator-custom*/
+
+
+/* box-sizing: content-box; */
+
+.carousel-indicator_new [data-bs-target] {
+    flex: 0 1 auto;
+    /* width: 30px; */
+    /* height: 3px; */
+    padding: 0;
+    /* margin-right: 3px; */
+    margin-left: 700px;
+    text-indent: -999px;
+    cursor: pointer;
+    /* background-color: #fff; */
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    /* opacity: .5; */
+    /* transition: opacity .6s ease; */
+}
+
+
+/*carousel-indicator-custom*/
+
+
+
+.social-icons-nav a.facebook i {
+    color: #3b5998;
+}
+.social-icons-nav a.youtube i {
+    color: #ff0000;
+}
+.social-icons-nav a.twitter i {
+            display: inline-block;
+            background: #111;;
+            color: white;
+            border-radius: 50%;
+            padding: 3px;
+}
+
+.legal-policy-heading {
+        font-family: 'Arial', sans-serif; /* Use a clean font */
+        color: #333; /* Dark gray color for better readability */
+        text-align: center; /* Center the heading */
+        margin: 20px auto; /* Margin for spacing around the heading */
+        padding: 10px; /* Padding for spacing inside the heading */
+        border-bottom: 2px solid #D2042D; /* Optional underline effect */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .legal-policy-heading {
+            font-size: 1.5rem; /* Adjust font size for smaller screens */
+            padding: 8px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1200px) {
+        .legal-policy-heading {
+            font-size: 2rem; /* Medium font size for tablets */
+            padding: 12px;
+        }
+    }
+
+    @media (min-width: 1201px) {
+        .legal-policy-heading {
+            font-size: 2.5rem; /* Larger font size for desktops */
+            padding: 15px;
+        }
+    }
+.photo_p{
+        /*padding: 10px;*/
+        justify-content: center;
+        text-align: center;
+        margin-top: initial;
+        margin-bottom: 0px;
+        color: #ffffff;
+        font-size: 10px;
+    /* margin-left: 368px; */
+}

@@ -1,0 +1,1217 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+
+
+    <meta name="description" content="{{ latest_highlighted_news.0.title }}">
+    <title>অরণ্য নিউজ</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+
+/* Popup Container */
+.popup-ad {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+}
+
+/* Popup Content */
+.popup-content {
+    background: #fff;
+    border: 1px solid #ddd; /* Thinnest border */
+    border-radius: 2px; /* Minimal rounded corners */
+    max-width: 400px;
+    padding: 5px 3px 3px 3px;
+    position: relative;
+    text-align: center;
+}
+
+.popup-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Skip Button */
+.skip-btn {
+    position: absolute;
+    top: 0px; /* Top-right corner */
+    right: 0px;
+    background-color: #fff;
+    color: #333;
+    padding: 3px 6px;
+    font-size: 12px;
+    cursor: not-allowed; /* Initially disabled */
+
+
+    z-index: 1003;
+    font-family: Arial, sans-serif;
+}
+
+.skip-btn.active {
+    cursor: pointer; /* Enable cursor when clickable */
+}
+
+    </style>
+</head>
+<body>
+
+        <!-- Popup Ad Container -->
+{% if popup_ad %}
+<div id="popup-ad" class="popup-ad">
+    <div class="popup-content">
+        <!-- Ad Image -->
+        <a href="{{ popup_ad.link }}" target="_blank">
+            <img src="{{ popup_ad.image.url }}" alt="Popup Ad" class="popup-image">
+        </a>
+
+        <!-- Skip Button with Timer -->
+        <span id="skip-btn" class="skip-btn">
+            Skip Ad in <span id="skip-timer">5</span>s
+        </span>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Function to show the popup ad
+    function showPopup() {
+        console.log('Popup is shown after 3 seconds');
+        const popupAd = document.getElementById('popup-ad');
+        const skipButton = document.getElementById('skip-btn');
+        const timerSpan = document.getElementById('skip-timer');
+
+        popupAd.style.display = 'flex'; // Show the popup
+
+        // Initialize the timer immediately
+        let countdown = 5;
+        timerSpan.textContent = countdown; // Display the initial countdown
+
+        // Start the timer countdown
+        const timer = setInterval(() => {
+            countdown--;
+            timerSpan.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(timer); // Stop the timer when it reaches 0
+                skipButton.textContent = 'Skip Ad'; // Update button text
+                skipButton.classList.add('active'); // Make the button clickable
+                skipButton.onclick = closePopup; // Add the close functionality
+            }
+        }, 1000); // Update every second
+    }
+
+    // Function to close the popup ad
+    function closePopup() {
+        const popupAd = document.getElementById('popup-ad');
+        popupAd.style.display = 'none'; // Hide the popup
+    }
+
+    // Show the popup exactly 3 seconds after window load
+    window.onload = function () {
+        console.log('Window loaded, starting popup timer...');
+        setTimeout(showPopup, 3000); // Show after 3 seconds (3000ms)
+    };
+</script>
+
+
+
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+
+    <div class="custom-whole-container">
+
+        <!-- Highlighted News Section -->
+
+        <!-- Wrapper for Highlighted News -->
+        <!-- First section containing high1+2+3 (width 35% PC, 100% mobile) -->
+        <div class="frontpage-highlighted-ads">
+
+           
+{% if latest_highlighted_news %}
+    <div class="highlighted-all">
+
+        <!-- High1: Image left, title + description right -->
+        <div class="highlighted-big-1">
+            <a href="{% url 'news_details' latest_highlighted_news.0.id %}">
+                <div class="highlighted-1-content-wrapper">
+                    <img src="{{ latest_highlighted_news.0.image.url }}" alt="{{ latest_highlighted_news.0.title }}" class="highlighted-1-content-wrapper-img">
+                    <div class="highlighted-1-content">
+                        {% if latest_highlighted_news.0.red_tag %}
+                        <h5 class="highlighted-1-title" style="align-items: center;color:#D2042D;">{{ latest_highlighted_news.0.red_tag }}</h5>
+                        {% endif %}
+                        <h5 class="highlighted-1-title" style="align-items: center;">{{ latest_highlighted_news.0.title }}</h5>
+                        <p class="highlighted-description1">{{ latest_highlighted_news.0.description|truncatechars:200 }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Check if there's a second highlighted news item -->
+        {% if latest_highlighted_news|length > 1 %}
+        <div class="highlighted-small-2-3">
+            <div class="highlighted-small-2">
+                <a href="{% url 'news_details' latest_highlighted_news.1.id %}">
+                    <div class="highlighted-content2-3">
+                        <img src="{{ latest_highlighted_news.1.image.url }}" alt="{{ latest_highlighted_news.1.title }}">
+                       <div>
+                           {% if latest_highlighted_news.1.red_tag %}
+                        <h5 class="highlighted-1-title" style="align-items: center;color:#D2042D;">{{ latest_highlighted_news.1.red_tag }}</h5>
+                        {% endif %}
+                        <h5 class="highlighted-title mt-2" style="align-items: center; color:#111;">{{ latest_highlighted_news.1.title }}</h5>
+                    </div>
+                 </div>
+                </a>
+            </div>
+
+            <!-- Check if there's a third highlighted news item -->
+            {% if latest_highlighted_news|length > 2 %}
+            <div class="highlighted-small-3">
+                <a href="{% url 'news_details' latest_highlighted_news.2.id %}">
+                    <div class="highlighted-content2-3">
+                        <img src="{{ latest_highlighted_news.2.image.url }}" alt="{{ latest_highlighted_news.2.title }}">
+                      <div>  {% if latest_highlighted_news.2.red_tag %}
+                        <h5 class="highlighted-1-title" style="align-items: center;color:#D2042D;">{{ latest_highlighted_news.2.red_tag }}</h5>
+                        {% endif %}
+                        <h5 class="highlighted-title mt-2" style="align-items: center; color:#111;">{{ latest_highlighted_news.2.title }}</h5>
+                    </div>
+                      </div>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+    </div>
+{% endif %}
+
+
+            <!-- Frontpage Ads 1,2 Start-->
+
+        {% if front_news_one_ad %}
+            <div class="frontpage-top-ads-1">
+                {% for ad in front_news_one_ad %}
+                    <a href="{{ ad.link }}">
+                        {% if ad.media_type == 'image' %}
+                            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}">
+                        {% elif ad.media_type == 'video' %}
+                            <video autoplay muted loop>
+                                <source src="{{ ad.image.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% elif ad.media_type == 'gif' %}
+                            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}">
+                        {% else %}
+                            <p>Media type not recognized: {{ ad.media_type }}</p>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+
+
+
+        </div>
+        <!-- Frontpage Ads 1,2 END-->
+
+
+
+        <!--end of frontpage-hightlighted-and-ads1,2-->
+
+        <!-- All Recent/Front/Selectable News -->
+        <!-- Front-NEWS-section -->
+        <div class="frontpage-news-comment-width">
+            <div class="frontpage-container">
+                <div class="row">
+                    <!-- Front News Section -->
+                    <section id="frontpage-news" class="frontpage-news-column pt-4">
+                         {% if latest_highlighted_news %}
+                        <h2 class="frontpage-news-section-title">নির্বাচিত খবর</h2>
+                        {% endif %}
+                        <div class="frontpage-news-container">
+                            <!-- Loop through the news items -->
+                            {% for item in all_news %}
+                            {% if item %}
+                            <div class="frontpage-news-item">
+
+                                <img class = "front_news_img_up" src="{{ item.image.url }}" alt="{{ item.title }}">
+                                <div class="frontpage-news-content">
+                                    {% if item.red_tag %}
+                                    <p class="frontpage-news-title" style="font-size:1rem; color:#D2042D;">{{ item.red_tag }}</p>
+                                    {% endif %}
+                                    <h1 class="frontpage-news-title">{{ item.title }}</h1>
+                                    <p class="frontpage-news-description">
+                                        {% if item.description|length > 150 %} {{ item.description|truncatechars:150 }}
+                                        <a href="{% url 'news_details' item.id %}">আরও পড়ুন</a> {% else %} {{ item.description }} {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {% endif %} {% endfor %}
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+
+                    <div class="frontpage-comments-column mt-3"  id="comment-section">
+                        {% if latest_comments %}
+                        <div>
+                            <h1 class="frontpage-comments-section-title">মতামত</h1>
+                            <div class="frontpage-comments-wrapper">
+
+                                {% for comment in latest_comments %}
+                                <div class="frontpage-comment-item">
+                                    <div class="frontpage-comment-card">
+                                        <div class="frontpage-comment-content">
+                                            <!-- Commenter's Image -->
+                                            <div class="frontpage-commenter-image-wrapper">
+                                                <img src="{{ comment.commenter.image.url }}" alt="image" class="frontpage-commenter-img">
+                                            </div>
+                                            <!-- Commenter Details -->
+                                            <div class="frontpage-commenter-details">
+                                                <!-- Comment Title -->
+                                                <a href="{% url 'comment_details' comment.id %}" class="frontpage-comment-title-link">
+                                    <h5 class="frontpage-comment-title">
+                                        {{ comment.title|slice:":50" }}{% if comment.title|length > 50 %}...{% endif %}
+                                    </h5>
+
+                                                </a>
+                                                <!-- Commenter's Name -->
+                      {% if comment.commenter.social_media_link %}
+                        <a href="{{ comment.commenter.social_media_link }}" target="_blank" class="breaking-or-mostread-news-item">
+                            <p class="frontpage-commenter-name">{{ comment.commenter.name }}</p>
+                        </a>
+                        {% else %}
+                        <p class="frontpage-commenter-name">{{ comment.commenter.name }}</p>
+                        {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+                            </div>
+                        </div>
+                        <!-- Just Comments  -->
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- ------------ Scroll News Section-->
+
+            <div class="breaking-or-mostread-container">
+                <div class="breaking-most-read-div" style="margin-left:10px;margin-top: 24px;">
+                    <!-- Toggle buttons for Breaking News and Most Read -->
+                    <div class="breaking-or-mostread-header">
+                        <button class="breaking-or-mostread-toggle-btn active" onclick="breaking_or_mostread_toggle('breaking')">সর্বশেষ</button>
+                        <button class="breaking-or-mostread-toggle-btn" onclick="breaking_or_mostread_toggle('mostread')">সর্বোচ্চ পঠিত</button>
+                    </div>
+
+                    <!-- Breaking News Section -->
+                    <div id="breaking_or_mostread_breaking_news" class="breaking-or-mostread-news-scroll active">
+                        {% for item in all_recent_news %}
+                        <a href="{% url 'news_details' item.id %}" class="breaking-or-mostread-news-item">
+                            <div class="breaking-or-mostread-card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="breaking-or-mostread-card-img" alt="{{ item.title }}"> {% endif %}
+                                <div class="breaking-or-mostread-card-body">
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.title|truncatechars:50 }}</h5>
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.get_formatted_time_since_created }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Most Read Section -->
+                    <div id="breaking_or_mostread_mostread_news" class="breaking-or-mostread-news-scroll">
+                        {% for item in top_news %}
+                        <a href="{% url 'news_details' item.id %}" class="breaking-or-mostread-news-item">
+                            <div class="breaking-or-mostread-card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="breaking-or-mostread-card-img" alt="{{ item.title }}"> {% endif %}
+
+                                <div class="breaking-or-mostread-card-body">
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.title|truncatechars:50 }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+                <a href="/" class="breaking-toggle-btn-readmore" style="margin:10px ;width:98!important;"> আরো পড়ুন &raquo;
+                    </a>
+                <!-- Frontpage Ads 1,2 END-->
+                <div>
+
+            {% if front_news_three_ad %}
+                    <div class="frontpage-top-ads">
+                        {% for ad in front_news_three_ad %}
+                        <a href="{{ ad.link }}">
+                {% if ad.media_type == 'image' %}
+                    <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+                {% elif ad.media_type == 'video' %}
+                    <video autoplay muted loop style="max-width: 100%; height: auto;">
+                        <source src="{{ ad.image.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% elif ad.media_type == 'gif' %}
+                    <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+                {% else %}
+                    <p>Media type not recognized: {{ ad.media_type }}</p>
+                {% endif %}
+            </a> {% endfor %}
+                    </div>
+
+            {% endif %}
+
+
+            {% if front_news_four_ad %}
+                    <div class="frontpage-top-ads">
+                        {% for ad in front_news_four_ad %}
+                        <a href="{{ ad.link }}">
+                {% if ad.media_type == 'image' %}
+                    <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+                {% elif ad.media_type == 'video' %}
+                    <video autoplay muted loop style="max-width: 100%; height: auto;">
+                        <source src="{{ ad.image.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% elif ad.media_type == 'gif' %}
+                    <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+                {% else %}
+                    <p>Media type not recognized: {{ ad.media_type }}</p>
+                {% endif %}
+            </a> {% endfor %}
+                    </div>
+
+            {% endif %}
+                </div>
+
+            </div>
+
+            <!-- Scrollable News Sections END -->
+
+
+        </div>
+
+
+
+        <!-- Comments Section END -->
+
+
+        <!-- Video Section END -->
+
+        <!--------------------------------------------------- Section START ------------------------------>
+<!-- Section 1 -->
+{% if sections|length > 0 %}
+<div class="section-heading-container mt-5">
+    <div class="section-heading">
+
+        <a href="{% url 'section_details' section_name=sections.0.name_en %}" class="section-title">
+            {{ sections.0.name_bn }} &#129082;
+        </a>
+
+    </div>
+    {% if section_categories and section_categories|length > 0 %}
+    <div class="category-list">
+        {% for category in section_categories.0.categories.all %}
+        <a href="{% url 'category_details' category_name_en=category.name_en %}" class="category-item">{{ category.name_bn }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<section class="style1-sports-section">
+    {% if main_news1 %}
+    <div class="style1-main-news">
+        <a href="{% url 'news_details' main_news1.id %}" class="style1-main-news-link">
+            {% if main_news1.red_tag %}
+            <h1 class="style1-news-title" style=" color:#D2042D;">{{ main_news1.red_tag }}</h1>
+            {% endif %}
+            <h1 class="style1-news-title">{{ main_news1.title }}</h1>
+            {% if main_news1.image %}
+            <img src="{{ main_news1.image.url }}" alt="{{ main_news1.title }}">
+            {% endif %}
+            <div class="sectionpage-news-description">{{ main_news1.description|truncatewords:20 }}</div>
+        </a>
+    </div>
+    {% endif %}
+    {% if secondary_news1 %}
+    <div class="style1-secondary-news">
+        {% for news in secondary_news1 %}
+        <div class="style1-section-news-item">
+            <a href="{% url 'news_details' news.id %}" class="style1-secondary-news-link">
+                <h2 class="style1-sports-section-news-item">{{ news.title }}</h2>
+                {% if news.image %}
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="style1-secondary-news-img">
+                {% endif %}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="section-ads">
+        {% for ad in section_one_ads %}
+        <a href="{{ ad.link }}">
+            {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+            {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+            {% else %}
+            <p>Unsupported media type: {{ ad.media_type }}</p>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Section 2 -->
+{% if sections|length > 1 %}
+<div class="section-heading-container">
+    <div class="section-heading">
+        <a href="{% url 'section_details' section_name=sections.1.name_en %}" class="section-title">
+            {{ sections.1.name_bn }} &#129082;
+        </a>
+    </div>
+    {% if section_categories and section_categories|length > 1 %}
+    <div class="category-list">
+        {% for category in section_categories.1.categories.all %}
+        <a href="{% url 'category_details' category_name_en=category.name_en %}" class="category-item">{{ category.name_bn }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<section class="section-div">
+    <!-- Main News -->
+    {% if main_news2 %}
+    <div class="section-s2-main-news">
+        <a href="{% url 'news_details' main_news2.id %}">
+            {% if main_news2.red_tag %}
+            <h1 class="style1-news-title" style="color:#D2042D;">{{ main_news2.red_tag }}</h1>
+            {% endif %}
+
+            {% if main_news2.image %}
+            <img src="{{ main_news2.image.url }}" alt="{{ main_news2.title }}">
+            {% else %}
+            <img src="/static/default.jpg" alt="Default Image">
+            {% endif %}
+                        <h1>{{ main_news2.title }}</h1>
+        </a>
+        <p class="news-description">{{ main_news2.description|truncatechars:150 }}
+            <a href="{% url 'news_details' main_news2.id %}" class="read-more">আরও পড়ুন</a>
+        </p>
+    </div>
+    {% endif %}
+
+    <!-- Secondary News -->
+    {% if secondary_news2 %}
+    <div class="secondary-news-main">
+        {% for news in secondary_news2 %}
+        <div class="section-s2-news-item">
+            <a href="{% url 'news_details' news.id %}">
+                {% if news.image %}
+                <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                {% else %}
+                <img src="/static/default.jpg" alt="Default Image">
+                {% endif %}
+                <h2>{{ news.title }}</h2>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Ads -->
+    {% if section_two_ads %}
+    <div class="section-ads">
+        {% for ad in section_two_ads %}
+        <a href="{{ ad.link }}">
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}">
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+{% endif %}
+<!-- Section 2 END -->
+
+
+        <!------- Section 3 Start ----->
+
+        {% if sections|length > 2 %}
+<div class="section-heading-container mt-5">
+
+        <div class="section-heading">
+                <a href="{% url 'section_details' section_name=sections.2.name_en %}" class="section-title">
+                    {{ sections.2.name_bn }} &#129082;
+                </a>
+        </div>
+
+    {% if section_categories and section_categories|length > 2 %}
+    <div class="category-list">
+        {% for category in section_categories.2.categories.all %}
+        <a href="{% url 'category_details' category_name_en=category.name_en %}" class="category-item">{{ category.name_bn }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<section class="style1-sports-section">
+    {% if main_news3 %}
+    <div class="style1-main-news">
+        <a href="{% url 'news_details' main_news3.id %}" class="style1-main-news-link">
+            {% if main_news3.red_tag %}
+            <h1 class="style1-news-title" style="color:#D2042D;">{{ main_news3.red_tag }}</h1>
+            {% endif %}
+            <h1 class="style1-news-title">{{ main_news3.title }}</h1>
+            {% if main_news3.image %}
+            <img src="{{ main_news3.image.url }}" alt="{{ main_news3.title }}">
+            {% endif %}
+            <div class="sectionpage-news-description">{{ main_news3.description|truncatewords:20 }}</div>
+        </a>
+    </div>
+    {% endif %}
+    {% if secondary_news3 %}
+    <div class="style1-secondary-news">
+        {% for news in secondary_news3 %}
+        <div class="style1-section-news-item">
+            <a href="{% url 'news_details' news.id %}" class="style1-secondary-news-link">
+                <h2 class="style1-sports-section-news-item">{{ news.title }}</h2>
+                {% if news.image %}
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="style1-secondary-news-img">
+                {% endif %}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="section-ads">
+        {% for ad in section_three_ads %}
+        <a href="{{ ad.link }}">
+            {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+            {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+            {% else %}
+            <p>Unsupported media type: {{ ad.media_type }}</p>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+
+<!------- Section 3 End ------>
+
+<!---------------- Section 4 Start -->
+
+{% if sections|length > 3 %}
+    <div class="section-heading-container">
+        <div class="section-heading">
+
+                <a href="{% url 'section_details' section_name=sections.3.name_en %}" class="section-title">
+                    {{ sections.3.name_bn }} &#129082;
+                </a>
+
+        </div>
+
+        <div class="category-list">
+            {% if section_categories and section_categories|length > 3 %}
+                {% for category in section_categories.3.categories.all %}
+                    <a href="{% url 'category_details' category_name_en=category.name_en %}" class="category-item">
+                        {{ category.name_bn }}
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="section-div">
+        <!-- Main News -->
+        {% if main_news4 %}
+            <div class="section-s2-main-news">
+                <a href="{% url 'news_details' main_news4.id %}">
+                    {% if main_news4.red_tag %}
+                        <h1 class="style1-news-title" style="color:#D2042D;">{{ main_news4.red_tag }}</h1>
+                    {% endif %}
+                    <h1>{{ main_news4.title }}</h1>
+                    {% if main_news4.image %}
+                        <img src="{{ main_news4.image.url }}" alt="{{ main_news4.title }}">
+                    {% else %}
+                        <img src="/static/default.jpg" alt="Default Image">
+                    {% endif %}
+                </a>
+                <p class="news-description">
+                    {{ main_news4.description|truncatechars:150 }}
+                    <a href="{% url 'news_details' main_news4.id %}" class="read-more">আরও পড়ুন</a>
+                </p>
+            </div>
+        {% endif %}
+
+        <!-- Secondary News -->
+        {% if secondary_news4 %}
+            <div class="secondary-news-main">
+                {% for news in secondary_news4 %}
+                    <div class="section-s2-news-item">
+                        <a href="{% url 'news_details' news.id %}">
+                            {% if news.image %}
+                                <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                            {% else %}
+                                <img src="/static/default.jpg" alt="Default Image">
+                            {% endif %}
+                            <h2>{{ news.title }}</h2>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Ads -->
+        <div class="section-ads">
+            {% if section_four_ads %}
+                {% for ad in section_four_ads %}
+                    <a href="{{ ad.link }}">
+                        <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}">
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+{% endif %}
+<!---------------- Section 4 End ---------------->
+
+
+<!---------------- Section 5 Start ----->
+
+{% if sections|length > 4 %}
+    <div class="section-heading-container">
+        <div class="section-heading">
+
+                <a href="{% url 'section_details' section_name=sections.4.name_en %}" class="section-title">
+                                    {{ sections.4.name_bn }} &#129082;
+                                </a>
+
+        </div>
+
+        <div class="category-list">
+            {% if section_categories and section_categories|length > 4 %}
+                {% for category in section_categories.4.categories.all %}
+                    <a href="{% url 'category_details' category_name_en=category.name_en %}" class="category-item">{{ category.name_bn }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="section-div">
+        <!-- Main News -->
+        {% if main_news5 %}
+            <div class="section-s2-main-news">
+                <a href="{% url 'news_details' main_news5.id %}">
+                    {% if main_news5.red_tag %}
+                        <h1 class="style1-news-title" style="color:#D2042D;">{{ main_news5.red_tag }}</h1>
+                    {% endif %}
+                    <h1>{{ main_news5.title }}</h1>
+                    {% if main_news5.image %}
+                        <img src="{{ main_news5.image.url }}" alt="{{ main_news5.title }}">
+                    {% else %}
+                        <img src="/static/default.jpg" alt="Default Image">
+                    {% endif %}
+                </a>
+                <p class="news-description">{{ main_news5.description|truncatechars:150 }}
+                    <a href="{% url 'news_details' main_news5.id %}" class="read-more">আরও পড়ুন</a>
+                </p>
+            </div>
+        {% endif %}
+
+        <!-- Secondary News -->
+        {% if secondary_news5 %}
+            <div class="secondary-news-main">
+                {% for news in secondary_news5 %}
+                    <div class="section-s2-news-item">
+                        <a href="{% url 'news_details' news.id %}">
+                            {% if news.image %}
+                                <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                            {% else %}
+                                <img src="/static/default.jpg" alt="Default Image">
+                            {% endif %}
+                            <h2>{{ news.title }}</h2>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Ads -->
+        <div class="section-ads">
+            {% if section_five_ads %}
+                {% for ad in section_five_ads %}
+                    <a href="{{ ad.link }}">
+                        <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}">
+                    </a>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+    </section>
+{% endif %}
+
+<!---------------- Section 5 END ----->
+
+<!---------------- Section 6 Start ----->
+
+{% if sections|length > 5 %}
+    <div class="section-heading-container">
+        <div class="section-heading">
+            <a href="{% url 'section_details' section_name=sections.5.name_en %}" class="section-title">
+                {{ sections.5.name_bn }} &#129082;
+            </a>
+        </div>
+
+        <div class="category-list">
+            {% if section_categories and section_categories|length > 5 %}
+                {% for category in section_categories.5.categories.all %}
+                    <a href="{% url 'category_details' category_name_en=category.name_en %}" class="category-item">
+                        {{ category.name_bn }}
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="style1-sports-section">
+        <!-- Main Forest News -->
+        {% if main_news6 %}
+            <div class="style1-main-news">
+                <a href="{% url 'news_details' main_news6.id %}" class="style1-main-news-link">
+                    {% if main_news6.red_tag %}
+                        <h1 class="style1-news-title" style="color:#D2042D;">{{ main_news6.red_tag }}</h1>
+                    {% endif %}
+                    <h1 class="style1-news-title">{{ main_news6.title }}</h1>
+                    {% if main_news6.image %}
+                        <img src="{{ main_news6.image.url }}" alt="{{ main_news6.title }}">
+                    {% else %}
+                        <img src="/static/default.jpg" alt="Default Image">
+                    {% endif %}
+                    <div class="sectionpage-news-description">
+                        {{ main_news6.description|truncatewords:20 }}
+                    </div>
+                </a>
+            </div>
+
+        {% endif %}
+
+        <!-- Secondary Forest News -->
+        {% if secondary_news6 %}
+            <div class="style1-secondary-news">
+                {% for news in secondary_news6 %}
+                    <div class="style1-section-news-item">
+                        <a href="{% url 'news_details' news.id %}" class="style1-secondary-news-link">
+                            <h2 class="style1-sports-section-news-item">{{ news.title }}</h2>
+                            {% if news.image %}
+                                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="style1-secondary-news-img">
+                            {% else %}
+                                <img src="/static/default.jpg" alt="Default Image">
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endif %}
+
+        <!-- Ads -->
+        <div class="section-ads">
+            {% if section_six_ads %}
+                {% for ad in section_six_ads %}
+                    <a href="{{ ad.link }}">
+                        <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}">
+                    </a>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+    </section>
+{% endif %}
+
+<!---------------- Section 6 END ----->
+
+
+        <!--
+
+    &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; technology news Start -&#45;&#45;&ndash;&gt;
+
+<div class="section-heading-container">
+        <div class="section-heading">
+            <a href="{% url 'section_details' section_name='technology' %}" class="section-title">প্রযুক্তি &#129082;</a>
+        </div>
+
+        <div class="category-list">
+            {% for category in section_categories.technology %}
+                <a href="{% url 'category_details' category_name=category.name %}" class="category-item">
+                    {{ category.get_name_display }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+<section class="technology-climate-section">
+
+    &lt;!&ndash; Main technology News &ndash;&gt;
+    {% if main_technology_news %}
+        <div class="main-news-technology large-news">
+            <h1>{{ main_technology_news.title }}</h1>
+            {% if main_technology_news.image %}
+                <a href="{% url 'news_details' main_technology_news.id %}">
+                    <img src="{{ main_technology_news.image.url }}" alt="{{ main_technology_news.title }}">
+                </a>
+            {% else %}
+                <a href="{% url 'news_details' main_technology_news.id %}">
+                    <img src="/static/default.jpg" alt="Default Image">
+                </a>
+            {% endif %}
+            <p class="news-description">
+                {% if main_technology_news.description|length > 300 %}
+                    {{ main_technology_news.description|truncatechars:300 }}<a href="{% url 'news_details' main_technology_news.id %}" class="read-more">আরও পড়ুন</a>
+                {% else %}
+                    {{ main_technology_news.description }}
+                {% endif %}
+            </p>
+        </div>
+    {% endif %}
+
+    &lt;!&ndash; Secondary technology News &ndash;&gt;
+    <div class="secondary-news-technology">
+        {% if secondary_technology_news %}
+            <div class="small-news-boxes">
+                {% for news in secondary_technology_news|slice:":2" %}
+                    <div class="small-news-box">
+                        <a href="{% url 'news_details' news.id %}">
+                            {% if news.image %}
+                                <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                            {% else %}
+                                <img src="/static/default.jpg" alt="Default Image">
+                            {% endif %}
+                            <h2>{{ news.title }}</h2>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="list-type-news">
+            {% for news in secondary_technology_news|slice:"2:4" %}
+                <div class="list-item">
+                    <a href="{% url 'news_details' news.id %}">
+                        {% if news.image %}
+                            <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                        {% else %}
+                            <img src="/static/default.jpg" alt="Default Image">
+                        {% endif %}
+                        <h3>{{ news.title }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+-->
+
+
+        <!-- Technology Section END -->
+
+        <!--------------------------------------------------- Section END ------------------------------>
+
+        <!-- Video Section Start -->
+
+        <div id="video-section" class="video-section">
+            {% include 'videos.html' %}
+        </div>
+
+        <!--    ---------  ----    ---------   Category News START ------------>
+        <!-- Category News START -->
+<div class="frontpg-category-div mt-5">
+    <!-- Display the first 4 categories -->
+    {% for category in first_four_categories %}
+    <div class="frontpg-category-container">
+        <a href="{% url 'category_details' category.name_en %}" class="frontpg-category-link">
+            <div class="frontpg-category-name" style="color: #D2042D; padding-left: 20px;">
+                {{ category.name_bn }}
+            </div>
+        </a>
+
+        <!-- Fetch the latest 4 news items in reverse order -->
+        {% with category.newslist_set.all|dictsortreversed:"created_at"|slice:":4" as latest_news %}
+        <div class="frontpg-category-news-grid">
+            {% for news in latest_news %}
+            {% if forloop.first %}
+            <!-- Large Item -->
+            <div class="frontpg-category-big-news">
+                <a href="{% url 'news_details' news.id %}">
+                    {% if news.red_tag %}
+                    <p class="frontpage-news-title" style="font-size:1rem; color:#D2042D;">{{ news.red_tag }}</p>
+                    {% endif %}
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}" class="frontpg-category-big-news-img">
+                    <h2 class="frontpg-category-big-news-title">{{ news.title }}</h2>
+                </a>
+            </div>
+            {% else %}
+            <!-- Smaller Items -->
+            <div class="frontpg-category-small-news">
+                <a href="{% url 'news_details' news.id %}" class="frontpg-category-small-news-link">
+                    <p class="frontpg-category-small-news-title">{{ news.title }}</p>
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endwith %}
+    </div>
+    {% endfor %}
+</div>
+
+
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="frontpage-top-ads">
+                {% for ad in highlight_category_section_one %}
+                <a href="{{ ad.link }}">
+        {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Media type not recognized: {{ ad.media_type }}</p>
+        {% endif %}
+    </a> {% endfor %}
+            </div>
+
+            <div class="frontpage-top-ads">
+                {% for ad in highlight_category_section_two %}
+                <a href="{{ ad.link }}">
+        {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Media type not recognized: {{ ad.media_type }}</p>
+        {% endif %}
+    </a> {% endfor %}
+            </div>
+        </div>
+
+
+        <!-- Remaining Categories START -->
+        <div class="frontpg-category-div mt-5">
+            <!-- Display the first 4 categories -->
+            {% for category in remaining_categories %}
+            <div class="frontpg-category-container">
+                <a href="{% url 'category_details' category.name_en %}" class="frontpg-category-link">
+                    <div class="frontpg-category-name" style="color: #D2042D; padding-left: 20px;">
+                        {{ category.name_bn }}
+                    </div>
+                </a>
+
+                <!-- Fetch the latest 4 news items in reverse order -->
+                {% with category.newslist_set.all|dictsortreversed:"created_at"|slice:":4" as latest_news %}
+                <div class="frontpg-category-news-grid">
+                    {% for news in latest_news %}
+                    {% if forloop.first %}
+                    <!-- Large Item -->
+                    <div class="frontpg-category-big-news">
+                        <a href="{% url 'news_details' news.id %}">
+                            {% if news.red_tag %}
+                            <p class="frontpage-news-title" style="font-size:1rem; color:#D2042D;">{{ news.red_tag }}</p>
+                            {% endif %}
+                            <img src="{{ news.image.url }}" alt="{{ news.title }}" class="frontpg-category-big-news-img">
+                            <h2 class="frontpg-category-big-news-title">{{ news.title }}</h2>
+                        </a>
+                    </div>
+                    {% else %}
+                    <!-- Smaller Items -->
+                    <div class="frontpg-category-small-news">
+                        <a href="{% url 'news_details' news.id %}" class="frontpg-category-small-news-link">
+                            <p class="frontpg-category-small-news-title">{{ news.title }}</p>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endwith %}
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Remaining Categories END -->
+
+        <!-- Category News END -->
+
+        <!--    ---------  ----    ---------   Category News  -----  ---- END --->
+
+
+
+
+        <!-- Photo Gallery Slider with Auto-Slide Configuration -->
+        {% if photos %}
+
+        
+        <div id="photo-section" class="photo-section">
+            {% include 'photo_gallery.html' %}
+        </div>
+       
+        {% endif %} 
+        <!-- ===   Photo Gallery END    -->
+
+        <!--   --------     Most Viewed News Start ----------  -->
+        <div class="mostview-header mt-2">
+            <p class="mostview-title" style="font-size: 1.5rem;">
+                সর্বোচ্চ পঠিত
+                <i class="fa fa-eye" style="font-size: 0.8em; vertical-align: middle; margin-left: 5px;"></i>
+            </p>
+            <div class="mostview-scroll-news_bottom">
+                <div class="mostview-news-scroll">
+                    {% for item in top_news %}
+                    <a href="{% url 'news_details' item.id %}" class="mostview-news-item">
+                        <div class="mostview-card">
+                            {% if item.image %}
+                            <img src="{{ item.image.url }}" class="mostview-card-img" alt="{{ item.title }}">
+                            {% else %}
+                            <img src="{% static 'img/placeholder.png' %}" class="mostview-card-img" alt="No Image Available">
+                            {% endif %}
+                            <div class="mostview-card-body">
+                                <h5 class="mostview-card-title">{{ item.title|truncatechars:40 }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--        Most Viewed News END   -->
+
+
+
+
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+
+<!--    Necessary Imports Scripts   -->
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+</body>
+
+</html>

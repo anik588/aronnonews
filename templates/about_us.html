@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+        {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    font -->
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="description" content="অরণ্য নিউজ - আমাদের কথা">
+    <title>আমাদের কথা</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    h2{
+        color:#D2042D;
+    }
+    .custom-about-container{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    }
+</style>
+
+</head>
+
+<body>
+    <!--Ad -->
+
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+
+
+
+<!--    content start-->
+ <main class="container">
+
+    <div class="custom-about-container pt-3">
+        <!-- Bengali Section -->
+        <section class="about-us">
+            <h2>আমাদের কথা</h2>
+            <p>অরন্য নিউজে, আমরা শুধুমাত্র প্রতিবেদন নই; আমরা গল্প বলি, সততা ও আবেগের সাথে আমাদের চারপাশের বিশ্বকে আলোকিত করতে আমরা প্রতিশ্রুতিবদ্ধ। আমাদের লক্ষ্য হলো গুরুত্বপূর্ণ সংবাদ প্রদান করা, যাতে একটি সচেতন সম্প্রদায় গড়ে ওঠে যেখানে প্রতিটি কণ্ঠস্বর শোনা যায়।</p>
+
+            <h2>আমাদের দল</h2>
+            <p>দৃশ্যমানতার পথপ্রদর্শক মো: জাকির হোসেনের নেতৃত্বে, আমাদের সম্পাদকীয় দল, সর্বোচ্চ সাংবাদিকতা মান বজায় রাখার জন্য প্রতিশ্রুতিবদ্ধ। আমরা একসাথে এমন গল্প নিয়ে আসতে চেষ্টা করছি যা অনুপ্রাণিত করে, শিক্ষা দেয় এবং চিন্তার উদ্রেক করে।</p>
+
+            <h2>প্রকাশনার তথ্য</h2>
+            <p>প্রকাশক কর্তৃক: <strong>এবি প্রিন্টিং প্রেস এন্ড পাবলিকেশন</strong></p>
+            <p>ঠিকানা: ৭০ পাইওনিয়র রোড, কাকরাইল , ঢাকা-১০০০</p>
+            <p>মুদ্রিত, প্রকাশিত: বাড়ি নং -৩১, স্যুইট নং- এ/২, রোড নং -৩ গোপিবাগ, মতিঝিল, ঢাকা-১২০৩</p>
+
+            <h2>যোগাযোগের তথ্য</h2>
+            <p>
+                {% if contact_info.phone_bn %}
+                    ফোন: {{ contact_info.phone_bn }}<br>
+                {% endif %}
+                {% if contact_info.mobile_bn %}
+                    মোবাইল: {{ contact_info.mobile_bn }}<br>
+                {% endif %}
+
+                {% if contact_info.email_news_en %}
+                    ই-মেইল: <a href="mailto:{{ contact_info.email }}">{{ contact_info.email_news_en }}</a>
+                {% endif %}
+            </p>
+        </section>
+    </div>
+
+    <div class="custom-about-container pt-3">
+        <!-- English Section -->
+        <section class="about-us">
+            <h2>About Us</h2>
+            <p>At Aronno News, we are not just reporters; we are storytellers, dedicated to illuminating the world around us with integrity and passion. Our mission is to deliver news that matters, fostering an informed community where every voice is heard.</p>
+
+            <h2>Our Team</h2>
+            <p>Led by the visionary Mr. Zakir Hossain, our editorial team is committed to upholding the highest journalistic standards. Together, we strive to bring you stories that inspire, educate, and provoke thought.</p>
+
+            <h2>Publication Information</h2>
+            <p>Published by: <strong>AB Printing Press and Publication</strong></p>
+            <p>{{ contact_info.address_en1_title }}: {{ contact_info.address_en1_value }}</p>
+            <p>{{ contact_info.address_en2_title }}: {{ contact_info.address_en2_value }}</p>
+
+            <h2>Get in Touch</h2>
+            <p>
+                {% if contact_info.phone_en %}
+                    Phone: {{ contact_info.phone_en }}<br>
+                {% endif %}
+
+                {% if contact_info.mobile_en %}
+                    Mobile: {{ contact_info.mobile_en }}<br>
+                {% endif %}
+
+                {% if contact_info.email_news_en %}
+                    Email: <a href="mailto:{{ contact_info.email_en }}">{{ contact_info.email_news_en }}</a><br>
+                {% endif %}
+            </p>
+        </section>
+    </div>
+
+</main>
+
+<!--    content end-->
+
+
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+</body>
+
+</html>

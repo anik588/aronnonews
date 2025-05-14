@@ -1,0 +1,523 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+
+    <meta name="description" content="{{ latest_highlighted_news.0.title }}">
+    <title>অরণ্য নিউজ ই-পেপার</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css">
+
+<!-- Flatpickr JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#archive-date", {
+            dateFormat: "Y-m",  // Backend format (YYYY-MM)
+            altInput: true,
+            altFormat: "F Y",   // Display format (e.g., "December 2024")
+            disableMobile: true,
+            plugins: [new monthSelectPlugin()], // Enable Month Select Plugin
+            onClose: function(selectedDates, dateStr, instance) {
+                document.getElementById("archive-filter-form").submit(); // Auto-submit form
+            }
+        });
+    });
+</script>
+
+    <style>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* PDF viewer container */
+#pdf-container {
+    position: relative;
+    width: 100%;             /* Ensure the width is fully responsive */
+    height: 100vh;           /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;     /* Centers content vertically */
+    background-color: transparent;
+    overflow: hidden;        /* Prevents any overflow for better layout */
+}
+
+/* Transparent iframe for PDF */
+#pdf-iframe {
+    width: auto;             /* Allow iframe to adjust width based on content */
+    height: 100%;            /* Make iframe height fill the container */
+}
+
+/* For canvas PDF viewer */
+#pdf-canvas {
+    width: auto;             /* Let the canvas adjust its width based on content */
+    height: 100%;
+    background: transparent;
+}
+
+
+/* Navigation arrow buttons */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.nav-arrow-btn{
+
+    position: absolute;
+    top: 50%;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 30px;
+    border: none;
+
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+
+
+/* Search bar for PDFs */
+.pdf-search {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pdf-search input {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* PDF list under the viewer */
+.pdf-list {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pdf-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pdf-list li {
+    margin: 5px 0;
+}
+
+.pdf-list a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.pdf-list a:hover {
+    text-decoration: underline;
+}
+
+/* Download button */
+.download-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+
+
+}
+
+
+.download-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive design for PC screens */
+@media (min-width: 768px) {
+
+/* Left arrow button */
+#prev-arrow {
+    left: 200px;
+}
+
+/* Right arrow button */
+#next-arrow {
+    right: 200px;
+}
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+
+/* Left arrow button */
+#prev-arrow {
+    left: 10px;
+}
+
+/* Right arrow button */
+#next-arrow {
+    right: 10px;
+}
+
+
+    .pdf-container {
+        height: 70vh;
+    }
+
+    .nav-arrow {
+        font-size: 24px;
+        padding: 8px;
+    }
+
+    .pdf-search input {
+        width: 80%;
+    }
+
+    .download-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+.epaper-archive-filter-form{
+    max-width:50%;
+    margin:0 auto;
+    padding:20px;
+}
+
+/* Apply flexbox to the form to make elements align in one line */
+.epaper-archive-filter-form {
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Vertically center the items */
+    gap: 10px; /* Optional: Add some space between the input and button */
+}
+
+/* Style the input and button */
+.archive-date-select, button {
+    height: 40px; /* Adjust button and input height */
+    padding: 0 10px;
+}
+
+/* Optional: Style the button to match the input */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0 15px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 4 / 5;  /* Adjusts height dynamically while maintaining aspect ratio */
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+}
+
+.epaper-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.epaper-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.epaper-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-body {
+    padding: 8px !important; /* Reduce spacing */
+}
+
+.card-title {
+    font-size: 14px; /* Smaller title */
+}
+
+.text-muted {
+    font-size: 12px; /* Smaller date */
+}
+
+.pc-search-icon{
+    padding:3px !important;
+}
+
+    </style>
+
+</head>
+<body>
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+<!-- Navbar END --------------------->
+     <div class="container">
+
+{% if epaper %}
+    <div class="container mt-4">
+        <h2 class="text-center font-weight-bold">{{ epaper.title }}</h2>
+        <p class="text-center text-muted">আপলোডের তারিখ: {{ epaper.upload_time|date:"d F, Y" }}</p>
+
+        <!-- PDF Viewer -->
+        <div class="mb-5 text-center">
+            <div id="pdf-container" class="position-relative d-inline-block">
+                <canvas id="pdf-canvas" class="shadow-lg rounded"></canvas>
+   <button id="prev-arrow" class="nav-arrow-btn left-arrow">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+    <button id="next-arrow" class="nav-arrow-btn right-arrow">
+        <i class="fas fa-arrow-right"></i>
+    </button>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <div class="text-center">
+            <button id="download-btn" class="btn btn-primary px-4 py-2 shadow-sm" style="background-color: #D2042D;">
+                📥 ডাউনলোড পিডিএফ
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('download-btn').onclick = () => {
+            window.location.href = "{{ epaper.pdf_file.url }}";
+        };
+    </script>
+{% else %}
+    <p class="text-center text-danger py-3">ই-পেপার পাওয়া যায়নি!</p>
+{% endif %}
+
+<!-- Archive Filter Form -->
+<div class="d-flex justify-content-center my-4">
+    <form method="get" id="archive-filter-form" class="d-flex align-items-center shadow-sm p-2 bg-light rounded">
+        <input
+            class="form-control border-0 shadow-none"
+            type="text"
+            id="archive-date"
+            name="date"
+            value="{{ request.GET.date }}"
+            placeholder="বছর এবং মাস নির্বাচন করুন"
+        >
+        <button type="submit" class="btn btn-dark ml-2"> খুঁজুন</button>
+    </form>
+</div>
+<!-- Archive Filter Form END -->
+
+<!-- Latest E-Papers in Cards -->
+
+    <h3 class="text-center my-4 p-2" style="border-bottom:1px solid #D2042D;">📜 সাম্প্রতিক ই-পেপার</h3>
+    <div class="row">
+        {% for epaper in latest_epapers %}
+<!-- E-Paper Card -->
+<div class="col-md-3 mb-4">
+    <div class="card epaper-card shadow-sm border-0">
+        <a href="{% url 'epaper_detail' epaper.id %}" class="epaper-link">
+            <div class="image-container">
+                {% if epaper.thumbnail %}
+                    <img src="{{ epaper.thumbnail.url }}" class="card-img-top" alt="{{ epaper.title }}">
+                {% else %}
+                    <img src="/static/default-thumbnail.png" class="card-img-top" alt="No Thumbnail">
+                {% endif %}
+            </div>
+            <div class="card-body text-center p-2">
+                <h6 class="card-title text-truncate m-1" style="color: #D2042D;">{{ epaper.title }}</h6>
+                <p class="text-muted small m-1">{{ epaper.upload_time|date:"d F, Y" }}</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
+
+     </div>   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+<!-- Flatpickr JS -->
+
+
+<!-- Include PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const pdfUrl = "{{ epaper.pdf_file.url }}";
+        let pdfDoc = null;
+        let currentPage = 1;
+
+        const canvas = document.getElementById("pdf-canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Load PDF
+        pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+            pdfDoc = pdf;
+            renderPage(currentPage);
+        }).catch(function (error) {
+            console.error("Error loading PDF:", error);
+        });
+
+        // Function to render the PDF page
+        function renderPage(pageNum) {
+            pdfDoc.getPage(pageNum).then(function (page) {
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport,
+                };
+
+                page.render(renderContext);
+            });
+        }
+
+        // Function to navigate between pages
+        function navigate(direction) {
+            if (pdfDoc) {
+                const totalPages = pdfDoc.numPages;
+                let newPage = currentPage + direction;
+
+                if (newPage >= 1 && newPage <= totalPages) {
+                    currentPage = newPage;
+                    renderPage(currentPage);
+                }
+            }
+        }
+
+        // Attach event listeners to the buttons
+        document.getElementById("prev-arrow").addEventListener("click", function () {
+            navigate(-1);
+        });
+
+        document.getElementById("next-arrow").addEventListener("click", function () {
+            navigate(1);
+        });
+
+        // Download PDF functionality
+        document.getElementById("download-btn").onclick = () => {
+            window.location.href = pdfUrl;
+        };
+    });
+</script>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+
+</body>
+
+</html>

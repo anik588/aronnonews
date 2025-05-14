@@ -1,0 +1,124 @@
+/* admin_custom.css */
+
+
+
+/* General Body Styles */
+body {
+    font-size: 16px;
+    font-family: 'SolaimanLipi', sans-serif;
+}
+
+/* Change the color of all table headers in the admin to red */
+.sorting a {
+    color: red !important; /* Ensure the header text color is red */
+}
+
+
+
+/* Ensure the entire alert text, including model titles, is white */
+.alert {
+    color: white !important; /* Sets the text color of the alert to white */
+}
+
+/* Specifically change the color of links within the alert */
+.alert a {
+    color: white !important; /* Sets the color of links within alerts to white */
+}
+.alert a:hover{
+    color: blue !important; /* Sets the color of links within alerts to white */
+}
+/* If the model title is in a specific element, ensure it is styled */
+.alert strong {
+    color: white !important; /* Ensures strong text (like model titles) is white */
+}
+
+.main-sidebar{
+    padding-bottom:100px !important;
+}
+/* Hide all sidebar icon circles */
+.main-sidebar .nav-link .nav-icon {
+    display: none; /* Hide all icon circles */
+}
+
+/* Show the dashboard icon specifically */
+.main-sidebar .nav-link[href="/admin/"] .nav-icon {
+    display: inline; /* Show the dashboard icon */
+}
+
+/* Hide the default user photo */
+.user-panel .image {
+    display: none;
+}
+
+/* Style for the username */
+.user-panel .info p {
+    font-size: 14px;
+    color: white; /* Adjust color as needed */
+    margin: 0;
+    padding: 10px;
+}
+
+/* General Sidebar Styles */
+.main-sidebar .nav-link {
+    font-size: 14px;
+}
+
+/* Change font size for model titles */
+.model-title {
+    font-size: 18px; /* Adjust as needed */
+}
+
+.content-wrapper {
+    font-size: 15px;
+}
+
+/* Branding color */
+.main-sidebar {
+    background-color: #2E3192; /* Change sidebar background */
+}
+
+.brand-link {
+    background-color: #D2042D; /* Change brand background */
+    color: white; /* Change brand text color */
+}
+
+/* Group Box Styles */
+.nav-group {
+    background-color: #2E3192; /* Background color for each group box */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Padding inside the box */
+    margin-bottom: 15px; /* Space between group boxes */
+}
+
+/* Group Title Styles */
+.nav-group .nav-header {
+    color: white; /* Change the text color */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    margin-bottom: 5px; /* Add space below the header */
+}
+
+/* Group Items Styles */
+.nav-group .nav-link {
+    padding: 5px 10px; /* Padding for individual links */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+/* Hover Effect for Links */
+.nav-group .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighten on hover */
+    color: white; /* Text color on hover */
+}
+
+/* Active Effect for Links */
+.nav-group .nav-link.active,
+.nav-group .nav-link:focus {
+    background-color: #D2042D !important; /* Change to your desired active color */
+    color: white; /* Text color when active */
+}
+
+/* Additional spacing at the bottom of the sidebar */
+.main-sidebar {
+    padding-bottom: 20px; /* Adjust as needed */
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Image Gallery</title>
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a7e9f794eb.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Base styles */
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .gallery-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        font-family: Arial, sans-serif;
+        width: 100%;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-container__image {
+        position: relative;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 400px; /* Set a fixed height for consistency */
+        overflow: hidden;
+    }
+
+.gallery-img {
+    width: 100%;
+
+    aspect-ratio: 3 / 2; /* Ensures a 4:3 aspect ratio */
+    object-fit: cover; /* Ensures images cover the container while maintaining aspect ratio */
+}
+
+
+    .gallery-caption {
+        margin-top: 10px;
+        color: #333;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .gallery-prev,
+    .gallery-next {
+        padding: 10px;
+        background-color: transparent;
+        color: gray;
+        cursor: pointer;
+        font-size: 2rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        outline: none;
+    }
+
+    .gallery-prev { left: 10px; }
+    .gallery-next { right: 10px; }
+
+    .gallery-indicators {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: transparent;
+        transition: background-color 0.3s;
+    }
+
+    .indicator.active { background-color: #D2042D; }
+
+    @media (min-width: 769px) {
+        .gallery-container__image {
+            width: 600px;
+            height: 400px;
+        }
+
+        .gallery-prev,
+        .gallery-next {
+            font-size: 2.5rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .gallery-container__image {
+            width: 80vw;
+            height: 60vw;
+        }
+
+        .gallery-caption {
+            font-size: 0.9rem;
+        }
+    }
+    .section-h:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px; /* Adjust the offset as needed */
+    text-decoration-thickness: 1px; /* Optional: control the thickness */
+    }
+
+    .gallery-caption:hover{
+
+        color:#D2042D;
+    }
+</style>
+</head>
+
+
+<body>
+  <a href="{% url 'photo_gallery_all' %}">  <h1 class="section-heading section-h" style="background-color:#D2042D; color: #fff; font-size: 1.7rem; padding-left: 20px;">
+        ফটো গ্যালারি &#129082;
+    </h1></a>
+
+    <section class="container">
+        <div class="gallery-container">
+            <div class="gallery-container__image">
+                <div class="gallery-image__main">
+                    <a href="{% url 'photo_gallery_all' %}">
+                    {% for photo in photos %}
+                        <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" class="gallery-img" data-caption="{{ photo.caption }}" style="display: none;">
+                  {% endfor %}
+                          </a>
+                </div>
+            </div>
+
+            <!-- Caption below the image -->
+          <a href="{% url 'photo_gallery_all' %}">
+            <div class="gallery-caption" id="galleryCaption"></div>
+            </a>
+            <!-- Indicator Section -->
+            <div class="gallery-indicators" id="galleryIndicators"></div>
+
+            <button class="gallery-prev"><i class="fas fa-arrow-circle-left"></i></button>
+            <button class="gallery-next"><i class="fas fa-arrow-circle-right"></i></button>
+        </div>
+<!-- Extra Photos Section -->
+<div class="col-md-12 mt-4">
+    {% if extra_photos %}
+        <div class="row">
+            {% for photo in extra_photos %}
+                <div class="col-md-4 mb-2">
+                    <div class="card">
+                        <a href="{% url 'photo_gallery_all' %}" target="_blank">
+                            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" class="card-img-top">
+                        </a>
+                        <div class="card-body"  style="padding:10px !important;">
+                            <a href="{% url 'photo_gallery_all' %}">
+                            <h5 class="gallery-caption">{{ photo.caption }}</h5>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">No extra photos available.</p>
+    {% endif %}
+</div>
+    </section>
+
+    <!-- Inline JavaScript -->
+<script>
+    const galleryPrev = document.querySelector(".gallery-prev");
+    const galleryNext = document.querySelector(".gallery-next");
+    const galleryImages = document.querySelectorAll(".gallery-img");
+    const captionElement = document.getElementById("galleryCaption");
+    const galleryIndicators = document.getElementById("galleryIndicators");
+    let galleryCounter = 0;
+
+    let autoSlideInterval;
+
+    // Create Indicators based on the number of images
+    function createIndicators() {
+        galleryImages.forEach((_, index) => {
+            const indicator = document.createElement("div");
+            indicator.classList.add("indicator");
+            if (index === galleryCounter) {
+                indicator.classList.add("active");
+            }
+            indicator.addEventListener("click", () => {
+                galleryCounter = index;
+                updateGallery();
+            });
+            galleryIndicators.appendChild(indicator);
+        });
+    }
+
+    // Update Gallery to show the current image, and update caption & indicators
+    function updateGallery() {
+        galleryImages.forEach((img, index) => {
+            img.style.display = index === galleryCounter ? "block" : "none";
+        });
+        captionElement.textContent = galleryImages[galleryCounter].getAttribute("data-caption");
+        document.querySelectorAll(".indicator").forEach((indicator, index) => {
+            indicator.classList.toggle("active", index === galleryCounter);
+        });
+    }
+
+    // Add event listeners for the navigation buttons
+    galleryNext.addEventListener("click", () => {
+        galleryCounter = (galleryCounter + 1) % galleryImages.length;
+        updateGallery();
+    });
+
+    galleryPrev.addEventListener("click", () => {
+        galleryCounter = (galleryCounter - 1 + galleryImages.length) % galleryImages.length;
+        updateGallery();
+    });
+
+    // Automatically change image every 4 seconds
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            galleryCounter = (galleryCounter + 1) % galleryImages.length;
+            updateGallery();
+        }, 4000);
+    }
+
+    // Stop the slideshow when hovering or touching
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Resume the slideshow after hover or touch ends
+    function resumeAutoSlide() {
+        startAutoSlide();
+    }
+
+    // Event listeners to handle hover and touch
+    const galleryContainer = document.querySelector(".gallery-container");
+
+    galleryContainer.addEventListener("mouseenter", stopAutoSlide); // Pause on hover
+    galleryContainer.addEventListener("mouseleave", resumeAutoSlide); // Resume after hover
+
+    // For touch events on mobile devices
+    galleryContainer.addEventListener("touchstart", stopAutoSlide); // Pause on touch
+    galleryContainer.addEventListener("touchend", resumeAutoSlide); // Resume after touch
+
+    // Initialize the gallery
+    createIndicators();
+    updateGallery();
+    startAutoSlide(); // Start the auto slide on page load
+</script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // Dropdown handling for desktop view
+    const dropdownItems = document.querySelectorAll('.custom-nav-item.dropdown');
+
+    dropdownItems.forEach(item => {
+        const dropdownToggle = item.querySelector('.dropdown-toggle');
+        const dropdownMenu = item.querySelector('.dropdown-menu');
+
+        // Show dropdown on hover for desktop
+        item.addEventListener('mouseenter', () => {
+            dropdownMenu.classList.add('show');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            dropdownMenu.classList.remove('show');
+        });
+
+        // Toggle dropdown on click
+        dropdownToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            dropdownMenu.classList.toggle('show');
+        });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('.custom-toggler');
+    const mobileMenu = document.getElementById('navbarNav');
+
+    mobileMenuButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        mobileMenu.classList.toggle('show');
+        mobileMenu.classList.toggle('expand'); // Custom class for expanding mobile menu
+        document.body.classList.toggle('no-scroll'); // Toggle body scroll
+    });
+
+    // Close dropdowns and mobile menu on outside click
+    window.addEventListener('click', (event) => {
+        const isDropdownClick = event.target.closest('.custom-nav-item.dropdown');
+        const isMobileMenuClick = event.target.closest('.custom-toggler') || event.target.closest('#navbarNav');
+
+        if (!isDropdownClick && !isMobileMenuClick) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                menu.classList.remove('show');
+            });
+
+            if (mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileMenu.classList.remove('expand');
+                document.body.classList.remove('no-scroll'); // Allow body scroll
+            }
+        }
+    });
+
+    mobileMenu.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+});
+
+
+    </script>
+</body>
+</html>

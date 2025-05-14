@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+        {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    font -->
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="description" content="অরণ্য নিউজ পলিসি">
+    <title>অরণ্য নিউজ পলিসি</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+.whole-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .terms-of-use-english,
+    .terms-of-use-bengali {
+        width: 100% !important; /* Forces full width */
+        margin: 10px 0; /* Adjust vertical spacing */
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (min-width: 768px) {
+    .terms-of-use-english,
+    .terms-of-use-bengali {
+        width: 48%; /* Side-by-side layout on larger screens */
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+<!--    content Start -->
+
+
+<div class="container whole-container">
+  <!-- English Version -->
+  <div class="terms-of-use-english">
+    <h2 style="color:#D2042D; text-align:center;" >Terms of Use</h2>
+    <p>
+      Aronnonews invites its readers and visitors to access its website in compliance with specific terms and conditions.
+      If anyone disagrees with any part of the Terms of Use or Privacy Policy, they may contact Aronnonews through phone
+      or email to express their concerns. However, Aronnonews retains the sole right to accept or decline such objections.
+    </p>
+    <h3>1. Disclaimer</h3>
+    <p>
+      Aronnonews strives to offer its users the best possible service but cannot guarantee the accuracy of all content on
+      the site, including news, quotes, data, and multimedia such as images and videos. There is no assurance that the
+      site's content will be error-free or uninterrupted. It is not advisable to base decisions, transactions, or trades
+      solely on the content provided. All materials on Aronnonews are for informational purposes only and do not
+      constitute advice or recommendations.
+    </p>
+    <h3>2. Ethics for Comments</h3>
+    <p>
+      Reader comments should align with the topic or content of the news reports. Aronnonews will not be responsible for
+      the views or opinions expressed by readers. Comments may be edited, modified, or removed, and Aronnonews reserves
+      the right to decline publication or remove content at any time.
+    </p>
+    <h3>3. Communication by Aronnonews</h3>
+    <p>
+      Aronnonews may reach out to its readers and users via email, phone, or SMS to invite them to participate in events
+      or activities.
+    </p>
+    <h3>4. Complaint Policy</h3>
+    <p>
+      Aronnonews values open communication and will kindly acknowledge all complaints upon receipt, making every effort
+      to address them thoughtfully and efficiently, using the best resources available to ensure a positive resolution.
+    </p>
+  </div>
+
+  <!-- Bengali Version -->
+  <div class="terms-of-use-bengali">
+      <h2 style="color:#D2042D; text-align:center;">ব্যবহারের শর্তাবলী</h2>
+    <p>
+      অরণ্য নিউজ তার পাঠক এবং দর্শকদের নির্দিষ্ট শর্তাবলী মেনে ওয়েবসাইট অ্যাক্সেস করার জন্য আমন্ত্রণ জানায়।
+      কেউ যদি ব্যবহারের শর্তাবলী বা গোপনীয়তা নীতির কোনো অংশের সাথে দ্বিমত পোষণ করেন, তবে তারা ফোন বা ইমেলের
+      মাধ্যমে তাদের উদ্বেগ জানাতে অরণ্য নিউজের সাথে যোগাযোগ করতে পারেন। তবে, অরণ্য নিউজের একমাত্র অধিকার থাকবে
+      এমন আপত্তি গ্রহণ বা প্রত্যাখ্যান করার।
+    </p>
+    <h3>১. ঘোষণা</h3>
+    <p>
+      অরণ্য নিউজ তার ব্যবহারকারীদের সর্বোত্তম পরিষেবা দেওয়ার চেষ্টা করে কিন্তু ওয়েবসাইটের সমস্ত কন্টেন্ট
+      যেমন সংবাদ, উদ্ধৃতি, তথ্য, এবং মাল্টিমিডিয়া (ছবি এবং ভিডিও) এর নির্ভুলতা নিশ্চিত করতে পারে না।
+      ওয়েবসাইটের কন্টেন্টে ত্রুটি বা বিঘ্ন ঘটবে না তা নিশ্চিত নয়। কেবল প্রদত্ত কন্টেন্টের ভিত্তিতে সিদ্ধান্ত,
+      লেনদেন বা বাণিজ্য করা উচিত নয়। অরণ্য নিউজের সমস্ত উপাদান শুধুমাত্র তথ্যের উদ্দেশ্যে এবং পরামর্শ বা
+      সুপারিশ নয়।
+    </p>
+    <h3>২. মন্তব্যের নৈতিকতা</h3>
+    <p>
+      পাঠকের মন্তব্য খবরের বিষয়বস্তু বা কন্টেন্টের সাথে সামঞ্জস্যপূর্ণ হওয়া উচিত। অরণ্য নিউজ পাঠকদের মতামতের
+      জন্য দায়ী থাকবে না। মন্তব্য সম্পাদনা, পরিবর্তন বা মুছে ফেলা হতে পারে এবং অরণ্য নিউজ যেকোনো সময় কন্টেন্ট
+      প্রকাশ করতে বা অপসারণ করতে অস্বীকার করার অধিকার সংরক্ষণ করে।
+    </p>
+    <h3>৩. অরণ্য নিউজের যোগাযোগ</h3>
+    <p>
+      অরণ্য নিউজ ইমেল, ফোন বা এসএমএসের মাধ্যমে পাঠক এবং ব্যবহারকারীদের ইভেন্ট বা কার্যক্রমে অংশগ্রহণের আমন্ত্রণ
+      জানাতে যোগাযোগ করতে পারে।
+    </p>
+    <h3>৪. অভিযোগ নীতি</h3>
+    <p>
+      অরণ্য নিউজ উন্মুক্ত যোগাযোগকে মূল্য দেয় এবং সমস্ত অভিযোগ গ্রহণের পরে সদয়ভাবে স্বীকার করে, এবং একটি
+      ইতিবাচক সমাধান নিশ্চিত করার জন্য উপলভ্য সর্বোত্তম সংস্থানগুলি ব্যবহার করে তা চিন্তাশীল এবং দক্ষতার সাথে
+      মোকাবিলা করার চেষ্টা করে।
+    </p>
+  </div>
+</div>
+
+
+
+
+<!--    content end-->
+
+
+
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+</body>
+
+</html>

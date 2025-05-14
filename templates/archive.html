@@ -1,0 +1,489 @@
+<!DOCTYPE html> {% load static %}
+
+	{% load bengali_numbers %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <meta name="description" content="অরণ্য নিউজ আর্কাইভ">
+    <title>অরণ্য নিউজ আর্কাইভ</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Calender  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Flatpickr JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#archive-date", {
+            dateFormat: "Y-m-d", // Set desired format (e.g., YYYY-MM-DD)
+            disableMobile: true, // Force Flatpickr even on mobile devices
+        });
+    });
+</script>
+
+
+<style>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.archive-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* News Section */
+.archive-news-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .archive-news-item {
+        display: flex;
+        width: 49%;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background: #fff;
+    }
+
+.archive-news-list {
+    max-height: 2000px;
+    overflow-y:auto;
+}
+    .archive-news-image {
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    .archive-news-content {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .archive-news-item {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background: #fff;
+    }
+.archive-news-list {
+    height:auto;
+}
+    .archive-news-image {
+        width: 50%;
+        margin-right: 10px;
+}
+
+    .archive-news-content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+
+}
+
+
+
+.archive-news-image img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Ensures a 16:9 aspect ratio */
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+    display: block;
+
+}
+
+
+
+
+.archive-red-tag {
+    color: red;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.archive-news-title {
+    font-size: 18px;
+    margin: 5px 0;
+    color:#111;
+}
+
+.archive-news-title:hover{
+    color: #D2042D;
+}
+
+.archive-news-date {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Pagination */
+.archive-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.archive-pagination-link {
+    text-decoration: none;
+    color: #D2042D;
+    font-weight: bold;
+}
+
+.archive-pagination-link:hover{
+    border-bottom:1px solid #D2042D ;
+}
+
+.archive-pagination-info {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Filter Section */
+.archive-filter-section {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background-color: #E8E8E8;
+    padding: 10px;
+}
+
+/* Form Layout */
+.archive-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Input and Select Styling */
+.archive-filter-form input[type="text"],
+.archive-filter-form select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 30%; /* Fixed width for date and category */
+}
+
+/* Input and Select Styling */
+.archive-filter-form input[type="text"],
+.archive-filter-form select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 30%; /* Fixed width for date and category */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focused Input and Select Styling */
+.archive-filter-form input[type="text"]:focus,
+.archive-filter-form select:focus {
+    border-color: #D2042D;
+    box-shadow: 0 0 8px #D2042D;
+    outline: none; /* Removes the default focus outline */
+}
+
+/* Placeholder Styling */
+.archive-filter-form input[type="text"]::placeholder {
+    color: #999;
+}
+
+/* Select Dropdown */
+.archive-filter-form select {
+    background-color: #fff;
+    color: #999;
+}
+
+/* Button Styling */
+.archive-filter-button {
+    padding:10px 5px 10px 5px;
+
+    font-size: 14px;
+    background-color: #D2042D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 10%; /* Fixed width for the button */
+}
+
+.archive-filter-button:hover {
+    background-color: darkred;
+}
+
+.button-2-all {
+    background-color: #2E3192 !important; /* Original dark blue */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.button-2-all:hover {
+    background-color: #4A5BD3 !important; /* Lighter shade of blue for hover */
+}
+
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .archive-filter-form {
+        flex-direction: row; /* Align items in a single row */
+        gap: 10px;
+    }
+
+    .archive-filter-form input[type="text"],
+    .archive-filter-form select,
+    .archive-filter-button {
+        width: calc((100% - 40px) / 3); /* Adjust for proportional layout */
+    }
+
+    .archive-filter-form select {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #archive-date {
+        width:100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .archive-filter-button {
+        width:95%;
+    }
+
+    .button-1-search{
+        margin-top:10px;
+    }
+}
+
+.no-news-message {
+    padding: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Calendar Styles */
+#archive-date {
+
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.flatpickr-calendar {
+    border: 1px solid #D2042D; /* Red border */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    z-index: 9999; /* Ensure it appears above other elements */
+}
+
+.flatpickr-day.selected,
+.flatpickr-day:hover {
+    background-color: #D2042D !important; /* Red highlight */
+    color: white !important;
+}
+
+.flatpickr-day.today {
+    border: 1px solid #D2042D; /* Highlight today */
+}
+
+
+    </style>
+</head>
+<body>
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+<!-- Navbar END --------------------->
+     <div class="container">
+        <h1 class="archive-title pt-2">সব খবর</h1>
+
+        <!-- Filter Section -->
+<div class="archive-filter-section">
+
+    <form method="get" class="archive-filter-form">
+
+        <select name="category" id="archive-category" class="archive-category-select">
+            <option value="" disabled selected>ক্যাটাগরি</option>
+            {% for category in categories %}
+            <option
+                class="archive-category-option"
+                value="{{ category.id }}"
+                {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %} >
+                {{ category.name_bn }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <input
+            class="archive-date-select flatpickr-input"
+            type="text" id="archive-date" name="date" placeholder="তারিখ" value="{{ request.GET.date }}">
+
+        <button type="submit" class="archive-filter-button button-1-search">খুঁজুন</button>
+        <button type="button" class="archive-filter-button button-2-all" onclick="resetArchive()">সব খবর খুঁজুন</button>
+    </form>
+</div>
+
+        <!-- News Section -->
+             {% if no_news_found %}
+        <p class="no-news-message">এই তারিখে কোন খবর পাওয়া যায়নি...</p>
+    {% else %}
+         <div class="d-flex">
+        <div class="archive-news-list pt-5">
+
+            {% for news in news_items %}
+
+            <div class="archive-news-item">
+
+                    <div class="archive-news-image">
+                        <a href="{% url 'news_details' news.id %}">
+                            <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                        </a>
+                    </div>
+
+
+
+                    <div class="archive-news-content">
+                        {% if news.red_tag %}
+                        <span class="archive-red-tag">{{ news.red_tag }}</span>
+                        {% endif %}
+                       <a href="{% url 'news_details' news.id %}">
+                          <h3 class="archive-news-title">{{ news.title }}</h3>
+                       </a>
+                        <p class="archive-news-date">{{ news.created_at|date:"F d, Y" }}</p>
+                    </div>
+
+            </div>
+            {% endfor %}
+                </div>
+        </div>
+
+        <!-- Pagination -->
+    <div class="archive-pagination">
+                    {% if news_items.has_previous %}
+                    <a href="?page={{ news_items.previous_page_number }}{% if request.GET.date %}&date={{ request.GET.date }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" class="archive-pagination-link">&laquo; পূর্ববর্তী পেজ</a>
+                    {% endif %}
+                    <span class="archive-pagination-info">
+                        বর্তমানে আপনি পেজ {{ news_items.number|bengali_numbers }} এ রয়েছেন।
+                        মোট পেজ: {{ news_items.paginator.num_pages|bengali_numbers }}।
+                    </span>
+                    {% if news_items.has_next %}
+                    <a href="?page={{ news_items.next_page_number }}{% if request.GET.date %}&date={{ request.GET.date }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" class="archive-pagination-link">পরবর্তী পেজ &raquo;</a>
+                    {% endif %}
+                </div>
+    </div>
+        {% endif %}
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+<!-- Flatpickr JS -->
+
+
+
+<script>
+    function resetArchive() {
+        // Reload the page without query parameters
+        window.location.href = window.location.pathname;
+    }
+</script>
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+
+</body>
+
+</html>

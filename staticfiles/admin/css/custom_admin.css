@@ -1,0 +1,31 @@
+/* Global Font Size for the entire Django Admin */
+body, input, select, textarea {
+    font-size: 16px; /* Adjust the global font size as needed */
+}
+
+/* Sidebar Menu Item Size and Spacing */
+#header .app-list-module a,  /* Links in the sidebar (for models) */
+.dashboard-module .module {
+    font-size: 32px; /* Adjust the size of model names */
+    padding: 10px 0; /* Optional: Adjust padding for spacing between items */
+
+}
+
+/* Sidebar Section Headings (like "Authentication and Authorization", "Ads") */
+.module h2, /* App section headings */
+.dashboard-module h2 {
+    font-size:32px; /* Adjust size of section headings */
+
+}
+
+/* Specific sections in Bangla (like "বিভাগসমূহ", "সংবাদ তালিকাসমূহ") */
+.module h2:lang(bn), /* Target specific section titles in Bangla */
+.dashboard-module h2:lang(bn) {
+    font-size: 32px; /* Adjust size for Bangla section headings */
+}
+
+/* "Add" Button for Models */
+.module .addlink {
+    font-size: 18px; /* Adjust the size of "Add" links */
+
+}

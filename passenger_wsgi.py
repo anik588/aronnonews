@@ -1,0 +1,1 @@
+from aronno.wsgi import application

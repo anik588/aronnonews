@@ -1,0 +1,231 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <meta name="description" content="অরণ্য নিউজ বিজ্ঞাপন">
+    <title>অরণ্য নিউজ বিজ্ঞাপন</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+        /* Popup Container */
+        .popup-ad {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed positioning to stay over content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+
+            justify-content: center;
+            align-items: center;
+            z-index: 1002; /* Ensures it appears above all other elements */
+        }
+
+        /* Popup Content */
+        .popup-content {
+            background: #fff;
+
+            border-radius: 8px;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .popup-content img {
+            max-width: 100%; /* Ensure the image fits within the popup */
+            height: auto;
+            display: block;
+        }
+
+        /* Skip Button Positioned Outside the Image but Inside Container */
+        .skip-btn {
+            position: absolute;
+
+            right: 0px;
+            background-color: #fff; /* Button color */
+            color: #111;
+            padding: 5px 10px; /* Button padding */
+
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .media-section{
+            margin:20px 10px 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+
+  
+ <div class="container-ad">
+    <!-- English Guidelines -->
+    <div class="guideline-section">
+        <h4>Guideline for advertisements</h4>
+
+        <ul>
+            <li>Alcohol, tobacco, drugs</li>
+            <li>Sexually provocative material (including nudity in creative)</li>
+            <li>Arms or explosives</li>
+            <li>Any form of violence</li>
+            <li>Gambling promotions</li>
+            <li>Abusive language or racial remarks</li>
+            <li>Offensive visuals or text</li>
+        </ul>
+        <p><strong>We do not allow these types of ads mentioned above.</strong></p> <!-- Added statement -->
+    </div>
+
+    <!-- Bengali Guidelines -->
+    <div class="guideline-section">
+        <h4>বিজ্ঞাপন নির্দেশিকা</h4>
+
+        <ul>
+            <li>মাদকদ্রব্য, তামাক, মদ্য</li>
+            <li>যৌন উত্তেজক উপাদান (সৃজনশীলতা সহ নগ্নতা)</li>
+            <li>অস্ত্র বা বিস্ফোরক</li>
+            <li>কোনো ধরনের সহিংসতা</li>
+            <li>জুয়ার প্রচারণা</li>
+            <li>অশ্লীল ভাষা বা বর্ণবৈষম্যমূলক মন্তব্য</li>
+            <li>আপত্তিজনক দৃশ্য বা লেখা</li>
+        </ul>
+        <p><strong>উপরোক্ত উল্লেখিত ধরনের বিজ্ঞাপন আমরা অনুমোদন করি না।</strong></p> <!-- Added statement in Bengali -->
+    </div>
+
+
+
+<div class="contact-section-ad">
+    <h5>Contact us</h5>
+    <p>
+        {% if contact_info.mobile %}
+            Mobile: <a href="tel:{{ contact_info.mobile }}">{{ contact_info.mobile }}</a><br>
+        {% endif %}
+
+        {% if contact_info.phone %}
+            Phone: <a href="tel:{{ contact_info.phone }}">{{ contact_info.phone }}</a><br>
+        {% endif %}
+        {% if contact_info.email_ads %}
+            Email: <a href="mailto:{{ contact_info.email_ads }}">{{ contact_info.email_ads }}</a><br>
+        {% endif %}
+        {% if contact_info.address %}
+            Address: {{ contact_info.address }}
+        {% endif %}
+    </p>
+</div>
+
+<div class="d-flex justify-content-center mx-auto" style="width: auto;">
+    {% if advertisements_offline %}
+        {% with latest_ad=advertisements_offline.0 %}
+            {% if latest_ad.is_active and latest_ad.media %}
+                <div class="media-section" style="text-align: center;">
+                    <a href="{{ latest_ad.media.url }}" class="btn btn-download" style="background-color:#D2042D; text-decoration: none; border-radius: 12px; padding: 10px 20px; border: none; display: inline-block;">
+                        <p style="color:#FFF; margin: 0; padding: 5px; font-weight: bold;">Download Newspaper Ad Chart</p>
+                    </a>
+                </div>
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+
+    {% if advertisements_online %}
+        {% with latest_ad=advertisements_online.0 %}
+            {% if latest_ad.is_active and latest_ad.media %}
+                <div class="media-section" style="text-align: center;">
+                    <a href="{{ latest_ad.media.url }}" class="btn btn-download" style="background-color:#D2042D; text-decoration: none; border-radius: 12px; padding: 10px 20px; border: none; display: inline-block;">
+                        <p style="color:#FFF; margin: 0; padding: 5px; font-weight: bold;">Download Online Ad Chart</p>
+                    </a>
+                </div>
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+</div>
+
+
+    </div>
+
+
+
+
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+
+</body>
+
+</html>

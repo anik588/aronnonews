@@ -1,0 +1,821 @@
+<!DOCTYPE html>{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangla:wght@400;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+<style>
+/* Breaking NEWS Running Start */
+
+
+
+/* General Styles */
+.breaking-news-ticker {
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    color: #111;
+    font-weight: bold;
+
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    border-top: 1px solid #777777;
+
+}
+
+.ticker-title {
+    width: 200px;
+    text-align: center;
+    flex-shrink: 0;
+    padding: 5px 10px;
+    white-space: nowrap;
+    z-index: 2;
+    background-color: #D2042D;
+    color: #fff;
+    font-size: 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+}
+
+.ticker-item {
+
+    width: max-content;
+}
+
+.news-dot {
+
+    margin-right: 10px;
+    color: #D2042D;
+}
+
+.breaking-news-title {
+
+    color: #111;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    width: max-content;
+}
+
+.breaking-news-title:hover {
+    color: #777777;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ticker-content:hover {
+    animation-play-state: paused;
+}
+
+
+
+/* Desktop View */
+@media (min-width: 769px) {
+    .breaking-news-ticker {
+        height: 50px;
+    }
+
+    .ticker-title {
+        font-size: 1.65rem;
+        width: 200px;
+    }
+
+    .ticker-content a {
+        font-size: 1.2rem;
+    }
+
+    .ticker-item {
+        margin-right: 20px;
+    }
+
+    .news-dot {
+        font-size: 0.9rem;
+    }
+
+    .breaking-news-title {
+        font-size:1.2rem;
+    }
+
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .breaking-news-ticker {
+        height: 40px;
+    }
+
+    .ticker-title {
+        width: 110px;
+        font-size: 1.25rem;
+    }
+
+
+
+    .ticker-item {
+        margin-right: 15px;
+    }
+
+    .news-dot {
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+
+    .breaking-news-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* Accessibility Enhancements */
+.ticker-title,
+.ticker-content {
+    overflow: hidden;
+}
+
+/* Breaking NEWS Running End */
+
+
+
+@media (min-width: 1200px) {
+
+}
+   /* Detect scrolling down */
+
+#scrollToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Sticks to the viewport */
+  bottom: 100px; /* 80px above the bottom edge */
+  right: 5%; /* Aligns to the right edge */
+  z-index: 99999; /* High z-index to stay above other elements */
+  border: none;
+  outline: none;
+  background-color: rgba(210, 4, 45, 0.8); /* Same color, with 80% opacity */
+  color: white; /* White icon */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 60px; /* Default width for PC */
+  height: 60px; /* Default height for PC */
+  border-radius: 50%; /* Fully rounded button */
+  font-size: 24px; /* Adjust icon size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  text-align: center; /* Center the content */
+  line-height: 60px; /* Vertically align text/icon */
+}
+
+/* Smaller button for mobile devices */
+@media (max-width: 768px) {
+  #scrollToTopBtn {
+    width: 40px; /* Smaller width */
+    height: 40px; /* Smaller height */
+    font-size: 18px; /* Adjust icon size for mobile */
+    line-height: 40px; /* Match the smaller height */
+  bottom: 80px; /* 80px above the bottom edge */
+  right: 3%; /* Aligns to the right edge */
+  }
+}
+
+
+
+#scrollToTopBtn i {
+  pointer-events: none; /* Ensure clicks on the icon are handled by the button */
+}
+
+
+.social-icons-pc-nav img {
+    margin: 0 10px;
+    font-size: 2rem;
+    transition: color 0.2s ease, transform 0.2s ease; /* Smooth color and transform transition */
+}
+
+.social-icons-pc-nav img:hover {
+    transform: scale(1.35);
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+
+/* Social Icons */
+.social-icon-nav {
+    width: 28px;
+    height: 28px;
+}
+
+@media (max-width:768px){
+.social-icon-nav {
+    width: 24px;
+    height: 24px;
+}
+}
+
+.social-icon-nav {
+
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* For screens smaller than 769px */
+@media (max-width: 768px) {
+    .social-icons-mb-nav {
+        padding:1% 5px 10px 5px;
+
+        display: flex; /* Enables flexbox */
+        justify-content: center; /* Centers icons horizontally */
+        align-items: center; /* Centers icons vertically */
+        flex-direction: row; /* Ensures icons are in a row */
+        position:absolute;
+    }
+    .social-icons-mb-nav img{
+        margin:0px 15px 0px 15px;
+        font-size:1.25rem;
+    }
+
+
+    /* Hover effects */
+    .social-icons-mb-nav a:hover img {
+        color: #000; /* Change color on hover */
+        transform: scale(1.5); /* Slight zoom effect */
+        transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    }
+
+}
+
+/* For screens larger than 768px */
+@media (min-width: 769px) {
+    .social-icons-mb-nav {
+        display: none; /* Hide the social icons for larger screens */
+    }
+}
+
+/* Scroll up button */
+/* Slide-up button styles */
+.scroll-up-btn {
+    position: fixed;
+    bottom: 320px; /* Distance from the bottom */
+    right: 320px; /* Distance from the right */
+    background-color: #007BFF; /* Button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show the button when the "show" class is added */
+.scroll-up-btn.show {
+    display: flex; /* Make the button visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effect for better user experience */
+.scroll-up-btn:hover {
+    background-color: #0056b3;
+}
+.scroll-up-btn {
+
+    z-index: 9999; /* Ensure it appears above all other content */
+}
+
+/* For screens up to 768px */
+@media (max-width: 768px) {
+    .under-mobile-nav {
+    margin-top:21%;
+
+
+        display: block; /* Ensure it is visible */
+    }
+}
+
+/* For screens 768px and wider */
+@media (min-width: 768px) {
+    .under-mobile-nav {
+        display: none; /* Hide on larger screens */
+    }
+}
+
+</style>
+<body>
+<script>
+    // Get the button
+const scrollUpBtn = document.getElementById('scrollUpBtn');
+
+// Show/hide the button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) { // Adjust the value as needed
+        scrollUpBtn.classList.add('show');
+    } else {
+        scrollUpBtn.classList.remove('show');
+    }
+});
+
+// Scroll to top smoothly when clicked
+scrollUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
+</script>
+
+<!-- Slide Up Button -->
+<button id="scrollUpBtn" class="scroll-up-btn" title="Go to top">▲</button>
+    <!--Ad -->
+<div class="under-mobile-nav">
+<!--empty div for space under nav-->
+</div>
+    {% if top_logo_ad %}
+<div class="section-ads-top">
+    {% for ad in top_logo_ad %}
+        <a href="{{ ad.link }}" class="ad-container">
+            {% if ad.media_type == 'image' %}
+                <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" class="media-ad">
+            {% elif ad.media_type == 'video' %}
+                <video autoplay muted loop class="media-ad">
+                    <source src="{{ ad.image.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% elif ad.media_type == 'gif' %}
+                <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" class="media-ad">
+            {% else %}
+                <p>Media type not recognized: {{ ad.media_type }}</p>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>
+{% endif %}
+    <!--ad-->
+
+
+<!-- Another space on the page -->
+
+
+<!-- PC---Search--specific Search Overlay -->
+<div class="pc-search-overlay" id="pcSearchOverlay">
+    <div class="pc-search-bar">
+        <form id="pcSearchForm" method="GET">
+            <input type="text" id="pcSearchInput" name="search_term" placeholder="খোঁজ করুন..." class="pc-search-input">
+            <button type="submit" class="pc-search-icon-button"><i class="fa fa-search" aria-hidden="true" style="color:#D2D2D2;"></i></button> <!-- Search button -->
+            <button class="pc-close-button" id="pcCloseButton"><i class="fa fa-window-close" aria-hidden="true"></i></button> <!-- Close button -->
+        </form>
+    </div>
+</div>
+
+<!-- PC---Search--specific Search Overlay ---END-->
+
+            <!-- Hamburger Menu Button (Hidden on desktop) -->
+<!-- Mobile Menu Button -->
+
+<div class="top-bar-mobile">
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu" class="custom-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="custom-toggler-icon">&#9776;</span>
+    </button>
+
+    <!-- Centered Logo -->
+    <div class="logo-wrapper-mobile">
+        <a href="/">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-mb">
+            </a>
+    </div>
+
+<!-- Search Icon in the Top Right Corner -->
+
+
+    <div class="search-container" style="padding: 15px 5px 10px 20px; font-size: 1.25rem;">
+<a href="/videos/" style="color: #D2042D; text-decoration: none;">
+    ভিডিও
+</a>
+
+</div>
+
+<!-- Search Overlay: This should be outside the main content -->
+<div class="search-overlay" id="searchOverlay" style="display: none;">
+    <i class="back-icon" id="backIcon">&#10006;</i> <!-- Close button (X) -->
+    <div class="search-box">
+        <form id="searchForm" class="search-form" method="GET">
+            <input type="text" id="searchInput" name="search_term" placeholder="খোঁজ করুন..." class="search-input">
+           <button type="submit" class="search-icon-button-up">
+    <i class="fa fa-search" aria-hidden="true" style="color:#fff;"></i>
+</button>
+<!-- Search button -->
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Search Icon in the Top Right Corner -->
+
+</div>
+
+
+    <!-- Header with Navbar -->
+
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <div class="top-bar">
+            <p class="date" id="current-date"></p>
+           <div class="d-flex"> <p class="date" id =date-today></p><p class="date"> &nbsp বঙ্গাব্দ</p></div>
+        </div>
+
+        <!-- Centered logo -->
+        <div class="logo-wrapper text-center mx-auto">
+            <div class="logo">
+                <a href="/">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo pb-1">
+                    </a>
+            </div>
+        </div>
+
+        <!-- Right social icons -->
+    <div class="social-icons-pc-nav">
+        <div>
+            <a href="https://www.facebook.com/aronnonews" class="facebook">
+                <img src="{% static 'img/social-icons/facebook.png' %}" alt="Facebook Logo" class="social-icon-nav"></a>
+            <a href="https://www.youtube.com/@aronnonews" class="youtube">
+                <img src="{% static 'img/social-icons/youtube.png' %}" alt="YouTube Logo" class="social-icon-nav"></a>
+            <a href="https://x.com/aronnonews" class="twitter">
+                <img src="{% static 'img/social-icons/twitter.png' %}" alt="Twitter Logo" class="social-icon-nav">
+            </a>
+            </div>
+        <div>
+            <p style="text-align:center; color:#777777;font-size:11px;font-weight:bold;" class="mt-2"> Follow US on Social Media</p>
+            </div>
+    </div>
+
+    </div>
+
+    <!--Navbar-->
+    <nav class="custom-navbar" id="desktop-navbar">
+
+        <div >
+
+
+
+                <script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Horizontal scrolling with drag functionality
+    const scrollContainer = document.querySelector('.mobile-scroll-nav-custom-nav');
+
+    if (scrollContainer) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scroll speed
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Enable touch-based scrolling
+        scrollContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+
+        scrollContainer.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = (x - startX) * 2; // Adjust scroll speed
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+
+
+
+
+    // Bengali and Gregorian date display
+    function getFormattedDate() {
+        const monthsBengali = ["বৈশাখ", "জ্যৈষ্ঠ", "আষাঢ়", "শ্রাবণ", "ভাদ্র", "আশ্বয়ণ", "কার্তিক", "অগ্রহায়ণ", "পৌষ", "মাঘ", "ফাল্গুন", "চৈত্র"];
+        const daysBengali = ["রোববার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+
+        // Bengali numerals
+        const bengaliNumerals = (num) => num.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const date = currentDate.getDate();
+        const day = currentDate.getDay();
+
+        // Simple Bengali calendar conversion
+        const bengaliYear = year - 593; // Approximate conversion
+        const bengaliMonth = month; // No exact conversion, using Gregorian month
+        const bengaliDate = date;
+
+        // Format Gregorian date
+        const gregorianDate = `${daysBengali[day]}, ${bengaliNumerals(date)} ${['জানুয়ারী', 'ফেব্রুয়ারী', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'অগাস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'][month]} ${bengaliNumerals(year)}`;
+
+        // Format Bengali date
+        const bengaliDateStr = `${bengaliNumerals(bengaliDate)} ${monthsBengali[bengaliMonth]} ${bengaliNumerals(bengaliYear)} বঙ্গাব্দ`;
+
+        return {
+            gregorianDate,
+            bengaliDateStr
+        };
+    }
+
+    function updateDates() {
+        const { gregorianDate, bengaliDateStr } = getFormattedDate();
+
+        document.querySelectorAll('.date').forEach(element => {
+            const type = element.getAttribute('data-type');
+            if (type === 'gregorian') {
+                element.textContent = gregorianDate;
+            } else if (type === 'bengali') {
+                element.textContent = bengaliDateStr;
+            }
+        });
+    }
+
+    // Update dates on page load
+    updateDates();
+});
+    </script>
+            <!-- Navbar Links -->
+         <div class="container">
+            <div class="custom-collapse" id="navbarNav">
+                <ul class="custom-nav">
+                    <li class="custom-nav-item"><a href="/" class="custom-nav-link"><i class="fas fa-home"></i></a></li>
+                    <li class="custom-nav-item"><a href="/category/countrywide/" class="custom-nav-link">দেশজুড়ে</a></li>
+                     <li class="custom-nav-item"><a href="/category/economy/" class="custom-nav-link">অর্থনীতি</a></li>
+                    <li class="custom-nav-item"><a href="/section/international/" class="custom-nav-link">আন্তর্জাতিক</a></li>
+                    <li class="custom-nav-item dropdown">
+                        <a href="#" class="custom-nav-link dropdown-toggle" data-toggle="dropdown">খেলাধুলা</a>
+                        <div class="dropdown-menu">
+                            <a href="/category/football/" class="dropdown-item">ফুটবল</a>
+                            <a href="/category/cricket/" class="dropdown-item">ক্রিকেট</a>
+                            <a href="/category/other_sports/" class="dropdown-item">অন্যান্য খেলাধুলা</a>
+                        </div>
+                    </li>
+
+                    <li class="custom-nav-item dropdown">
+                        <a href="#" class="custom-nav-link dropdown-toggle" data-toggle="dropdown">বিনোদন</a>
+                        <div class="dropdown-menu">
+                            <a href="{% url 'photo_gallery_all' %}" class="dropdown-item">ফটো গ্যালারি</a>
+                            <a href="/category/fashion/" class="dropdown-item">ফ্যাশন</a>
+                            <a href="/category/technology/" class="dropdown-item">প্রযুক্তি</a>
+                            <a href="/category/literature_culture/" class="dropdown-item">সাহিত্য ও সংস্কৃতি</a>
+                            <a href="/category/bollywood/" class="dropdown-item">বলিউড</a>
+                            <a href="/category/hollywood/" class="dropdown-item">হলিউড</a>
+
+                        </div>
+                    </li>
+                    <li class="custom-nav-item"><a href="/category/jobs/" class="custom-nav-link">চাকরি</a></li>
+                    <li class="custom-nav-item"><a href="/section/forest/" class="custom-nav-link">বন জলবায়ু</a></li>
+                  <li class="custom-nav-item"><a class="custom-nav-link" href="{% url 'video_all' %}">ভিডিও</a></li>
+                    <li class="custom-nav-item dropdown">
+                        <a href="#" class="custom-nav-link dropdown-toggle" data-toggle="dropdown">অন্যান্য</a>
+                        <div class="dropdown-menu">
+                            <a href="/category/education/" class="dropdown-item">শিক্ষা</a>
+
+                            <a href="/category/health/" class="dropdown-item">স্বাস্থ্য</a>
+                            <a href="/category/law/" class="dropdown-item">আইন-আদালত</a>
+                            <a href="/category/religion/" class="dropdown-item">ধর্ম</a>
+                            <a href="/category/expatriate/" class="dropdown-item">প্রবাস</a>
+                            <a href="/category/travel/" class="dropdown-item">ভ্রমণ</a>
+                            <a href="/category/jobs/" class="dropdown-item">চাকরি</a>
+                            <a href="/category/humanity/" class="dropdown-item">মানবতা</a>
+                            <a href="/#comment-section" class="dropdown-item">মতামত</a>
+                        </div>
+                    </li>
+
+                    <li class="custom-nav-item">
+                        <a href="/epaper" class="custom-nav-link" target="_blank">ই-পেপার</a>
+                    </li>
+
+
+                    <!-- PC-specific Search Container -->
+<!-- PC-specific Search Container -->
+    <li class="pc-search-container">
+        <button class="pc-search-icon" id="pcSearchIcon"><i class="fa fa-search" aria-hidden="true" style="color:#fff;"></i></button> <!-- PC-specific search icon -->
+    </li>
+<script>
+    ////////  search function PC
+// Get elements from the DOM
+const pcSearchIcon = document.querySelector('.pc-search-icon'); // Assuming this is your clickable search icon
+const pcSearchOverlay = document.getElementById('pcSearchOverlay'); // The full-screen overlay for search
+const pcCloseButton = document.getElementById('pcCloseButton'); // The close button inside the overlay
+const pcSearchForm = document.getElementById('pcSearchForm'); // The form that submits the search query
+const pcSearchInput = document.getElementById('pcSearchInput'); // The input field inside the form
+const pcSearchContainer = document.querySelector('.pc-search-container'); // Search container to hide
+
+// URL template for the search view
+let searchBaseUrl = "{% url 'search_view_with_term' search_term='placeholder' %}";
+// Remove the placeholder part and any trailing slash if present
+searchBaseUrl = searchBaseUrl.replace('placeholder/', '').replace(/\/$/, '');
+
+// Show the search overlay when the search icon is clicked
+pcSearchIcon.addEventListener('click', function() {
+    pcSearchOverlay.style.display = 'block'; // Show the overlay
+    pcSearchContainer.classList.add('hide-icon'); // Hide the search icon
+});
+
+// Hide the search overlay when the close button is clicked
+pcCloseButton.addEventListener('click', function() {
+    pcSearchOverlay.style.display = 'none'; // Hide the overlay
+    pcSearchContainer.classList.remove('hide-icon'); // Show the search icon again
+});
+
+// Handle form submission
+pcSearchForm.addEventListener('submit', function(event) {
+    const searchTerm = pcSearchInput.value.trim(); // Get the search input value and trim spaces
+    if (searchTerm === "") {
+        event.preventDefault(); // Prevent form submission if input is empty
+        alert('Please enter a search term.'); // Alert user if input is empty
+    } else {
+        const encodedSearchTerm = encodeURIComponent(searchTerm); // Encode the search term
+        // Ensure searchBaseUrl does not end with a slash and encodedSearchTerm starts with one
+        const cleanBaseUrl = searchBaseUrl.replace(/\/+$/, ''); // Remove any trailing slashes from the base URL
+        // Construct search URL
+        this.action = `${cleanBaseUrl}/${encodedSearchTerm}`; // Concatenate the base URL with encoded search term
+        console.log("Form action URL:", this.action); // Log for debugging
+    }
+});
+
+//////////  search Function PC END
+
+
+
+</script>
+
+
+                </ul>
+            </div>
+                </div>
+        </div>
+    </nav>
+
+
+        <div class="social-icons-mb-nav">
+
+
+        </div>
+<!--    data on mobile  -->
+<div class="date-mobile">
+        <p class="date" id="current-date-mb"></p>
+
+</div>
+<!--    data on mobile  -->
+
+    <nav class="mobile-scroll-nav">
+
+       <ul class="mobile-scroll-nav-custom-nav">
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/" class="mobile-scroll-nav-custom-nav-link"><i class="fas fa-home"></i></a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/countrywide/" class="mobile-scroll-nav-custom-nav-link">দেশজুড়ে</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/section/international/" class="mobile-scroll-nav-custom-nav-link">আন্তর্জাতিক</a></li>
+   <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/economy/" class="mobile-scroll-nav-custom-nav-link">অর্থনীতি</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/section/sports/" class="mobile-scroll-nav-custom-nav-link">খেলাধুলা</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/section/entertainment/" class="mobile-scroll-nav-custom-nav-link">বিনোদন</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/jobs/" class="mobile-scroll-nav-custom-nav-link">চাকরি</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/section/forest/" class="mobile-scroll-nav-custom-nav-link">বন জলবায়ু</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/#video-section" class="mobile-scroll-nav-custom-nav-link">ভিডিও</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/education/" class="mobile-scroll-nav-custom-nav-link">শিক্ষা</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/health/" class="mobile-scroll-nav-custom-nav-link">স্বাস্থ্য</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/law/" class="mobile-scroll-nav-custom-nav-link">আইন-আদালত</a></li>
+    <li class="mobile-scroll-nav-custom-nav-item"><a href="/category/religion/" class="mobile-scroll-nav-custom-nav-link">ধর্ম</a></li>
+    </ul>
+
+    </nav>
+
+ <!--   Detect Scroll Function -->
+     <button id="scrollToTopBtn">  <i class="fas fa-chevron-up"></i></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 1.1) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        });
+    </script>
+
+{% if breaking_news %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center breaking-news bg-white breaking-news-ticker">
+                <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center text-white">
+                    <span class="ticker-title d-flex align-items-center">&nbsp;শীর্ষ সংবাদ</span>
+                </div>
+            <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                {% for news in breaking_news %}
+                <span class="ticker-item">
+                    <span class="news-dot">&#128308;</span> <!-- Red circle -->
+                    <strong>
+                        <a href="{% url 'news_details' news.id %}"
+                           class="breaking-news-title"
+                           onmouseover="this.closest('marquee').stop();"
+                           onmouseout="this.closest('marquee').start();">
+                           {{ news.title }}
+                        </a>
+                    </strong>
+                </span>
+                {% endfor %}
+            </marquee>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

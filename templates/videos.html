@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+    <!--    font -->
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="description" content="অরন্য নিউজ,{{ highlighted_video.title }}">
+
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+    /* Videos HTML PAGE start */
+
+
+/* Container Styling */
+
+.unique-video-thumbnail img{
+    width:90%;
+
+}
+.unique-video-item{
+        transition:ease 0.5s;
+}
+.unique-video-item:hover{
+    transform:scale(1.05);
+}
+.unique-highlighted-video img{
+    width:80%;
+}
+.unique-highlighted-video{
+    overflow: visible; /* Ensure no clipping */
+    transition:ease 0.5s;
+}
+.unique-highlighted-video:hover{
+    transform:scale(1.05);
+}
+
+@media (min-width:769px) {
+    .video-section {
+        margin-left: 10px;
+    }
+}
+
+.unique-video-section {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding is included within the width */
+}
+
+.unique-video-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #000;
+    /* Black background */
+    padding: 1rem;
+}
+
+
+/* Highlighted Video */
+
+.unique-highlighted-video {
+    position: relative;
+    width: 100%;
+    /* Full width for highlighted video */
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+}
+
+.unique-highlighted-video img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.unique-highlighted-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Darker overlay */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.unique-highlighted-title {
+    font-size: 1rem;
+    /* Adjust as needed */
+    margin: 0;
+}
+
+
+/* Thumbnail Grid */
+
+.unique-thumbnail-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns on desktop */
+    grid-template-rows: repeat(3, auto);
+    /* 3 rows */
+    width: 100%;
+}
+
+
+/* Highlighted Video Positioning */
+
+.unique-thumbnail-grid .unique-highlighted-video {
+    grid-column: span 2;
+    /* Highlighted video spans 2 columns */
+    grid-row: span 2;
+    /* Highlighted video spans 2 rows */
+}
+
+
+/* Video Item */
+
+.unique-video-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #000;
+    /* Black background for items */
+    color: #fff;
+}
+
+
+/* Thumbnail and Title */
+
+.unique-video-thumbnail {
+    position: relative;
+
+    /* 16:9 Aspect Ratio */
+    background-color: #000;
+    /* Background color for thumbnails */
+    overflow: hidden;
+}
+
+.unique-video-thumbnail iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the video fits properly */
+}
+
+.unique-video-title {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.unique-video-title h3 {
+    font-size: 0.875rem;
+    /* Adjust font size as needed */
+    margin: 0;
+}
+
+
+/* Media Queries for Mobile */
+
+
+/* Mobile View */
+
+@media (max-width: 769px) {
+    /* Stack items vertically on mobile */
+    .unique-thumbnail-grid {
+        display: block;
+    }
+    /* Video Item - full width thumbnail with title below */
+    .unique-video-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        background-color: #000;
+        /* Full width for video items on mobile */
+        margin-bottom: 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        /* Transparent border or hr effect */
+    }
+    .unique-video-thumbnail {
+        width: 100%;
+
+        /* Maintain aspect ratio */
+        background-color: #000;
+        position: relative;
+    }
+    .unique-video-thumbnail iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Fit the video correctly */
+    }
+    .unique-video-title {
+        width: 100%;
+        padding: 0.5rem 0;
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        font-size: 0.75rem;
+        /* Smaller font size for mobile */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        /* Optional white line between thumbnail and title */
+    }
+    .unique-video-title h3 {
+        font-size: 0.75rem;
+        /* Adjust font size for mobile */
+        margin: 0;
+    }
+}
+
+
+/* Video news HTML PAGE end*/
+
+/* Play Button */
+
+.unique-video-thumbnail {
+    position: relative;
+    display: inline-block;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.video-overlay {
+    z-index: 10; /* Should be above the thumbnail */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-button {
+
+    width: 150px;
+    height: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 20; /* Ensure it's above the overlay */
+}
+
+.video-thumbnail:hover .play-button {
+    opacity: 1.5;
+}
+.video-first-overlay, .play-first-button {
+    z-index: 10; /* Should be above the thumbnail */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.play-first-button {
+        width: 300px !important;  /* Add !important to force the rule */
+    height: 300px !important;
+        opacity: 0.7;
+}
+
+.unique-highlighted-title {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: #fff; /* Ensure the text color is visible */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 0.5rem;
+    text-align: center;
+    z-index: 3; /* Ensure it is above the image */
+    font-size: 1.2rem;
+}
+
+
+.unique-video-section h1:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px; /* Adjust the offset as needed */
+    text-decoration-thickness: 1px; /* Optional: control the thickness */
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Video Section Start -->
+{% if video_data.video_list or video_data.highlighted_video %}
+<div class="container unique-video-section mt-5">
+  <a href="{% url 'video_all' %}"> <h1 class="section-heading">ভিডিও</h1></a>
+
+    <!-- Highlighted Video -->
+    {% if video_data.highlighted_video %}
+    <div class="unique-highlighted-video">
+        {% with video_data.highlighted_video.youtube_url|slice:"32:" as video_id %}
+        <a href="{% url 'video_detail' video_code=video_data.highlighted_video.video_code %}">
+            <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg"
+                 alt="{{ video_data.highlighted_video.title }}">
+
+            <!-- Play Button Overlay -->
+            <div class="video-first-overlay">
+                <img src="{% static 'img/youtube-play.png' %}"
+                     alt="Play Button"
+                     class="play-first-button">
+            </div>
+        </a>
+        {% endwith %}
+        <div class="unique-highlighted-title">{{ video_data.highlighted_video.title }}</div>
+    </div>
+    {% endif %}
+
+
+    <!-- Thumbnail Grid for Non-Highlighted Videos -->
+    {% if video_data.video_list %}
+        <div class="unique-thumbnail-grid">
+            {% for video in video_data.video_list %}
+                <div class="unique-video-item">
+                    <div class="unique-video-thumbnail">
+                        <a href="{% url 'video_detail' video_code=video.video_code %}">
+                            <img src="https://img.youtube.com/vi/{{ video.youtube_url|slice:"32:" }}/hqdefault.jpg"
+                                 alt="{{ video.title }}">
+
+                                        <!-- Overlay for Play Button -->
+            <div class="video-overlay">
+                <img src="{% static 'img/youtube-play.png' %}"
+                     alt="Play Button"
+                     class="play-button">
+            </div>
+
+                        </a>
+
+
+                    </div>
+                    <div class="unique-video-title">
+                        <h3>{{ video.title }}</h3> <!-- Title for non-highlighted videos -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
+{% endif %}
+<!-- Video Section End -->
+
+
+    <!-- Local JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+ <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

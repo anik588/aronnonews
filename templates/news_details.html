@@ -1,0 +1,861 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ article.title }}</title>
+    <meta name="title" content="{{ article.title }}">
+    <meta name="description" content="{{ article.summary }}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ article.title }}">
+    <meta property="og:description" content="{{ article.summary }}">
+    <meta property="og:image" content="{{ article.image.url }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.summary }}">
+    <meta name="twitter:image" content="{{ article.image.url }}">
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+
+    <!-- General Meta Tags -->
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    <meta name="robots" content="index, follow">
+
+    <!-- Optional: Schema.org JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ article.title }}",
+        "image": "{{ article.image.url }}",
+        "datePublished": "{{ article.published_at|date:'c' }}",
+        "dateModified": "{{ article.updated_at|date:'c' }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ article.author.name }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Your Website Name",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{% static 'path-to-logo/logo.png' %}"
+            }
+        },
+        "description": "{{ article.summary }}"
+    }
+    </script>
+
+    <!--    font -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="description" content="{{ article.title }}">
+
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+ /* Style for the font adjustment buttons */
+
+ .news-details-news-description p{
+  font-size: 18px !important; /* Adjust size if needed */
+}
+
+
+
+
+.font-sizer {
+  background-color: indigo;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  transition: background-color 0.3s;
+}
+
+.share-button.font-sizer:hover {
+  background-color: darkblue;
+}
+
+
+
+
+
+        .print-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px; /* Set a fixed size for the button */
+            height: 30px; /* Set a fixed size for the button */
+            border-radius: 50%; /* Make the button rounded */
+            background-color: #808080; /* Light gray background */
+            border: none; /* Remove border */
+            color: #f0f0f0 ; /* Gray color for the icon */
+            font-size: 16px; /* Icon size */
+            cursor: pointer; /* Cursor pointer */
+            transition: none; /* No hover effect */
+        }
+
+        .print-button i {
+            font-size: 16px; /* Adjust icon size */
+        }
+
+/* Popup Container */
+.popup-ad {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+}
+
+/* Popup Content */
+.popup-content {
+    background: #fff;
+    border: 1px solid #ddd; /* Thinnest border */
+    border-radius: 2px; /* Minimal rounded corners */
+    max-width: 400px;
+    padding: 5px 3px 3px 3px;
+    position: relative;
+    text-align: center;
+}
+
+.popup-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Skip Button */
+.skip-btn {
+    position: absolute;
+    top: 0px; /* Top-right corner */
+    right: 0px;
+    background-color: #fff;
+    color: #333;
+    padding: 3px 6px;
+    font-size: 12px;
+    cursor: not-allowed; /* Initially disabled */
+
+
+    z-index: 1003;
+    font-family: Arial, sans-serif;
+}
+
+.skip-btn.active {
+    cursor: pointer; /* Enable cursor when clickable */
+}
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+         <!-- Popup Ad Container -->
+        {% if popup_ad %}
+        <div id="popup-ad" class="popup-ad">
+            <div class="popup-content">
+                <!-- Ad Image -->
+                <a href="{{ popup_ad.link }}" target="_blank">
+                    <img src="{{ popup_ad.image.url }}" alt="Popup Ad" class="popup-image">
+                </a>
+
+                <!-- Skip Button with Timer -->
+                <span id="skip-btn" class="skip-btn">
+                    Skip Ad in <span id="skip-timer">5</span>s
+                </span>
+            </div>
+        </div>
+        {% endif %}
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Function to show the popup ad
+    function showPopup() {
+        console.log('Popup is shown after 3 seconds');
+        const popupAd = document.getElementById('popup-ad');
+        const skipButton = document.getElementById('skip-btn');
+        const timerSpan = document.getElementById('skip-timer');
+
+        popupAd.style.display = 'flex'; // Show the popup
+
+        // Initialize the timer immediately
+        let countdown = 5;
+        timerSpan.textContent = countdown; // Display the initial countdown
+
+        // Start the timer countdown
+        const timer = setInterval(() => {
+            countdown--;
+            timerSpan.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(timer); // Stop the timer when it reaches 0
+                skipButton.textContent = 'Skip Ad'; // Update button text
+                skipButton.classList.add('active'); // Make the button clickable
+                skipButton.onclick = closePopup; // Add the close functionality
+            }
+        }, 1000); // Update every second
+    }
+
+    // Function to close the popup ad
+    function closePopup() {
+        const popupAd = document.getElementById('popup-ad');
+        popupAd.style.display = 'none'; // Hide the popup
+    }
+
+    // Show the popup exactly 3 seconds after window load
+    window.onload = function () {
+        console.log('Window loaded, starting popup timer...');
+        setTimeout(showPopup, 3000); // Show after 3 seconds (3000ms)
+    };
+</script>
+
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+
+    <!--    news details start-->
+    <!-- Header with Home Button and Category Name -->
+    <!--  main news -->
+
+    <div class="custom-whole-container">
+        <div class="news-details-breaking-and-ads">
+            <div class="news-details-width " id="printSection">
+                <div class="news-details-header">
+                    <a href="/" class="home-button"><i class="fas fa-home"></i></a><span>&#47;</span> &nbsp &nbsp
+                    {% if article.category %}
+                    <a href="{% url 'category_details' category_name_en %}">
+                        <p class="category-name-bar">{{ category_name_bn }}</p>
+                    </a>
+                    {% endif %}
+                </div>
+
+                <div>
+
+                    <!-- Share Buttons Container -->
+                    <div class="share-buttons mt-3">
+                        <!-- Facebook Share Button -->
+                        <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" title="Share on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- WhatsApp Share Button -->
+                        <a class="share-button whatsapp" href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}" target="_blank" title="Share on WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <!-- Telegram Share Button -->
+                        <a class="share-button telegram" href="https://t.me/share/url?url={{ request.build_absolute_uri }}" target="_blank" title="Share on Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+
+    <!--   Font sizer -->
+
+        <div class="d-flex">
+<!-- Font size adjustment buttons -->
+<button class="font-sizer" style="margin-right:10px;" id="increaseFont">অ+</button>
+<button class="font-sizer" id="decreaseFont">অ-</button>
+</div>
+
+
+     <!-- print button -->
+        <button class="print-button" onclick="printDiv('printSection')">
+            <i class="fas fa-print"></i>
+        </button>
+
+<!-- Copy Link Button -->
+<button class="share-button copy-link" onclick="copyToClipboard('{{ request.build_absolute_uri }}')" title="Copy Link" id="copyButton">
+    <i class="fas fa-link"></i>
+</button>
+
+<!-- Optional: A simple popup container for the confirmation message -->
+<div id="copyMessage" style="display: none; position: absolute; top: 0; left: 100%; margin-left: 10px; background-color: #3a745; color: white; padding: 10px; border-radius: 5px;">
+    Link copied!
+</div>
+
+                    </div>
+
+
+                    <!-- News Title and Content -->
+                    {% if article.red_tag %}
+                        <h1 class="news-details-title" style="align-items: center;color:#D2042D;font-size: 1.75rem !important;">{{ article.red_tag }}</h1>
+                        {% endif %}
+                    <h1 class="news-details-title">{{ article.title }}</h1>
+
+                    <!-- News time -->
+
+<div class="news-meta-info">
+    {% if article.reporter %}
+        <div class="news-reporter">
+            <i class="fa fa-user"></i> প্রতিবেদকঃ {{ article.reporter }}
+        </div>
+    {% endif %}
+    <div class="news-time">
+        <i class="fa fa-clock"></i> প্রকাশিতঃ {{ article.get_formatted_time_date_since_created }}
+    </div>
+</div>
+
+                    <!-- Display the first title, description, image, and caption -->
+
+                    {% if article.image %}
+                    <div class="news-details-image-caption-wrapper">
+                        <img class="news-details-image" src="{{ article.image.url }}" alt="{{ article.title }}">
+                        {% if article.image_caption %}
+                        <div class="news-details-image-caption">
+                            {{ article.image_caption }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                        {% if article.description %}
+                        <div class="news-details-news-description">
+                          <p class="article-description">
+                            {{ article.description|safe|linebreaksbr }}
+                          </p>
+                        </div>
+                        {% endif %}
+
+                {% if article.link %}
+                    <p class="article-description">লিংকঃ 
+				
+                        <a href="{{ article.link }}">{{ article.link }}</a>
+                    </p>
+                {% endif %}
+
+                    <!-- Display the second set of title, description, image, and caption if available -->
+
+                    {% if article.image2 %}
+                    <div class="news-details-image-caption-wrapper">
+                        <img class="news-details-image" src="{{ article.image2.url }}" alt=""> {% if article.image_caption2 %}
+                        <div class="news-details-image-caption">
+                            {{ article.image_caption2 }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %} {% if article.title2 or article.description2 %}
+                    <div class="news-details-news-description">
+                        <h2>{{ article.title2 }}</h2>
+                        <p>{{ article.description2|linebreaks|urlize  }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if article.link2 %}
+                        <p class="article-description">লিংকঃ 
+                            <a href="{{ article.link }}">{{ article.link2 }}</a>
+                        </p>
+                    {% endif %}
+
+
+                    <!-- Display the third set of title, description, image, and caption if available -->
+
+                    {% if article.image3 %}
+                    <div class="news-details-image-caption-wrapper">
+                        <img class="news-details-image" src="{{ article.image3.url }}" alt=""> {% if article.image_caption3 %}
+                        <div class="news-details-image-caption">
+                            {{ article.image_caption3 }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %} {% if article.title3 or article.description3 %}
+                    <div class="news-details-news-description">
+                        <h2>{{ article.title3 }}</h2>
+                        <p>{{ article.description3|linebreaks|urlize  }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if article.link3 %}
+                            <p class="article-description">লিংকঃ 
+                                <a href="{{ article.link }}">{{ article.link }}</a>
+                            </p>
+                        {% endif %}
+
+                </div>
+                <!-- Inside News Details Container  -->
+
+            </div>
+            <!-- 70% width pc end  -->
+
+<!--      breaking-or-mostread-container             -->
+
+            <div class="breaking-or-mostread-container ">
+                <!-- News-Detailpage ads 1,2 Start-->
+                <div>
+                    <div class="frontpage-top-ads">
+                        {% for ad in news_details_side_ads_one %}
+                        <a href="{{ ad.link }}">
+        {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Media type not recognized: {{ ad.media_type }}</p>
+        {% endif %}
+    </a> {% endfor %}
+                    </div>
+
+                    <div class="frontpage-top-ads">
+                        {% for ad in news_details_side_ads_two %}
+                        <a href="{{ ad.link }}">
+        {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Media type not recognized: {{ ad.media_type }}</p>
+        {% endif %}
+    </a> {% endfor %}
+                    </div>
+                </div>
+                <!-- News-Detailpage ads 1,2 END-->
+
+                <div class="breaking-most-read-div mt-2">
+                    <!-- Toggle buttons for Breaking News and Most Read -->
+                    <div class="breaking-or-mostread-header">
+                        <button class="breaking-or-mostread-toggle-btn active" onclick="breaking_or_mostread_toggle('breaking')">সর্বশেষ</button>
+                        <button class="breaking-or-mostread-toggle-btn" onclick="breaking_or_mostread_toggle('mostread')">সর্বোচ্চ পঠিত</button>
+                    </div>
+
+                    <!-- Breaking News Section -->
+                    <div id="breaking_or_mostread_breaking_news" class="breaking-or-mostread-news-scroll active">
+                        {% for item in all_recent_news %}
+                        <a href="{% url 'news_details' item.id %}" class="breaking-or-mostread-news-item">
+                            <div class="breaking-or-mostread-card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="breaking-or-mostread-card-img" alt="{{ item.title }}"> {% else %}
+                                <img src="{% static 'img/placeholder.png' %}" class="breaking-or-mostread-card-img" alt="No Image Available"> {% endif %}
+                                <div class="breaking-or-mostread-card-body">
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.title|truncatechars:50 }}</h5>
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.get_formatted_time_since_created }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Most Read Section -->
+                    <div id="breaking_or_mostread_mostread_news" class="breaking-or-mostread-news-scroll">
+                        {% for item in top_news %}
+                        <a href="{% url 'news_details' item.id %}" class="breaking-or-mostread-news-item">
+                            <div class="breaking-or-mostread-card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="breaking-or-mostread-card-img" alt="{{ item.title }}"> {% else %}
+                                <img src="{% static 'img/placeholder.png' %}" class="breaking-or-mostread-card-img" alt="No Image Available"> {% endif %}
+                                <div class="breaking-or-mostread-card-body">
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.title|truncatechars:50 }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <a href="/" class="breaking-toggle-btn-readmore" style="margin:10px ;width:98!important;"> আরো পড়ুন &raquo;
+                    </a>
+            </div>
+        </div>
+        <!-- 100% width pc end  -->
+        <!--  main news END -->
+
+        <!-- Category-Specific Recent News Start -->
+        {% if category_recent_news %}
+        <div class="news-details-category-recent-news-container">
+
+            <h2 class="news-details-category-recent-news-title">{{ category_name_bn }} এর আরো খবর:</h2>
+
+            <div class="news-details-category-scrollable-news">
+                {% for news in category_recent_news %}
+                <div class="news-details-category-recent-news-item">
+
+                    {% if news.image %}
+                        <img class="news-details-category-news-image" src="{{ news.image.url }}" alt="{{ news.title }}">
+                    {% endif %}
+
+                    <div class="news-details-category-news-content">
+                        <h3 class="news-details-category-recent-news-item-title">
+                            <a href="{% url 'news_details' news.id %}">{{ news.title }}</a>
+                        </h3>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endif %}
+
+        <!-- Category-Specific Recent News End -->
+
+        <!-- Video Section Start -->
+
+        <div id="video-section" class="video-section">
+            {% include 'videos.html' %}
+        </div>
+        <!-- Video Section END -->
+        {% if related_sections_news %}
+        <!-- Related Sections News Start -->
+        <div class="related-sections-news-container mt-2">
+            <h2 class="related-sections-news-title" style="color:green; font-size:2rem;">সম্পর্কিত খবর</h2>
+            <div class="scrollable-related-sections-news">
+                {% for section_news in related_sections_news %}
+                <div class="related-sections-news-item">
+                    {% if section_news.image %}
+                    <img class="news-details-image" src="{{ section_news.image.url }}" alt="{{ section_news.title }}"> {% endif %}
+                    <div class="news-content">
+                        <h3 class="related-sections-news-item-title">
+                            <a href="{% url 'news_details' section_news.id %}">{{ section_news.title }}</a>
+                        </h3>
+                        <p class="related-sections-news-item-summary">{{ section_news.description|truncatewords:20 }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="no-related-sections-news">No related news available.</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <!-- Related Sections News End -->
+
+    </div>
+    <!--container END-->
+    <!-- Scroll-to-Top Button -->
+
+
+
+    <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paragraphs = document.querySelectorAll('.news-details-news-description p');
+            const ads = [
+    {% for ad in news_details_ad %}
+    {
+        link: "{{ ad.link|escapejs }}",
+        mediaUrl: "{{ ad.image.url|escapejs }}",
+        altText: "{{ ad.alt_text|escapejs }}"
+    },
+    {% endfor %}
+];
+
+            // Function to determine the type of media (image, video, gif)
+            function isVideoOrGif(mediaUrl) {
+                const videoExtensions = ['mp4', 'webm', 'ogg'];
+                const gifExtensions = ['gif'];
+                const fileExtension = mediaUrl.split('.').pop().toLowerCase();
+                return videoExtensions.includes(fileExtension) || gifExtensions.includes(fileExtension);
+            }
+
+            // Only proceed if there are ads and paragraphs
+            if (ads.length > 0 && paragraphs.length > 0) {
+                // Insert the first ad after the first paragraph
+                const ad1Placeholder = document.createElement('div');
+                ad1Placeholder.classList.add('ad-placeholder');
+                ad1Placeholder.style.cssText = `
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center; /* Center the content */
+            border: none; /* Remove border */
+        `;
+
+                if (isVideoOrGif(ads[0].mediaUrl)) {
+                    // If it's a video or gif, create a video element
+                    ad1Placeholder.innerHTML = `
+                <div style="width: 100%; height: auto; overflow: hidden;">
+                    <a href="${ads[0].link}" style="display: block; width: 100%; border: none;"> <!-- Remove border from link -->
+                        <video autoplay loop muted style="width: 100%; height: auto; object-fit: cover;">
+                            <source src="${ads[0].mediaUrl}" type="video/${ads[0].mediaUrl.split('.').pop()}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
+            `;
+                } else {
+                    // If it's an image
+                    ad1Placeholder.innerHTML = `
+                <div style="width: 100%; height: auto; overflow: hidden;">
+                    <a href="${ads[0].link}" style="display: block; width: 100%; border: none;"> <!-- Remove border from link -->
+                        <img src="${ads[0].mediaUrl}" alt="${ads[0].altText}" style="width: 100%; height: auto; object-fit: cover;">
+                    </a>
+                </div>
+            `;
+                }
+
+                paragraphs[0].insertAdjacentElement('afterend', ad1Placeholder);
+
+                // Check if there is a second ad and at least a second paragraph
+                if (ads.length > 1 && paragraphs.length > 1) {
+                    const ad2Placeholder = document.createElement('div');
+                    ad2Placeholder.classList.add('ad-placeholder');
+                    ad2Placeholder.style.cssText = `
+                max-width: 100%;
+                box-sizing: border-box;
+                padding: 10px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center; /* Center the content */
+                border: none; /* Remove border */
+            `;
+
+                    if (isVideoOrGif(ads[1].mediaUrl)) {
+                        ad2Placeholder.innerHTML = `
+                    <div style="width: 100%; height: auto; overflow: hidden;">
+                        <a href="${ads[1].link}" style="display: block; width: 100%; border: none;"> <!-- Remove border from link -->
+                            <video autoplay loop muted style="width: 100%; height: auto; object-fit: cover;">
+                                <source src="${ads[1].mediaUrl}" type="video/${ads[1].mediaUrl.split('.').pop()}">
+                                Your browser does not support the video tag.
+                            </video>
+                        </a>
+                    </div>
+                `;
+                    } else {
+                        ad2Placeholder.innerHTML = `
+                    <div style="width: 100%; height: auto; overflow: hidden;">
+                        <a href="${ads[1].link}" style="display: block; width: 100%; border: none;"> <!-- Remove border from link -->
+                            <img src="${ads[1].mediaUrl}" alt="${ads[1].altText}" style="width: 100%; height: auto; object-fit: cover;">
+                        </a>
+                    </div>
+                `;
+                    }
+
+                    paragraphs[1].insertAdjacentElement('afterend', ad2Placeholder);
+                }
+            }
+        });
+    </script>
+
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+
+    <!--Below link copy alert script-->
+<!-- Add JavaScript to handle the copy action and show the message -->
+<script>
+
+    function copyToClipboard(link) {
+        // Create a temporary input element to copy the URL
+        var tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = link;
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        // Show the confirmation message next to the button
+        var copyMessage = document.getElementById("copyMessage");
+        var copyButton = document.getElementById("copyButton");
+
+        // Position the message next to the button
+        var buttonRect = copyButton.getBoundingClientRect();
+        copyMessage.style.display = "block";
+        copyMessage.style.top = buttonRect.top + window.scrollY + "px"; // Align with button's top
+        copyMessage.style.left = buttonRect.right + window.scrollX + "px"; // Align to the right of the button
+
+        // Hide the message after 2 seconds
+        setTimeout(function() {
+            copyMessage.style.display = "none";
+        }, 2000);
+    }
+
+
+
+
+
+</script>
+<script>
+    function printDiv(divId) {
+        var printContents = document.getElementById(divId);
+        if (printContents) {
+            // Open a new window for printing
+            var printWindow = window.open('', '', 'height=600,width=800');
+
+            // Write the print layout with logo
+            printWindow.document.write('<html><head><title>Print</title>');
+
+            // Add styles from the main page
+            var styles = document.querySelectorAll('link[rel="stylesheet"], style');
+            styles.forEach(style => {
+                printWindow.document.write(style.outerHTML);
+            });
+
+            printWindow.document.write('</head><body>');
+
+            // Add logo at the top center
+            printWindow.document.write(`
+                <div style="text-align: center; margin-bottom: 20px; border-bottom:1px solid #2E3192; padding-bottom:5px;">
+                    <img src="/static/img/logo.png" alt="Logo" style="max-width: 150px;">
+                </div>
+            `);
+
+            // Add the content of the specified div
+            printWindow.document.write(printContents.innerHTML);
+
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+        } else {
+            console.error('The div with id "' + divId + '" was not found.');
+        }
+    }
+</script>
+
+
+      <!--   Font Sizer Script   -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Select the increase and decrease buttons
+  const increaseBtn = document.getElementById('increaseFont');
+  const decreaseBtn = document.getElementById('decreaseFont');
+
+  // Define the minimum and maximum font sizes
+  const MIN_FONT_SIZE = 12; // Minimum font size in px
+  const MAX_FONT_SIZE = 30; // Maximum font size in px
+
+  // Function to adjust font size forcefully
+  const adjustFontSize = (adjustment) => {
+    const paragraphs = document.querySelectorAll('.news-details-news-description p');
+    paragraphs.forEach((p) => {
+      // Get the current font size, ensure fallback if no size is set
+      const currentFontSize = parseFloat(window.getComputedStyle(p, null).getPropertyValue('font-size')) || 18;
+      let newFontSize = currentFontSize + adjustment;
+
+      // Ensure the font size is within the defined limits
+      if (newFontSize < MIN_FONT_SIZE) {
+        newFontSize = MIN_FONT_SIZE;
+      } else if (newFontSize > MAX_FONT_SIZE) {
+        newFontSize = MAX_FONT_SIZE;
+      }
+
+      // Apply the new font size with !important
+      p.style.setProperty('font-size', `${newFontSize}px`, 'important');
+    });
+  };
+
+  // Event listeners for buttons
+  increaseBtn.addEventListener('click', () => adjustFontSize(2)); // Increase by 2px
+  decreaseBtn.addEventListener('click', () => adjustFontSize(-2)); // Decrease by 2px
+});
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+        {% load static %}
+	{% load bengali_numbers %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    font -->
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="description" content="search">
+    <title>ফলাফল</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.search-results h2{
+    padding: 10px 0px;
+}
+    .search-heading{
+        color:#D2042D;
+        padding:10px 30px 0px 30px;
+    }
+    @media (min-width:769px){
+    .search-results-whole{
+            width:80%;
+
+        }
+    }
+    .search-result-card {
+    text-decoration: none;
+    color: inherit; /* Optional: Keeps the default text color */
+}
+
+.search-result-card:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+.pagination-container {
+    text-align: center; /* Center the entire pagination section */
+    margin-top: 20px;
+}
+
+.pagination {
+    display: inline-block; /* Keep the buttons and text inline */
+    align-items: center;
+}
+
+.pagination-info {
+    font-size: 16px; /* Adjust the font size for the information text */
+    margin: 0 15px; /* Space between text and buttons */
+    color: #555; /* Subtle gray color for the info text */
+}
+
+.pagination-button {
+    background-color: #D2042D; /* Red background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Add space inside the buttons */
+    text-decoration: none; /* Remove underline */
+    border-radius: 25px; /* Fully rounded buttons */
+    font-size: 16px; /* Font size for the button text */
+    margin: 0 10px; /* Space between buttons */
+    display: inline-block; /* Ensure buttons appear inline */
+    text-align: center; /* Center the text inside buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.pagination-button:hover {
+    background-color: #b00327; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    text-decoration: none; /* Ensure no underline appears */
+}
+
+.pagination-button:active {
+    transform: scale(0.95); /* Shrink the button slightly on click */
+}
+
+@media (max-width: 768px) {
+    .pagination-info {
+        font-size: 14px; /* Smaller text for smaller screens */
+        margin: 0 10px;
+    }
+
+    .pagination-button {
+        padding: 8px
+
+</style>
+</head>
+
+<body>
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+
+
+<div class="custom-searchpage-whole-container">
+        <div class="search-results-whole mb-5">
+    <!-- Search Results Section -->
+<div class="search-results-whole">
+    {% if search_results %}
+        <h2 class="search-heading">ফলাফলঃ</h2>
+        <div class="search-results">
+            <!-- Show search results -->
+        {% for result in search_results %}
+            <a href="{% url 'news_details' result.id %}" class="search-result-card" style="text-decoration: none;">
+                <img src="{{ result.image.url }}" alt="{{ result.title }}">
+                <h2>{{ result.title }}</h2>
+                <p>{{ result.description|truncatewords:30 }}</p>
+            </a>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>"{{ search_term }}" এর জন্য কোন ফলাফল পাওয়া যায়নি।</p>
+    {% endif %}
+</div>
+
+
+    <!-- Pagination Section Outside Search Results -->
+<div class="pagination-container">
+    <div class="pagination">
+        {% if search_results.has_previous %}
+            <a class="pagination-button" href="?page={{ search_results.previous_page_number }}&search_term={{ search_term }}">
+                &laquo; পূর্ববর্তী&nbsp;
+            </a>
+        {% endif %}
+
+        <span class="pagination-info">
+            বর্তমানে আপনি পেজ {{ search_results.number|bengali_numbers }} এ রয়েছেন।
+            মোট পেজ: {{ search_results.paginator.num_pages|bengali_numbers }}।
+        </span>
+
+        {% if search_results.has_next %}
+            <a class="pagination-button" href="?page={{ search_results.next_page_number }}&search_term={{ search_term }}">
+                &nbsp;পরবর্তী &raquo;
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+</div>
+
+<!--    breaking-or-mostread-container  Start -->
+            <!-- ------------ Scroll News Section-->
+
+            <div class="breaking-or-mostread-container">
+                <div class="breaking-most-read-div" style="margin-left:10px;margin-top: 24px;">
+                    <!-- Toggle buttons for Breaking News and Most Read -->
+                    <div class="breaking-or-mostread-header">
+                        <button class="breaking-or-mostread-toggle-btn active" onclick="breaking_or_mostread_toggle('breaking')">সর্বশেষ</button>
+                        <button class="breaking-or-mostread-toggle-btn" onclick="breaking_or_mostread_toggle('mostread')">সর্বোচ্চ পঠিত</button>
+                    </div>
+
+                    <!-- Breaking News Section -->
+                    <div id="breaking_or_mostread_breaking_news" class="breaking-or-mostread-news-scroll active">
+                        {% for item in all_recent_news %}
+                        <a href="{% url 'news_details' item.id %}" class="breaking-or-mostread-news-item">
+                            <div class="breaking-or-mostread-card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="breaking-or-mostread-card-img" alt="{{ item.title }}"> {% endif %}
+                                <div class="breaking-or-mostread-card-body">
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.title|truncatechars:50 }}</h5>
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.get_formatted_time_since_created }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Most Read Section -->
+                    <div id="breaking_or_mostread_mostread_news" class="breaking-or-mostread-news-scroll">
+                        {% for item in top_news %}
+                        <a href="{% url 'news_details' item.id %}" class="breaking-or-mostread-news-item">
+                            <div class="breaking-or-mostread-card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="breaking-or-mostread-card-img" alt="{{ item.title }}"> {% endif %}
+
+                                <div class="breaking-or-mostread-card-body">
+                                    <h5 class="breaking-or-mostread-card-title">{{ item.title|truncatechars:50 }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+                <a href="/" class="breaking-toggle-btn-readmore" style="margin:10px ;width:98!important;"> আরো পড়ুন &raquo;
+                    </a>
+                <!-- Frontpage Ads 1,2 END-->
+                <div>
+
+                    <div class="frontpage-top-ads">
+                        {% for ad in front_news_one_ad %}
+                        <a href="{{ ad.link }}">
+        {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Media type not recognized: {{ ad.media_type }}</p>
+        {% endif %}
+    </a> {% endfor %}
+                    </div>
+
+                    <div class="frontpage-top-ads">
+                        {% for ad in front_news_two_ad %}
+                        <a href="{{ ad.link }}">
+        {% if ad.media_type == 'image' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% elif ad.media_type == 'video' %}
+            <video autoplay muted loop style="max-width: 100%; height: auto;">
+                <source src="{{ ad.image.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif ad.media_type == 'gif' %}
+            <img src="{{ ad.image.url }}" alt="{{ ad.alt_text }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Media type not recognized: {{ ad.media_type }}</p>
+        {% endif %}
+    </a> {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+<!--    breaking-or-most-read-container  Start -->
+</div>
+
+
+
+
+
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Select all anchor tags on the page
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            // Skip pagination buttons, links with query parameters, or external links
+            if (
+                link.classList.contains('pagination-button') || // Pagination buttons
+                link.href.includes('?') ||                     // Links with query parameters
+                !link.href.startsWith(window.location.origin)   // External links
+            ) {
+                return; // Do nothing for these links
+            }
+
+            // Prevent default navigation behavior
+            event.preventDefault();
+
+            // Get the href attribute of the link
+            const relativePath = link.getAttribute('href');
+            if (relativePath) {
+                // Log the redirection for debugging purposes
+                console.log('Redirecting to:', relativePath);
+
+                // Redirect to the relative path while ensuring it starts from the root
+                window.location.href = '/' + relativePath.replace(/^\//, ''); // Remove leading slash if present
+            }
+        });
+    });
+});
+
+
+</script>
+
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+</body>
+
+</html>

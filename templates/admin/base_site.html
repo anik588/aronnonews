@@ -1,0 +1,34 @@
+{% extends "admin/base_site.html" %}
+{% load static %}  <!-- Load static tag at the top -->
+<head>
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/png">
+<link rel="stylesheet" type="text/css" href="{% static 'css/admin_custom.css' %}">
+    <!-- Other head elements -->
+</head>
+<script>
+function setActive(element) {
+    // Remove 'active' class from all links in the same group
+    const links = element.closest('.nav-group').querySelectorAll('.nav-link');
+    links.forEach(link => link.classList.remove('active'));
+
+    // Add 'active' class to the clicked link
+    element.classList.add('active');
+}
+</script>
+{% block title %}অরন্য এডমিন{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome to the Custom Admin Dashboard</h1>
+        <div>
+            {% for app in app_list %}
+                <h2>{{ app.name }}</h2>
+                <ul>
+                    {% for model in app.models %}
+                        <li><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

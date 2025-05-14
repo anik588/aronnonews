@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+        {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    font -->
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <!--    font -->
+    <meta name="description" content="অরণ্য - যোগযোগ">
+    <title>যোগাযোগ</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'favicon_io/a_fav.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="android-icon.png" sizes="192x192" type="image/png">
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS (use only one version) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<style>
+@media (max-width:769px){
+    /* General Container Styling */
+.aronno-contact-container {
+
+    padding: 10px;
+    border-radius: 8px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+}
+@media (min-width:769px){
+    /* General Container Styling */
+.aronno-contact-container {
+
+    padding: 40px;
+    border-radius: 8px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+}
+/* Card Styling */
+.aronno-contact-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Heading Styles */
+.aronno-contact-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Divider Styles */
+.contact-divider {
+    border: 0;
+    height: 2px;
+    background-color: #ddd;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Subtitle Styles */
+.aronno-contact-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Contact Info Styles */
+.aronno-contact-info {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555555;
+    margin-bottom: 5px;
+    text-align: left; /* Left-align the text */
+    position: relative;
+    padding-left: 20px;
+}
+
+.aronno-contact-info:before {
+    content: "•"; /* Add bullet point */
+    color: #e74c3c; /* Match heading color */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+}
+
+/* Bold Emails */
+.aronno-contact-info a {
+    font-weight: bold; /* Make email bold */
+    color: #007bff; /* Real link color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.aronno-contact-info a:hover {
+    color: #000000; /* Hover color black */
+}
+
+/* Social Media Links Section */
+.aronno-social-media-links {
+
+    margin-top: 30px;
+}
+
+
+.aronno-social-media-links{
+    padding:20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific colors for each icon */
+.aronno-contact-social-item a.aronno-facebook i {
+    color: #3b5998; /* Facebook blue */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.aronno-contact-social-item a.aronno-youtube i {
+    color: #ff0000; /* YouTube red */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.aronno-contact-social-item a.aronno-twitter i {
+    color: #1da1f2; /* Twitter blue */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effects for Icons */
+.aronno-contact-social-item a:hover i {
+    color: #000000; /* Change to black on hover */
+    transform: scale(1.5); /* Slight zoom on hover */
+}
+.aronno-contact-social-item a{
+    text-align:left;
+}
+/* Styling Links */
+.aronno-contact-social-item a {
+    display: inline-block;
+    font-size: 18px;
+
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.aronno-contact-social-item a:hover {
+    color: #000000; /* Hover color black */
+    transform:scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .aronno-contact-card {
+        margin-bottom: 20px;
+    }
+    .aronno-contact-heading {
+        font-size: 28px;
+    }
+    .aronno-contact-subtitle {
+        font-size: 20px;
+    }
+    .aronno-contact-info {
+        font-size: 16px;
+    }
+}
+
+</style>
+
+<body>
+
+
+
+   <!--    Navbar HTML ------------------- -->
+                                     {% include 'navbar.html' %}
+
+      <!--    Navbar  END --------------------->
+
+
+<!-- Content Start -->
+<div class="aronno-contact-container mt-2">
+    <div class="row">
+        <!-- English Contact Section -->
+        <div class="col-md-6">
+            <div class="aronno-contact-card">
+                <h2 class="aronno-contact-heading">Contact Us</h2>
+                <hr class="contact-divider">
+                <div class="aronno-contact-item">
+                    <h4 class="aronno-contact-subtitle">{{ contact_info.title_en }}</h4>
+                    <!-- Display Address-1 Title and Value -->
+                    <p class="aronno-contact-info">{{ contact_info.address_en1_title }}: {{ contact_info.address_en1_value }}</p>
+                    <!-- Display Address-2 Title and Value -->
+                    <p class="aronno-contact-info">{{ contact_info.address_en2_title }}: {{ contact_info.address_en2_value }}</p>
+                    {% if contact_info.phone_en %}
+                    <p class="aronno-contact-info">Phone: {{ contact_info.phone_en }}</p>
+                    {% endif %}
+
+                    {% if contact_info.mobile_en %}
+                    <p class="aronno-contact-info">Mobile: {{ contact_info.mobile_en }}</p>
+                    {% endif %}
+                </div>
+                <div class="aronno-contact-item">
+                    <h4 class="aronno-contact-subtitle">Advertisement Inquiry</h4>
+                    <p class="aronno-contact-info">News: {{ contact_info.email_news_en }}</p>
+                    <p class="aronno-contact-info">Ads: {{ contact_info.email_ads_en }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bengali Contact Section -->
+        <div class="col-md-6">
+            <div class="aronno-contact-card">
+                <h2 class="aronno-contact-heading">{{ contact_info.title_bn }}</h2>
+                <hr class="contact-divider">
+                <div class="aronno-contact-item">
+                    <h4 class="aronno-contact-subtitle">প্রধান কার্যালয়</h4>
+                    <!-- Display Address-1 Title and Value in Bengali -->
+                    <p class="aronno-contact-info">{{ contact_info.address_bn1_title }}ঃ {{ contact_info.address_bn1_value }}</p>
+                    <!-- Display Address-2 Title and Value in Bengali -->
+                    <p class="aronno-contact-info">{{ contact_info.address_bn2_title }}ঃ {{ contact_info.address_bn2_value }}</p>
+                    {% if contact_info.phone_bn %}
+                    <p class="aronno-contact-info">ফোনঃ {{ contact_info.phone_bn }}</p>
+                    {% endif %}
+
+                    {% if contact_info.mobile_bn %}
+                    <p class="aronno-contact-info">মোবাইলঃ {{ contact_info.mobile_bn }}</p>
+                    {% endif %}
+                </div>
+                <div class="aronno-contact-item">
+                    <h4 class="aronno-contact-subtitle">বিজ্ঞাপন বিভাগ</h4>
+                    <p class="aronno-contact-info">বার্তা: {{ contact_info.email_news_en }}</p>
+                    <p class="aronno-contact-info">বিজ্ঞাপন: {{ contact_info.email_ads_en }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Content End -->
+
+
+<!--    &lt;!&ndash; Social Media Links Section &ndash;&gt;
+    <div class="aronno-social-media-links">
+                   <h4 class="aronno-contact-heading" style="font-size: 24px !important;">Follow Us On Social Media</h4>
+
+                        <hr class="contact-divider">
+        <div class="aronno-contact-social-item">
+
+            <a href="https://www.facebook.com/aronnonews" class="aronno-facebook"><i class="fab fa-facebook"></i> &nbsp  Facebook</a><br>
+            <br>
+            <a href="https://www.youtube.com/@aronnonews" class="aronno-youtube"><i class="fab fa-youtube"></i> &nbsp   YouTube</a><br>
+            <br>
+            <a href="https://x.com/aronnonews" class="aronno-twitter"><i class="fab fa-twitter"></i> &nbsp  Twitter</a>
+        </div>
+    </div>-->
+<!--</div>-->
+
+    <!-- Content End -->
+
+
+
+   <!--    Footer HTML ------------------- -->
+                                     {% include 'footer.html' %}
+
+      <!--    Footer  END --------------------->
+
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Include jQuery (if needed, since Bootstrap 5 doesn't require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include your custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Include other necessary scripts -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!--   Data JS -->
+<script src="https://bangla.plus/scripts/bangladatetoday.min.js"></script>
+<script>
+  // Call the dateToday function to populate the Bengali date in the first element
+  dateToday('date-today', 'bangla');
+
+  // Set the English date formatted in Bengali
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElement = document.getElementById("current-date");
+
+    // Set options for the date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the English date element
+    dateElement.textContent = today;
+  });
+
+  // Set the Bengali date in the second element (for mb)
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateElementMb = document.getElementById("current-date-mb");
+
+    // Set options to display the Bengali date in Bengali format
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const todayMb = new Date().toLocaleDateString("bn-BD", options);
+
+    // Set the Bengali-formatted date in the additional Bengali date element
+    dateElementMb.textContent = todayMb;
+  });
+</script>
+</body>
+
+</html>
