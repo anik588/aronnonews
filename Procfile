@@ -1,0 +1,1 @@
+web: gunicorn aronno.wsgi
